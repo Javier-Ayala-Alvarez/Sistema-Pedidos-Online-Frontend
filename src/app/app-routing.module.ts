@@ -25,6 +25,7 @@ import { ListBranchOfficeComponent } from './pages/admin/list-branch-office/list
 import { NewBranchOfficeComponent } from './pages/admin/new-branch-office/new-branch-office.component';
 import { ViewBranchOfficeComponent } from './pages/admin/view-branch-office/view-branch-office.component';
 import { EditBranchOfficeComponent } from './pages/admin/edit-branch-office/edit-branch-office.component';
+import { ListCompanyComponent } from './pages/admin/list-company/list-company.component';
 
 const routes:Routes=[
 
@@ -115,6 +116,11 @@ const routes:Routes=[
       {
         path:'edit-branch-office/:id',
         component:EditBranchOfficeComponent
+      },
+
+      {
+        path:'list-company',
+        component:ListCompanyComponent
       }
     ]
   }

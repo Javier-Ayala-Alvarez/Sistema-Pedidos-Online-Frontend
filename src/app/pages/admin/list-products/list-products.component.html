@@ -1,1 +1,69 @@
-<p>list-products works!</p>
+<mat-card>
+  <mat-list>
+    <div mat-subheader>
+      <h1>
+        Listar Productos
+      </h1>
+    </div>
+    <div>
+      <button type="button" class="btn btn-primary"
+      routerLink="/admin/add-product">
+        Agregar Categoria
+      </button>
+    </div>
+    <br>
+    <div mat-subheader>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search"
+        placeholder="Search" aria-label="Search"
+        name="productSearchProduct"
+         >
+        <button class="btn btn-outline-success my-2 my-sm-0"
+        type="submit" >Search</button>
+      </form>
+    </div>
+    <br>
+    <table class="table">
+      <thead style="border-left-color: black; text-align: center;">
+        <tr>
+          <th class="col-md-3">Nombre</th>
+          <th class="col-md-3">Descripcion</th>
+          <th class="col-md-3">Precio de Venta</th>
+          <th class="col-md-3">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="text-align: center;">
+          <td class="align-middle"></td>
+          <td class="align-middle"></td>
+          <td class="align-middle"></td>
+          <td>
+            <button type="button" style="margin-right: 10px;" class="btn btn-info"><mat-icon>remove_red_eye</mat-icon></button>
+            <button type="button" style="margin-right: 10px;" class="btn btn-warning"><mat-icon>edit</mat-icon></button>
+            <button type="button" style="margin-right: 10px;" class="btn btn-danger"><mat-icon>delete</mat-icon></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-list>
+</mat-card>
+
+<nav aria-label="Page navigation example" style="margin-top: 15px;">
+  <ul class="pagination justify-content-end">
+    <li class="page-item" style="margin-left: 25px; margin-right: 25px;">
+      <div>Items por pagina </div>
+    </li>
+    <li class="page-item">
+      <div>Pagina </div>
+    </li>
+    <li class="page-item" style="margin-left: 25px;">
+      <div></div>
+    </li>
+    <li class="page-item">
+      <a style="margin: 15px; margin-top: 25px;"><mat-icon>skip_previous</mat-icon></a>
+    </li>
+    <li class="page-item">
+      <a style="margin: 15px;" ><mat-icon>skip_next</mat-icon></a>
+    </li>
+  </ul>
+</nav>
