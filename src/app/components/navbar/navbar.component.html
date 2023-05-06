@@ -1,0 +1,14 @@
+
+<mat-toolbar style="background-color:cornflowerblue;">
+  <span [routerLink]="'/'"
+  mat-icon-button
+  class="example-icon"
+  aria-label="Example icon-button with menu icon">Diseño de Sistemas</span>
+  <span class="example-spacer"></span>
+  <a *ngIf = "!isLoggedIn"
+      [routerLink]="'/login'"
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon">
+      Iniciar sesiòn
+  </a>
+</mat-toolbar>
