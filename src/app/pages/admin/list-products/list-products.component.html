@@ -5,7 +5,7 @@
         Listar Productos
       </h1>
     </div>
-    <div>
+    <div mat-subheader>
       <button type="button" class="btn btn-primary"
       routerLink="/admin/add-product">
         Agregar Categoria
@@ -16,10 +16,11 @@
       <form class="form-inline">
         <input class="form-control mr-sm-2" type="search"
         placeholder="Search" aria-label="Search"
-        name="productSearchProduct"
+        name="search"
+        [(ngModel)]="search"
          >
         <button class="btn btn-outline-success my-2 my-sm-0"
-        type="submit" >Search</button>
+        type="submit" (click)="listarProductPorNombrePagina()">Search</button>
       </form>
     </div>
     <br>
@@ -33,10 +34,10 @@
         </tr>
       </thead>
       <tbody>
-        <tr style="text-align: center;">
-          <td class="align-middle"></td>
-          <td class="align-middle"></td>
-          <td class="align-middle"></td>
+        <tr style="text-align: center;" *ngFor="let p of product">
+          <td class="align-middle">{{p.nombre}}</td>
+          <td class="align-middle">{{p.descripcion}}</td>
+          <td class="align-middle">{{p.precioVenta}}</td>
           <td>
             <button type="button" style="margin-right: 10px;" class="btn btn-info"><mat-icon>remove_red_eye</mat-icon></button>
             <button type="button" style="margin-right: 10px;" class="btn btn-warning"><mat-icon>edit</mat-icon></button>
@@ -51,19 +52,19 @@
 <nav aria-label="Page navigation example" style="margin-top: 15px;">
   <ul class="pagination justify-content-end">
     <li class="page-item" style="margin-left: 25px; margin-right: 25px;">
-      <div>Items por pagina </div>
+      <div>Items por pagina {{size}}</div>
     </li>
     <li class="page-item">
-      <div>Pagina </div>
+      <div>Pagina  {{page+1}}</div>
     </li>
     <li class="page-item" style="margin-left: 25px;">
-      <div></div>
+      <div> hasta {{totalPages.length}}</div>
     </li>
     <li class="page-item">
-      <a style="margin: 15px; margin-top: 25px;"><mat-icon>skip_previous</mat-icon></a>
+      <a style="margin: 15px; margin-top: 25px;" (click)="paginaAnterior"><mat-icon>skip_previous</mat-icon></a>
     </li>
     <li class="page-item">
-      <a style="margin: 15px;" ><mat-icon>skip_next</mat-icon></a>
+      <a style="margin: 15px;" (click)="paginaSiguiente()"><mat-icon>skip_next</mat-icon></a>
     </li>
   </ul>
 </nav>

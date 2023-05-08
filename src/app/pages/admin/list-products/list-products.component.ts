@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { error } from 'console';
+import { ProductsService } from 'src/app/services/products/products.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-products',
@@ -7,9 +11,73 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListProductsComponent implements OnInit {
 
-  constructor() { }
+
+  page:number=0;
+  size=10;
+  order='id';
+  asc=true;
+
+  search='';
+
+  product:any=[];
+  totalPages:any=[];
+
+  isFirst=false;
+  isLast=false;
+
+  constructor(private productSservice:ProductsService,
+    private router:Router) { }
 
   ngOnInit(): void {
+    this.productSservice.listarProductPorPagina(this.page,this.size,this.order,this.asc).subscribe(
+      (dato:any)=>{
+        this.product=dato.content;
+        this.isFirst=dato.first;
+        this.isLast=dato.last;
+        this.totalPages=new Array(dato['totalPages']);
+      },
+      (error)=>{
+        console.log(error);
+        Swal.fire('Error !!','Error al cargar los productos','error');
+      }
+    )
+  }
+
+  paginaSiguiente():void{
+    if(!this.isLast){
+      this.page++;
+      this.ngOnInit();
+    }
+  }
+  paginaAnterior():void{
+    if(!this.isFirst){
+      this.page--;
+      this.ngOnInit();
+    }
+  }
+
+  public listarProductPorNombrePagina(){
+    if(this.search==''){
+      this.ngOnInit();
+    }else
+    this.productSservice.listarProductPorNombrePagina(this.search,this.page,this.size,this.asc).subscribe(
+      (dato:any)=>{
+        this.product=dato.content;
+        this.isFirst=dato.first;
+        this.isLast=dato.last;
+        this.totalPages=new Array(dato['totalPages']);
+        console.log(this.product)
+      },
+      (error)=>{
+        console.log(error);
+        Swal.fire('Error !!','Error al realizar la busqueda','error');
+      }
+    )
+
+  }
+
+  public eliminarProduct(){
+
   }
 
 }
