@@ -76,7 +76,30 @@ export class ListProductsComponent implements OnInit {
 
   }
 
-  public eliminarProduct(){
+  public eliminarProduct(id:any){
+    Swal.fire({
+      title:'Eliminar producto',
+      text:'¿Estás seguro , quieres eliminar este producto?',
+      icon:'warning',
+      showCancelButton:true,
+      confirmButtonColor:'#3085d6',
+      cancelButtonColor:'#d33',
+      confirmButtonText:'Eliminar',
+      cancelButtonText:'Cancelar'
+    }).then((resultado)=>{
+      if(resultado.isConfirmed){
+        this.productSservice.eliminarProduct(id).subscribe(
+          (data)=>{
+            this.product=this.product.filter((product:any)=>this.product.id!=id);
+            Swal.fire('Producto eliminada','El producto ha sido eliminado de la base de datos','success');
+            this.ngOnInit();
+          },
+          (error)=>{
+            Swal.fire('Error','Error al eliminar el producto','error');
+          }
+        )
+      }
+    })
 
   }
 

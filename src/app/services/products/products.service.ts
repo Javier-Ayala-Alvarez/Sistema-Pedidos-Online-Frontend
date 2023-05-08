@@ -8,8 +8,8 @@ export class ProductsService {
 
   constructor(private httpClient:HttpClient) { }
 
-  public agregarProduct(){
-
+  public guardarProduct(product:any){
+    return this.httpClient.post(`${baserUrl}/api/product/new`,product);
   }
 
   public listarProductPorPagina(page:number,size:number,order:string,asc:boolean){

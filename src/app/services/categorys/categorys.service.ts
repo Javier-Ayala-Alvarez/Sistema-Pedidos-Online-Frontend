@@ -9,8 +9,16 @@ export class CategorysService {
 
   constructor(private httpClient:HttpClient) { }
 
-  public agregarCategory(categoria:any){
-    return this.httpClient.post(`${baserUrl}/api/category/new`,categoria);
+  public guardarCategory(category:any){
+    return this.httpClient.post(`${baserUrl}/api/category/new`,category);
+  }
+
+  public listarCategoryActivo(){
+    return this.httpClient.get(`${baserUrl}/api/category/list/activo`);
+  }
+
+  public listarCategory(){
+    return this.httpClient.get(`${baserUrl}/api/category/list`);
   }
 
   public listarCategoryPorPagina(page:number,size:number,order:string,asc:boolean){

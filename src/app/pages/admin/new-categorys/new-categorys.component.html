@@ -1,1 +1,31 @@
-<p>new-categorys works!</p>
+<mat-card>
+  <div mat-subheader>
+    <h1>
+      Agregar categoria
+    </h1>
+  </div>
+  <mat-card-content>
+    <div class="bootstrap-wrapper">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <form (ngSubmit)="guardarCategory()">
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Titulo</mat-label>
+              <input
+              required
+              autofocus
+              type="text"
+              name="ct_Nombre"
+              matInput
+              placeholder="Digite el nombre de la categoria"
+              [(ngModel)]="category.ct_Nombre">
+            </mat-form-field>
+            <div class="containter text-center mt15">
+              <button mat-raised-button color="primary">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

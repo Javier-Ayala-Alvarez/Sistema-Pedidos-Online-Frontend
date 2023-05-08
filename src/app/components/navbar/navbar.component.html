@@ -5,10 +5,10 @@
   class="example-icon"
   aria-label="Example icon-button with menu icon">Diseño de Sistemas</span>
   <span class="example-spacer"></span>
-  <a *ngIf = "!isLoggedIn"
+  <button *ngIf = "!isLoggedIn"
       [routerLink]="'/login'"
-      class="example-icon favorite-icon"
+      class="btn btn-success "
       aria-label="Example icon-button with heart icon">
       Iniciar sesiòn
-  </a>
+  </button>
 </mat-toolbar>
