@@ -8,11 +8,10 @@
     <div class="bootstrap-wrapper">
       <div class="row">
         <div class="col-md-8 offset-md-2">
-          <form>
+          <form *ngIf="company" (submit) ="actualizarCompany()">
             <mat-form-field class="w100" appearance="outline">
               <mat-label>Nombre de Empresa</mat-label>
               <input
-              disabled="disabled"
               type="text"
               name="company.cp_Nombre"
               matInput
@@ -22,7 +21,6 @@
             <mat-form-field class="w100" appearance="outline">
               <mat-label>Direccion de Empresa</mat-label>
               <input
-              disabled="disabled"
               type="text"
               name="company.cp_Direccion"
               matInput
@@ -32,7 +30,6 @@
             <mat-form-field class="w100" appearance="outline">
               <mat-label>Abreviatura de Empresa</mat-label>
               <input
-              disabled="disabled"
               type="text"
               name="company.cp_abreviatura"
               matInput
@@ -40,9 +37,7 @@
               >
             </mat-form-field>
             <div class="container text-center mt15">
-              <button mat-raised-button color="primary"
-              [routerLink]="'/admin/edit-company/'+id"
-              >Editar</button>
+              <button mat-raised-button color="primary">Guardar</button>
             </div>
           </form>
         </div>
@@ -50,3 +45,4 @@
     </div>
   </mat-card-content>
 </mat-card>
+

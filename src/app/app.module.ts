@@ -59,6 +59,7 @@ import { ListBranchOfficeComponent } from './pages/admin/list-branch-office/list
 import { NewBranchOfficeComponent } from './pages/admin/new-branch-office/new-branch-office.component';
 import { ViewBranchOfficeComponent } from './pages/admin/view-branch-office/view-branch-office.component';
 import { EditBranchOfficeComponent } from './pages/admin/edit-branch-office/edit-branch-office.component';
+import { EditCompanyComponent } from './pages/admin/edit-company/edit-company.component';
 
 
 
@@ -89,7 +90,8 @@ import { EditBranchOfficeComponent } from './pages/admin/edit-branch-office/edit
     ListBranchOfficeComponent,
     NewBranchOfficeComponent,
     ViewBranchOfficeComponent,
-    EditBranchOfficeComponent
+    EditBranchOfficeComponent,
+    EditCompanyComponent
   ],
   imports: [
     BrowserModule,

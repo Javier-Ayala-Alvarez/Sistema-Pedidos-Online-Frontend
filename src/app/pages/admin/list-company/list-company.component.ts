@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CompanyService } from 'src/app/services/company/company.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-list-company',
@@ -7,9 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListCompanyComponent implements OnInit {
 
-  constructor() { }
+  constructor(private companyService:CompanyService) { }
+
+  company:any=[];
+  id=1;
 
   ngOnInit(): void {
+    this.companyService.listarCompanyId(this.id).subscribe(
+      (data)=>{
+        this.company=data;
+        console.log(this.company);
+      },
+      (error)=>{
+        console.log(error);
+        Swal.fire('Error !!','Error al cargar la empresa','error');
+      }
+
+    )
+
   }
 
 }
