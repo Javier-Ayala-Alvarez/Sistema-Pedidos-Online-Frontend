@@ -1,1 +1,68 @@
-<p>edit-branch-office works!</p>
+<mat-card>
+  <div mat-subheader>
+    <h1>
+      Actualizar Sucursal
+    </h1>
+  </div>
+  <mat-card-content>
+    <div class="bootstrap-wrapper">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <form *ngIf="branchOffice" (ngSubmit)="actualizarSucursal()">
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Nombre sucursal</mat-label>
+              <input
+              required
+              autofocus
+              type="text"
+              name="nombre"
+              matInput
+              placeholder="Digite el nombre de la sucursal"
+              [(ngModel)] ="branchOffice.nombre">
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Abreviatura sucursal</mat-label>
+              <input
+              required
+              autofocus
+              type="text"
+              name="abreviatura"
+              matInput
+              placeholder="Digite la abreviatura de la sucursal"
+              [(ngModel)] ="branchOffice.abreviatura">
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Direccion sucursal</mat-label>
+              <input
+              required
+              autofocus
+              type="text"
+              name="direccion"
+              matInput
+              placeholder="Digite la direccion de la sucursal"
+              [(ngModel)] ="branchOffice.direccion">
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Empresa</mat-label>
+              <mat-select name="cp_nombre" [(ngModel)] ="branchOffice.empresa.id">
+                <mat-option *ngFor="let c of companys"[value]="c.id" >
+                  {{c.cp_Nombre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-slide-toggle class="mt20"
+            name="activo"
+            [(ngModel)] ="branchOffice.estado"
+            color="primary">Estado Sucursal
+            </mat-slide-toggle>
+            <br>
+            <br>
+            <div class="container text-center mt15">
+              <button mat-raised-button color="primary">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

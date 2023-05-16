@@ -40,7 +40,8 @@
           <td class="align-middle">{{p.precioVenta}}</td>
           <td>
             <button type="button" style="margin-right: 10px;" class="btn btn-info"><mat-icon>remove_red_eye</mat-icon></button>
-            <button type="button" style="margin-right: 10px;" class="btn btn-warning"><mat-icon>edit</mat-icon></button>
+            <button type="button" style="margin-right: 10px;" class="btn btn-warning"
+            [routerLink]="'/admin/edit-product/'+p.id"><mat-icon>edit</mat-icon></button>
             <button type="button" style="margin-right: 10px;" class="btn btn-danger" (click)="eliminarProduct(p.id)"><mat-icon>delete</mat-icon></button>
           </td>
         </tr>

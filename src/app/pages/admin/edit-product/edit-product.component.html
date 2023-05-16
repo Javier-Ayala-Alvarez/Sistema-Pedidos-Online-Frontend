@@ -1,1 +1,129 @@
-<p>edit-product works!</p>
+<mat-card>
+  <div mat-subheader>
+    <h1>
+      Actualizar Producto
+    </h1>
+  </div>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-md-12 mb-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <form *ngIf="product" (ngSubmit)="actualizarProduct()">
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <div class="row mb-6">
+                <div class="col">
+                  <div class="form-outline">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                      <mat-label>Nombre de producto</mat-label>
+                      <input
+                      required
+                      autofocus
+                      type="text"
+                      name="nombre"
+                      matInput
+                      placeholder="Digite el nombre del producto"
+                      [(ngModel)] = "product.nombre">
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                      <mat-label>Descripcion</mat-label>
+                      <input
+                      required
+                      autofocus
+                      type="text"
+                      name="descrpcion"
+                      matInput
+                      placeholder="Digite una descripcion"
+                      [(ngModel)] ="product.descripcion">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <div class="row mb-6">
+                <div class="col">
+                  <div class="form-outline">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                      <mat-label>Precio de Venta</mat-label>
+                      <input
+                      required
+                      autofocus
+                      type="number"
+                      name="precioVenta"
+                      matInput
+                      placeholder="Digite el precio de venta"
+                      [(ngModel)] ="product.precioVenta">
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                      <mat-label>URL de Imagen</mat-label>
+                      <input
+                      required
+                      autofocus
+                      type="text"
+                      name="urlImagen"
+                      matInput
+                      placeholder="Ingrese una direccion URL"
+                      [(ngModel)] ="product.urlImagen"
+                      >
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <!-- 2 column grid layout with text inputs for the first and last names -->
+              <div class="row mb-6">
+                <div class="col">
+                  <div class="form-outline">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                      <mat-label>Categoria</mat-label>
+                      <mat-select name="categorys" [(ngModel)] ="product.category.id"
+                       >
+                        <mat-option *ngFor="let c of categorys" [value]="c.id">
+                          {{c.ct_Nombre}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                      <mat-label>Ganancia</mat-label>
+                      <input
+                      required
+                      autofocus
+                      type="number    "
+                      name="ganancia"
+                      matInput
+                      placeholder="Ingrese una ganancia"
+                      [(ngModel)] ="product.ganancia"
+                      >
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <mat-slide-toggle class="mt20"
+              name="activo"
+              [(ngModel)] = "product.estado"
+              color="primary">
+                Estado de producto
+              </mat-slide-toggle>
+              <br>
+              <br>
+              <div class="containter text-center mt15">
+                <button mat-raised-button color="primary">Guardar</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

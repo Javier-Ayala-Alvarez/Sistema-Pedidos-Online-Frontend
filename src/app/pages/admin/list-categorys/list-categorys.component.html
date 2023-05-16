@@ -37,8 +37,8 @@
           <td class="align-middle">{{c.id}}</td>
           <td class="align-middle">{{c.ct_Nombre}}</td>
           <td class="align-middle">
-            <button type="button" style="margin-right: 10px;" class="btn btn-info"><mat-icon>remove_red_eye</mat-icon></button>
-            <button type="button" style="margin-right: 10px;" class="btn btn-warning"><mat-icon>edit</mat-icon></button>
+            <button type="button" style="margin-right: 10px;" class="btn btn-warning"
+            [routerLink]="'/admin/edit-category/'+c.id"><mat-icon>edit</mat-icon></button>
             <button type="button" style="margin-right: 10px;" class="btn btn-danger" (click)="eliminarCategory(c.id)"><mat-icon>delete</mat-icon></button>
           </td>
         </tr>

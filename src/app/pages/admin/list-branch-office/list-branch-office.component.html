@@ -17,9 +17,10 @@
         <input class="form-control mr-sm-2" type="search"
         placeholder="Search" aria-label="Search"
         name="productSearchBranchOffice"
+        [(ngModel)]="search"
          >
         <button class="btn btn-outline-success my-2 my-sm-0"
-        type="submit" >Search</button>
+        type="submit" (click)="listarSucursalPorNombrePagina()">Search</button>
       </form>
     </div>
     <br>
@@ -33,14 +34,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr style="text-align: center;">
-          <td class="align-middle"></td>
-          <td class="align-middle"></td>
-          <td class="align-middle"></td>
+        <tr style="text-align: center;" *ngFor="let s of sucursal">
+          <td class="align-middle">{{s.nombre}}</td>
+          <td class="align-middle">{{s.abreviatura}}</td>
+          <td class="align-middle">{{s.direccion}}</td>
           <td>
-            <button type="button" style="margin-right: 10px;" class="btn btn-info"><mat-icon>remove_red_eye</mat-icon></button>
-            <button type="button" style="margin-right: 10px;" class="btn btn-warning"><mat-icon>edit</mat-icon></button>
-            <button type="button" style="margin-right: 10px;" class="btn btn-danger"><mat-icon>delete</mat-icon></button>
+            <button type="button" style="margin-right: 10px;" class="btn btn-warning"
+          [routerLink]="'/admin/edit-branch-office/'+s.id"><mat-icon>edit</mat-icon></button>
+            <button type="button" style="margin-right: 10px;" class="btn btn-danger" (click)="eliminarSucursal(s.id)"><mat-icon>delete</mat-icon></button>
           </td>
         </tr>
       </tbody>
@@ -51,19 +52,19 @@
 <nav aria-label="Page navigation example" style="margin-top: 15px;">
   <ul class="pagination justify-content-end">
     <li class="page-item" style="margin-left: 25px; margin-right: 25px;">
-      <div>Items por pagina </div>
+      <div>Items por pagina {{size}}</div>
     </li>
     <li class="page-item">
-      <div>Pagina </div>
+      <div>Pagina {{page+1}}</div>
     </li>
     <li class="page-item" style="margin-left: 25px;">
-      <div></div>
+      <div> hasta {{totalPages.length}}</div>
     </li>
     <li class="page-item">
-      <a style="margin: 15px; margin-top: 25px;"><mat-icon>skip_previous</mat-icon></a>
+      <a style="margin: 15px; margin-top: 25px;" (click)="paginaAnterior"><mat-icon>skip_previous</mat-icon></a>
     </li>
     <li class="page-item">
-      <a style="margin: 15px;" ><mat-icon>skip_next</mat-icon></a>
+      <a style="margin: 15px;" (click)="paginaSiguiente"><mat-icon>skip_next</mat-icon></a>
     </li>
   </ul>
 </nav>

@@ -20,4 +20,8 @@ export class CompanyService {
 
   }
 
+  public listarCompanyTodos(){
+    return this.httpClient.get(`${baserUrl}/api/company/list/todos`);
+  }
+
 }

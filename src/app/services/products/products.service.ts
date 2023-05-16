@@ -12,12 +12,21 @@ export class ProductsService {
     return this.httpClient.post(`${baserUrl}/api/product/new`,product);
   }
 
+
+  public listarProductPorId(id:any){
+    return this.httpClient.get(`${baserUrl}/api/product/list/${id}`);
+  }
+
   public listarProductPorPagina(page:number,size:number,order:string,asc:boolean){
     return this.httpClient.get(`${baserUrl}/api/product/list/pageables?page=${page}&size=${size}&order=${order}&asc=${asc}`);
   }
 
   public listarProductPorNombrePagina(search:string,page:number,size:number,asc:boolean){
     return this.httpClient.get(`${baserUrl}/api/product/list/search?product=${search}&size=${size}&asc=${asc}`);
+  }
+
+  public actualizarProduct(product:any,id:any){
+    return this.httpClient.put(`${baserUrl}/api/product/actualizar/${id}`,product);
   }
 
   public eliminarProduct(id:any){
