@@ -1,1 +1,80 @@
-<p>new-employess works!</p>
+<mat-card>
+  <div mat-subheader>
+    <h1>
+      Agregar Empleado
+    </h1>
+  </div>
+  <mat-card-content>
+    <div class="bootstrap-wrapper">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <form (ngSubmit)="guardarEmployee()">
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>DUI</mat-label>
+              <input
+              required
+              autofocus
+              type="text"
+              name="dui"
+              matInput
+              placeholder="Digite numero de dui"
+              [(ngModel)]="employee.dui"
+              >
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Nombre Empleado</mat-label>
+              <input
+              required
+              autofocus
+              type="text"
+              name="nombre"
+              matInput
+              placeholder="Digite el nombre del empleado"
+              [(ngModel)]="employee.nombre"
+              >
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Apellido</mat-label>
+              <input
+              required
+              autofocus
+              type="text"
+              name="apellido"
+              matInput
+              placeholder="Digite el apeliido"
+              [(ngModel)]="employee.apellido"
+              >
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Fecha nacimiento</mat-label>
+              <input
+              required
+              autofocus
+              type="text"
+              name="fechaNacimiento"
+              matInput
+              placeholder="Digite fecha de nacimiento"
+              [(ngModel)]="employee.fechaNacimiento"
+              >
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Telefono</mat-label>
+              <input
+              required
+              autofocus
+              type="text"
+              name="telefono"
+              matInput
+              placeholder="Digite numero de telefono"
+              [(ngModel)]="employee.telefono"
+              >
+            </mat-form-field>
+            <div class="containter text-center mt15">
+              <button mat-raised-button color="primary">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

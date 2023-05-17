@@ -1,1 +1,74 @@
-<p>list-employees works!</p>
+<mat-card>
+  <mat-list>
+    <div mat-subheader>
+      <h1>
+        Listar Empleados
+      </h1>
+    </div>
+    <div mat-subheader>
+      <button type="button" class="btn btn-primary"
+      routerLink="/admin/add-employee">
+        Agregar Empleado
+      </button>
+    </div>
+    <br>
+    <div mat-subheader>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search"
+        placeholder="Search" aria-label="Search"
+        name="search"
+         >
+        <button class="btn btn-outline-success my-2 my-sm-0"
+        type="submit">Search</button>
+      </form>
+    </div>
+    <br>
+    <table class="table">
+      <thead style="border-left-color: black; text-align: center;" >
+        <tr>
+          <th>Dui</th>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Fecha Nacimiento</th>
+          <th>Telefono</th>
+          <th>Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="text-align: center;" *ngFor="let e of employee">
+          <td class="align-middle">{{e.dui}}</td>
+          <td class="align-middle">{{e.nombre}}</td>
+          <td class="align-middle">{{e.apellido}}</td>
+          <td class="align-middle">{{e.fechaNacimiento}}</td>
+          <td class="align-middle">{{e.telefono}}</td>
+          <td class="align-middle">
+            <button type="button" style="margin-right: 10px;" class="btn btn-warning"
+            ><mat-icon>edit</mat-icon></button>
+            <button type="button" style="margin-right: 10px;" class="btn btn-danger" (click)="eliminarEmployee(e.id)"><mat-icon>delete</mat-icon></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-list>
+</mat-card>
+
+<nav aria-label="Page navigation example" style="margin-top: 15px;">
+  <ul class="pagination justify-content-end">
+    <li class="page-item" style="margin-left: 25px; margin-right: 25px;">
+      <div>Items por pagina {{size}}</div>
+    </li>
+    <li class="page-item">
+      <div>Pagina {{page+1}}</div>
+    </li>
+    <li class="page-item" style="margin-left: 25px;">
+      <div> hasta {{totalPages.length}}</div>
+    </li>
+    <li class="page-item">
+      <a style="margin: 15px; margin-top: 25px;" (click)="paginaAnterior()"><mat-icon>skip_previous</mat-icon></a>
+    </li>
+    <li class="page-item">
+      <a style="margin: 15px;"(click)="paginaSiguiente()" ><mat-icon>skip_next</mat-icon></a>
+    </li>
+  </ul>
+</nav>
+
