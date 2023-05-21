@@ -60,6 +60,8 @@ import { NewBranchOfficeComponent } from './pages/admin/new-branch-office/new-br
 import { ViewBranchOfficeComponent } from './pages/admin/view-branch-office/view-branch-office.component';
 import { EditBranchOfficeComponent } from './pages/admin/edit-branch-office/edit-branch-office.component';
 import { EditCompanyComponent } from './pages/admin/edit-company/edit-company.component';
+import { CustomerDashboardComponent } from './pages/customer/customer-dashboard/customer-dashboard.component';
+import { CustomerSidebarComponent } from './pages/customer/customer-sidebar/customer-sidebar.component';
 
 
 
@@ -91,7 +93,9 @@ import { EditCompanyComponent } from './pages/admin/edit-company/edit-company.co
     NewBranchOfficeComponent,
     ViewBranchOfficeComponent,
     EditBranchOfficeComponent,
-    EditCompanyComponent
+    EditCompanyComponent,
+    CustomerDashboardComponent,
+    CustomerSidebarComponent
   ],
   imports: [
     BrowserModule,

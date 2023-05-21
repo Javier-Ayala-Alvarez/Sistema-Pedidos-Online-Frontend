@@ -27,6 +27,8 @@ import { ViewBranchOfficeComponent } from './pages/admin/view-branch-office/view
 import { EditBranchOfficeComponent } from './pages/admin/edit-branch-office/edit-branch-office.component';
 import { ListCompanyComponent } from './pages/admin/list-company/list-company.component';
 import { EditCompanyComponent } from './pages/admin/edit-company/edit-company.component';
+import { NormalGuard } from './guards/normal/normal.guard';
+import { CustomerDashboardComponent } from './pages/customer/customer-dashboard/customer-dashboard.component';
 
 const routes:Routes=[
 
@@ -126,6 +128,16 @@ const routes:Routes=[
       {
         path:'edit-company/:id',
         component:EditCompanyComponent
+      }
+    ]
+  },{
+    path:'customer-dashboard',
+    component:CustomerDashboardComponent,
+    canActivate:[NormalGuard],
+    children:[
+      {
+        path : 'list-category',
+        component : ListCategorysComponent
       }
     ]
   }
