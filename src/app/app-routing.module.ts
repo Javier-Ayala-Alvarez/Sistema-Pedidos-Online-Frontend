@@ -43,6 +43,12 @@ const routes:Routes=[
     pathMatch : 'full'
   },
   {
+
+    path : 'signup',
+    component : SignupComponent,
+    pathMatch : 'full'
+  },
+  {
     path:'admin',
     component:DashboardComponent,
     canActivate:[AdminGuard],

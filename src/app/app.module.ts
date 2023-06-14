@@ -62,12 +62,14 @@ import { EditBranchOfficeComponent } from './pages/admin/edit-branch-office/edit
 import { EditCompanyComponent } from './pages/admin/edit-company/edit-company.component';
 import { CustomerDashboardComponent } from './pages/customer/customer-dashboard/customer-dashboard.component';
 import { CustomerSidebarComponent } from './pages/customer/customer-sidebar/customer-sidebar.component';
+import { SignupComponent } from './pages/signup/signup.component';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
+    SignupComponent,
     NavbarComponent,
     LoginComponent,
     HomeComponent,

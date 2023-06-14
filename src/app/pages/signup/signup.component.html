@@ -1,3 +1,85 @@
+<p></p>
+<div class = "bootstrap-wrapper" style="Overflow-y:hidden;">
+  <div class = "container" style="margin-top: 4%; Overflow-y:hidden;">
+    <div class = "row mt20">
+
+      <div class = "col-md-6 offset-md-3">
+          <div class = "container text-center">
+            <img src="../../../assets/01-user.png" width = "100" height = "100">
+          </div>
+          <p></p>
+          <div></div>
+          <h1 class = "text-center">Crear cuenta</h1>
+          <form  (ngSubmit)="formSubmit()">
+            <mat-form-field class = "full-width"  appearance = "outline">
+              <mat-label>Nombre</mat-label>
+              <input [(ngModel)] = "customer.nombre" name = "nombre" required  matInput placeholder="Digite su nombre ">
+              <mat-hint>El nombre de usuario debe ser valido</mat-hint>
+            </mat-form-field>
+            <mat-form-field class = "full-width"  appearance = "outline">
+              <mat-label>Apellido</mat-label>
+              <input [(ngModel)] = "customer.apellido"   name = "apellido" required  matInput placeholder="Digite su apellido">
+              <mat-hint>El nombre de usuario debe ser valido</mat-hint>
+            </mat-form-field>
+            <mat-form-field class = "full-width"  appearance = "outline">
+              <mat-label>Nombre de usuario</mat-label>
+              <input [(ngModel)] = "customer.usuario.username"   name = "username" required  matInput placeholder="Digite su nombre de usuario">
+              <mat-hint>El nombre de usuario debe ser valido</mat-hint>
+            </mat-form-field>
+            <mat-form-field class = "full-width"  appearance = "outline">
+              <mat-label>Correo de usuario</mat-label>
+              <input [(ngModel)] = "customer.usuario.email"  type="email" name = "email" required  matInput placeholder="Digite su correo de usuario">
+              <mat-hint>El nombre de usuario debe ser valido</mat-hint>
+            </mat-form-field>
+            <mat-form-field class="full-width"  appearance = "outline">
+              <mat-label>Contraseña</mat-label>
+              <input [(ngModel)] = "customer.usuario.password"  name = "password" required  type="password" matInput placeholder="Digite su contraseña">
+              <mat-hint>La contraseña debe ser valida</mat-hint>
+            </mat-form-field>
+            <br><br>
+            <div class = "container text-center">
+              <button type = "submit" mat-raised-button color="primary">Crear cuenta</button>
+              <button type="reset" style = "margin-left: 20px;" mat-raised-button color="accent">Limpiar</button>
+            </div>
+          </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <!--
 <div class="bootstrap-wrapper">
   <div class="container">
