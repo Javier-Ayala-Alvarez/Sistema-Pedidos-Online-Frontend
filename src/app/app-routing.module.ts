@@ -2,7 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule,Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
-import { ProfileComponent } from './pages/profile/profile.component';
+
+import { ProfileComponent } from './pages/customer/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 import {SignupComponent} from './pages/signup/signup.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -29,6 +30,7 @@ import { ListCompanyComponent } from './pages/admin/list-company/list-company.co
 import { EditCompanyComponent } from './pages/admin/edit-company/edit-company.component';
 import { NormalGuard } from './guards/normal/normal.guard';
 import { CustomerDashboardComponent } from './pages/customer/customer-dashboard/customer-dashboard.component';
+import { EditProfileComponent } from './pages/customer/edit-profile/edit-profile.component';
 
 const routes:Routes=[
 
@@ -142,9 +144,14 @@ const routes:Routes=[
     canActivate:[NormalGuard],
     children:[
       {
-        path : 'list-category',
-        component : ListCategorysComponent
-      }
+        path : 'profile',
+        component : ProfileComponent
+      },
+      {
+        path : 'edit-profile',
+        component : EditProfileComponent
+      },
+
     ]
   }
 ];

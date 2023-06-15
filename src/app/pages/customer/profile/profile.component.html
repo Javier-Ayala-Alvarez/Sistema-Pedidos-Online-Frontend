@@ -1,0 +1,62 @@
+<mat-card>
+  <div mat-subheader>
+    <h1>
+      Cliente
+    </h1>
+  </div>
+  <mat-card-content>
+    <div class="bootstrap-wrapper">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+
+          <form action="">
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Nombre</mat-label>
+              <input
+              type="text"
+              disabled="disabled"
+              name="cargar.nombre"
+              matInput
+              [(ngModel)] = "cargar.nombre">
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Apellido</mat-label>
+              <input
+              type="text"
+              disabled="disabled"
+              name="cargar.apellido"
+              matInput
+              [(ngModel)] = "cargar.apellido">
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Correo</mat-label>
+              <input
+              type="text"
+              disabled="disabled"
+              name="cargar.correo"
+              matInput
+              [(ngModel)] = "cargar.correo">
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Usuario</mat-label>
+              <input
+              type="text"
+              disabled="disabled"
+              name="cargar.usuario"
+              matInput
+              [(ngModel)] = "cargar.usuario">
+            </mat-form-field>
+            <div class="container text-center mt15">
+              <button  style="margin-right: 15px;" type="button" class="btn btn-info"
+              [routerLink]="'/customer-dashboard/edit-profile'">Editar</button>
+              <button  type="button" class="btn btn-danger">Dar de baja</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
+
+

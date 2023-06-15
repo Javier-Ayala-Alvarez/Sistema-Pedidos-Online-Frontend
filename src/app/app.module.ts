@@ -16,7 +16,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 /**/
 import { MatInputModule } from '@angular/material/input';
 import { HomeComponent } from './components/home/home.component';
-import { ProfileComponent } from './pages/profile/profile.component';
+import { ProfileComponent } from './pages/customer/profile/profile.component';
 /**/
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatSelectModule} from '@angular/material/select';
@@ -63,6 +63,7 @@ import { EditCompanyComponent } from './pages/admin/edit-company/edit-company.co
 import { CustomerDashboardComponent } from './pages/customer/customer-dashboard/customer-dashboard.component';
 import { CustomerSidebarComponent } from './pages/customer/customer-sidebar/customer-sidebar.component';
 import { SignupComponent } from './pages/signup/signup.component';
+import { EditProfileComponent } from './pages/customer/edit-profile/edit-profile.component';
 
 
 
@@ -97,7 +98,8 @@ import { SignupComponent } from './pages/signup/signup.component';
     EditBranchOfficeComponent,
     EditCompanyComponent,
     CustomerDashboardComponent,
-    CustomerSidebarComponent
+    CustomerSidebarComponent,
+    EditProfileComponent
   ],
   imports: [
     BrowserModule,

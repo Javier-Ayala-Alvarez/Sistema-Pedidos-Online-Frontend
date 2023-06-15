@@ -1,10 +1,29 @@
+<mat-action-list>
+  <div mat-subheader>Menu</div>
+  <button mat-list-item routerLink = "/customer-dashboard/profile/">
+    <mat-icon mat-list-icon>account_circle</mat-icon>Perfil
+  </button>
+  <button mat-list-item (click)="logout()">
+    <mat-icon></mat-icon>Salir
+  </button>
+</mat-action-list>
+
+
+
+<!--
+
+
 <mat-card>
   <mat-action-list>
     <div mat-subheader>
       Menu
     </div>
+    <button mat-list-item routerLink = "/customer-dashboard/profile">
+      <mat-icon mat-list-icon>account_circle</mat-icon>Perfil
+    </button>
     <button mat-list-item (click)="logout()">
       <mat-icon></mat-icon>Salir
     </button>
   </mat-action-list>
 </mat-card>
+-->
