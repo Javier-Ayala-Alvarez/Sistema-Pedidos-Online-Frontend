@@ -49,7 +49,7 @@
             <div class="container text-center mt15">
               <button  style="margin-right: 15px;" type="button" class="btn btn-info"
               [routerLink]="'/customer-dashboard/edit-profile'">Editar</button>
-              <button  type="button" class="btn btn-danger">Dar de baja</button>
+              <button  (click)="darBaja()" type="button" class="btn btn-danger">Dar de baja</button>
             </div>
 
           </form>

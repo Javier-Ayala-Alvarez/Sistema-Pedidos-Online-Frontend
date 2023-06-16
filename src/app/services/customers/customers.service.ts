@@ -15,8 +15,13 @@ export class CustomersService {
     return this.httpClient.get(`${baserUrl}/api/cliente/buscarPorId/${id}`);
   }
 
+
   public actualizarCustomer(cargar:any){
     return this.httpClient.put(`${baserUrl}/usuarios/ModificarUsuarioCliente`,cargar);
+  }
+
+  public darBaja(cargar2:any,cargar:any){
+    return this.httpClient.put(`${baserUrl}/api/cliente/baja/${cargar2}`,cargar);
   }
 
 
