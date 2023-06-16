@@ -15,6 +15,7 @@ export class EditProfileComponent implements OnInit {
   customer:any=null;
   cargar:any={};
   cargar2:any;
+  id=5;
 
   customerupdate={
     idCliente:3,
@@ -61,7 +62,7 @@ export class EditProfileComponent implements OnInit {
   public actualizarCustomer(){
 
 
-    this.customersService.actualizarCustomer(this.cargar).subscribe(
+    this.customersService.actualizarCustomer(this.cargar2,this.cargar).subscribe(
     (data)=>{
       Swal.fire('Usuario actualizado','Usuario actualizado con èxito','success').
       then((e)=>{

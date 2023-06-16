@@ -11,7 +11,7 @@
 
           <form *ngIf="cargar"  (submit) ="actualizarCustomer()">
             <mat-form-field class="w100" appearance="outline">
-              <mat-label>IDDD</mat-label>
+              <mat-label>iCLiente</mat-label>
               <input
               required
               disabled="disabled"
@@ -20,6 +20,17 @@
               matInput
               placeholder="Digie el nombre "
               [(ngModel)] = "cargar.idCliente">
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>idUsername</mat-label>
+              <input
+              required
+              disabled="disabled"
+              type="text"
+              name="cargar.idCliente"
+              matInput
+              placeholder="Digie el nombre "
+              >{{cargar2}}
             </mat-form-field>
             <mat-form-field class="w100" appearance="outline">
               <mat-label>Nombre</mat-label>

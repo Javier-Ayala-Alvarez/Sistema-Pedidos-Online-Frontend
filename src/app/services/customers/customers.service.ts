@@ -16,8 +16,8 @@ export class CustomersService {
   }
 
 
-  public actualizarCustomer(cargar:any){
-    return this.httpClient.put(`${baserUrl}/usuarios/ModificarUsuarioCliente`,cargar);
+  public actualizarCustomer(id:any,cargar:any){
+    return this.httpClient.put(`${baserUrl}/usuarios/ModificarUsuario/${id}`,cargar);
   }
 
   public darBaja(cargar2:any,cargar:any){
@@ -49,6 +49,10 @@ export class CustomersService {
   public getUserId(){
     let userId=this.getUser();
     return userId.id;
+  }
+
+  public gerCustomerId(){
+
   }
 
 }
