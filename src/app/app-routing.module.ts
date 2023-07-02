@@ -6,7 +6,6 @@ import { LoginComponent } from './pages/login/login.component';
 import { ProfileComponent } from './pages/customer/profile/profile.component';
 import { HomeComponent } from './components/home/home.component';
 import {SignupComponent} from './pages/signup/signup.component';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {AdminGuard} from './guards/admin/admin.guard';
 import {DashboardComponent} from './pages/admin/dashboard/dashboard.component';
 import {WelcomeComponent} from  './pages/admin/welcome/welcome.component';
@@ -31,13 +30,27 @@ import { EditCompanyComponent } from './pages/admin/edit-company/edit-company.co
 import { NormalGuard } from './guards/normal/normal.guard';
 import { CustomerDashboardComponent } from './pages/customer/customer-dashboard/customer-dashboard.component';
 import { EditProfileComponent } from './pages/customer/edit-profile/edit-profile.component';
+import { CusPlatoComponent } from './cus-plato/cus-plato.component';
+import { CusModalProductoComponent } from './cus-modal-producto/cus-modal-producto.component';
 
 const routes:Routes=[
 
   {
     path : '',
     component : HomeComponent,
-    pathMatch : 'full'
+    pathMatch : 'full',
+    
+  },
+  {
+    path : 'Productos/:id',
+    component : CusPlatoComponent,
+    pathMatch : 'full',
+    
+  }, {
+    path : 'ProductosModal/:id',
+    component : CusModalProductoComponent,
+    pathMatch : 'full',
+    
   },
   {
     path : 'login',
