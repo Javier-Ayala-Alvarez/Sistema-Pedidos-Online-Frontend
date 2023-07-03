@@ -3,76 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    .modal-image {
-      width: 100%;
-      height: 50vh;
-      object-fit: cover;
-    }
 
-    .product-name {
-      font-size: 24px;
-      font-weight: bold;
-      font-family: "Helvetica", sans-serif;
-    }
-
-    .product-description {
-      font-size: 16px;
-      font-family: "Arial", sans-serif;
-    }
-
-    .product-price {
-      font-size: 18px;
-      font-family: "Arial", sans-serif;
-      color: red;
-    }
-
-    .input-group {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      margin-top: auto;
-    }
-
-    .input-group .btn-group {
-      display: flex;
-      justify-content: space-between;
-      width: 120px;
-      margin-top: 10px;
-    }
-
-    .input-group .btn {
-      border-radius: 0;
-      width: 50px;
-      height: 39px;
-      font-size: 24px;
-      color: #fff;
-      border: none;
-    }
-
-    .input-group .btn-primary {
-      width: 150px;
-      height: 39px;
-      background-color: rgb(107, 107, 243);
-      font-size: 14px;
-    }
-
-    .input-group .btn-secondary {
-      width: 50px;
-      background-color: rgb(100, 100, 100);
-    }
-
-    .input-group .btn:hover {
-      background-color: darkblue;
-    }
-
-    .input-group input {
-      text-align: center;
-      border: none;
-      font-size: 18px;
-      width: 60px;
-    }
-  </style>
 </head>
 <body>
   <div class="row">
@@ -86,12 +17,12 @@
       <p class="product-description">{{ productsArray[0]?.description }}</p>
       <p class="product-price">Precio: ${{ productsArray[0]?.price }}</p>
       <div class="input-group">
-        <div class="btn-group">
+        <div class=" numbers btn-group">
           <button class="btn btn-secondary" type="button">-</button><!-- (click)="decrementarCantidad()"-->
-          <input type="number" class="form-control" min="1" max="100" value="1" ><!--[(ngModel)]="cantidad"-->
-          <button class="btn btn-secondary" type="button" >+</button><!--(click)="incrementarCantidad()"-->
+          <input type="number" class="form-control" min="1" max="100" value="1"><!-- [(ngModel)]="cantidad" -->
+          <button class="btn btn-secondary" type="button">+</button><!-- (click)="incrementarCantidad()" -->
         </div>
-        <button class="btn btn-primary" type="button">Agregar a carrito</button><!--(click)="incrementarCantidad()"-->
+        <button name="boton" class="btn btn-primary" type="button">Agregar a carrito</button><!-- (click)="incrementarCantidad()" -->
       </div>
     </div>
   </div>
