@@ -23,4 +23,7 @@ export class CusProductoService {
   getOneCategory(_id: number): EntityProducts[] {
     return this.cusProductoArray.filter(x => x.idCategory === Number(_id));//Devuelve todo el arreglo que coicida con el id de la categoria
   }
+  getOneProducto(_id: number): EntityProducts[] {
+    return this.cusProductoArray.filter(x => x.id === Number(_id));//Devuelve todo el arreglo que coicida con el id de la categoria
+  }
 }

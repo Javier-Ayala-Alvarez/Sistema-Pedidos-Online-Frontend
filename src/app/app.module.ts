@@ -130,9 +130,9 @@ CusModalProductoComponent
     NgxUiLoaderHttpModule.forRoot({
       showForeground:true
     })
-
   ],
   providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }
