@@ -27,6 +27,10 @@ export class NavbarComponent implements OnInit {
     window.location.reload();
 
   }
+  isMenuOpen = false;
 
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen;
+  }
 
 }

@@ -1,22 +1,28 @@
 
-<mat-toolbar style="background-color:cornflowerblue;">
-  <span [routerLink]="'/'"
-  mat-icon-button
-  class="example-icon"
-  aria-label="Example icon-button with menu icon">Diseño de Sistemas</span>
-  <span class="example-spacer"></span>
-  <button style="margin-right: 10px;" *ngIf = "!isLoggedIn"
-      [routerLink]="'/login'"
-      class="btn btn-success "
-      aria-label="Example icon-button with heart icon">
-      Iniciar sesiòn
+
+<mat-toolbar color="primary">
+  <button [routerLink]="'/'" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+    Diseño de Sistemas
   </button>
-  <button *ngIf = "!isLoggedIn"
-  [routerLink]="'/signup'"
-  class="btn btn-success "
-  aria-label="Example icon-button with heart icon">
-  Registrarse
-</button>
-
-
+  <span class="example-spacer"></span>
+  <button style="margin-right: 10px;" *ngIf="!isLoggedIn" [routerLink]="'/login'" mat-button >
+    Iniciar sesión
+  </button>
+  <button *ngIf="!isLoggedIn" [routerLink]="'/signup'" mat-button>
+    Registrarse
+  </button>
+  <button >
+   carrito
+  </button>
+  <button class="menu-icon" (click)="toggleMenu()">
+    &#9776;
+  </button>
+  
 </mat-toolbar>
+
+<div class="menu" [ngClass]="{'open': isMenuOpen}">
+  <a [routerLink]="'/'">Diseño de Sistemas</a>
+  <a *ngIf="!isLoggedIn" [routerLink]="'/login'">Iniciar sesión</a>
+  <a *ngIf="!isLoggedIn" [routerLink]="'/signup'">Registrarse</a>
+</div>
+
