@@ -15,7 +15,7 @@
       <!-- Sección de información -->
       <h3 class="product-name">{{ productsArray[0]?.name }}</h3>
       <p class="product-description">{{ productsArray[0]?.description }}</p>
-      <p class="product-price">Precio: ${{ productsArray[0]?.price }}</p>
+      <p class="product-price">Precio: {{ productsArray[0]?.price  | currency}}</p>
       <div class="input-group">
         <div class=" numbers btn-group">
           <button class="btn btn-secondary" type="button" (click)="decrementarCantidad()" >-</button><!-- (click)="decrementarCantidad()"-->
