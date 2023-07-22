@@ -1,28 +1,26 @@
-
-
 <mat-toolbar color="primary">
   <button [routerLink]="'/'" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     Diseño de Sistemas
   </button>
   <span class="example-spacer"></span>
-  <button style="margin-right: 10px;" *ngIf="!isLoggedIn" [routerLink]="'/login'" mat-button >
+  <button style="margin-right: 10px;" *ngIf="!isLoggedIn" [routerLink]="'/login'" mat-button>
     Iniciar sesión
   </button>
   <button *ngIf="!isLoggedIn" [routerLink]="'/signup'" mat-button>
     Registrarse
   </button>
-  <button >
-   carrito
+  <button mat-button (click)="openModal()">
+    Carrito
   </button>
   <button class="menu-icon" (click)="toggleMenu()">
     &#9776;
   </button>
-  
 </mat-toolbar>
 
 <div class="menu" [ngClass]="{'open': isMenuOpen}">
   <a [routerLink]="'/'">Diseño de Sistemas</a>
   <a *ngIf="!isLoggedIn" [routerLink]="'/login'">Iniciar sesión</a>
   <a *ngIf="!isLoggedIn" [routerLink]="'/signup'">Registrarse</a>
+  <a (click)="openModal()">Carrito</a>
 </div>
 

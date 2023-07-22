@@ -32,12 +32,19 @@ import { CustomerDashboardComponent } from './pages/customer/customer-dashboard/
 import { EditProfileComponent } from './pages/customer/edit-profile/edit-profile.component';
 import { CusPlatoComponent } from './cus-plato/cus-plato.component';
 import { CusModalProductoComponent } from './cus-modal-producto/cus-modal-producto.component';
+import { CusCardsComponent } from './cus-cards/cus-cards.component';
 
 const routes:Routes=[
 
   {
     path : '',
     component : HomeComponent,
+    pathMatch : 'full',
+    
+  },
+  {
+    path : 'Carrito',
+    component : CusCardsComponent,
     pathMatch : 'full',
     
   },

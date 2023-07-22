@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { EntityProducts } from '../entity/entityProducts';
 import { MatDialog } from '@angular/material/dialog';
 import { CusModalProductoComponent } from '../cus-modal-producto/cus-modal-producto.component';
+import { CusCardsService } from '../services/cusCards/cus-cards.service';
 
 @Component({
   selector: 'app-cus-plato',

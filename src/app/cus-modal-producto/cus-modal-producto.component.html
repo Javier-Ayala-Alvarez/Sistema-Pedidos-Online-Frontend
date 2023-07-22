@@ -18,11 +18,12 @@
       <p class="product-price">Precio: ${{ productsArray[0]?.price }}</p>
       <div class="input-group">
         <div class=" numbers btn-group">
-          <button class="btn btn-secondary" type="button">-</button><!-- (click)="decrementarCantidad()"-->
-          <input type="number" class="form-control" min="1" max="100" value="1"><!-- [(ngModel)]="cantidad" -->
-          <button class="btn btn-secondary" type="button">+</button><!-- (click)="incrementarCantidad()" -->
+          <button class="btn btn-secondary" type="button" (click)="decrementarCantidad()" >-</button><!-- (click)="decrementarCantidad()"-->
+          <input type="number" class="form-control" min="1" value="1" [(ngModel)]="cantidad" ><!-- [(ngModel)]="cantidad" -->
+
+          <button class="btn btn-secondary" type="button" (click)="incrementarCantidad()">+</button><!-- (click)="incrementarCantidad()" -->
         </div>
-        <button name="boton" class="btn btn-primary" type="button">Agregar a carrito</button><!-- (click)="incrementarCantidad()" -->
+        <button name="boton" class="btn btn-primary" type="button" (click)="AddCards()" >Agregar a carrito</button><!-- (click)="incrementarCantidad()" -->
       </div>
     </div>
   </div>

@@ -66,6 +66,7 @@ import { SignupComponent } from './pages/signup/signup.component';
 import { EditProfileComponent } from './pages/customer/edit-profile/edit-profile.component';
 import { CusPlatoComponent } from './cus-plato/cus-plato.component';
 import { CusModalProductoComponent } from './cus-modal-producto/cus-modal-producto.component';
+import { CusCardsComponent } from './cus-cards/cus-cards.component';
 
 
 
@@ -103,7 +104,9 @@ import { CusModalProductoComponent } from './cus-modal-producto/cus-modal-produc
     CustomerSidebarComponent,
     EditProfileComponent,
 CusPlatoComponent,
-CusModalProductoComponent
+CusModalProductoComponent,
+CusCardsComponent,
+CusCardsComponent
   ],
   imports: [
     BrowserModule,

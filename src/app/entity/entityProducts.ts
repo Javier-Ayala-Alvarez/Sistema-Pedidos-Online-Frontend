@@ -5,4 +5,5 @@ export class EntityProducts{
     price!:number;
     idCategory!:number;
     img!:string;
+    idCombo: number =0;
 }
