@@ -15,7 +15,7 @@ import Swal from 'sweetalert2';
 export class CusModalProductoComponent implements OnInit {
   productsArray: EntityProducts[] = [];
   cards: EntityCarrito = new EntityCarrito();
-
+ 
   cantidad: number = 1;
 
   constructor(
@@ -52,8 +52,7 @@ export class CusModalProductoComponent implements OnInit {
     this.cards.id = 0;
     this.cards.idProducto = productos[0];
     this.cards.cantidad = this.cantidad;
-    this.serviceCars.agregarElemento(this.products.getOneProducto);
-
+    this.serviceCars.agregarElemento(this.cards);
     Swal.fire({
       icon: 'success',
       title: 'Bien!',
@@ -62,8 +61,8 @@ export class CusModalProductoComponent implements OnInit {
         this.closeModal();
   }
 
-  eliminarElemento(elemento: any): void{
+ 
+  
 
-  }
 }
 
