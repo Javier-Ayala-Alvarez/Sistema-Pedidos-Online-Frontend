@@ -28,7 +28,7 @@ export class CusCardsComponent implements OnInit {
     this.dialogRef.close();
   }
   calculateTotal(): void{
-    this.total = this.arrayCards.reduce((sum, car) => sum + (car.cantidad * (car.idProducto?.price || 0)),0);
+    this.total = this.arrayCards.reduce((sum, car) => sum + (car.cantidad * (car.idProducto?.precioVenta || 0)),0);
   }
   eliminarElemento(car: EntityCarrito): void {
     Swal.fire({

@@ -31,7 +31,9 @@ export class HomeComponent implements OnInit {
   */
 
   ngOnInit(): void {
-     this.entityArray = this.category.getCategory(); // Llenamos el array
+    this.category.loadData().then(() => {
+      this.entityArray = this.category.entityArray;
+    });
   }
 
 }

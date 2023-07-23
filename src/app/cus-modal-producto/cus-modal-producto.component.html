@@ -9,13 +9,13 @@
   <div class="row">
     <div class="col-md-6">
       <!-- Sección de la imagen vertical -->
-      <img src="{{ productsArray[0]?.img }}" alt="Imagen" class="modal-image">
+      <img src="{{ productsArray[0]?.urlImagen }}" alt="Imagen" class="modal-image">
     </div>
     <div class="col-md-6">
       <!-- Sección de información -->
-      <h3 class="product-name">{{ productsArray[0]?.name }}</h3>
-      <p class="product-description">{{ productsArray[0]?.description }}</p>
-      <p class="product-price">Precio: {{ productsArray[0]?.price  | currency}}</p>
+      <h3 class="product-name">{{ productsArray[0]?.nombre }}</h3>
+      <p class="product-description">{{ productsArray[0]?.descripcion }}</p>
+      <p class="product-price">Precio: {{ productsArray[0]?.precioVenta  | currency}}</p>
       <div class="input-group">
         <div class=" numbers btn-group">
           <button class="btn btn-secondary" type="button" (click)="decrementarCantidad()" >-</button><!-- (click)="decrementarCantidad()"-->
