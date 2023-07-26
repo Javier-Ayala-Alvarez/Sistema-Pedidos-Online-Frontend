@@ -1,15 +1,18 @@
 import { EntityCategory } from "./entityCategory";
 
 export class EntityProducts{
-    id: number =0;
-    nombre!: string;
-    descripcion!: string;
-    estado !:boolean;
-    precioVenta!:number;
-    ganancia!:number;
-    urlImagen!:string;
-    category: EntityCategory | null = null;
-    evento!:number;
-    promocion!:number;
-    idCombo: number =0;
+      idProducto: number = 0;
+      nombre!: string;
+     descripcion !: string;
+      estado !: number;
+      precioVenta!: number ;
+      ganancia!: number;
+      urlImagen !: string;
+      evento !: string;
+      promocion !: number;
+      idCombo !: number;
+      nombreProducto !: string;
+      urlImagenProducto!: string;
+    category!: number;
+ 
 }

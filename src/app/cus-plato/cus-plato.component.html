@@ -1,47 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-    <div class="class-container-fluid ">
-        <div class="class-container">
-            <div class="class-row">
-
-            </div>
-            <div class="class-col-md-12 p-3 mt-3">
-                <div class="class-row">
-                    <div class="row">
-                        <div class="col-md-4 " *ngFor="let data of productsArray; let i index"><!--Aqui se agregara el for-->
-                            <div class="card border border-primary mt-4 mx-auto box" style="width:17rem; " (click)="openModal(data.id)">
-                                <img src="{{data.urlImagen}}" class="card-img-top" alt="Imagen no disponible" width="100" height="200">
-                                <div class="card-body">
-                                  <div class="row">
-                                    <div class="col-md-7">
-                                      <h2>{{data.nombre}}</h2><!-- Nombre del producto -->
-                                    </div>
-                                    <div class="col-md-5">
-                                      <div class="rounded p-2 text-center border border-primary p-2" style="background-color: #f0f0f0; height: 60px;">
-                                        <small>Precio</small><!-- Palabra "Precio" en tamaño más pequeño -->
-                                        <h3>{{data.precioVenta  | currency}}</h3><!-- Precio -->
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <div>
-                                    <!-- Otras opciones o contenido adicional -->
-                                  </div>
-                                </div>
-                              </div>
-                              
-                              
-                           
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+<div class="class-container-fluid">
+  <div class="class-container">
+    <div class="class-row">
     </div>
-</body>
-</html>
+    <div class="class-col-md-12 p-3 mt-3">
+      <div class="class-row">
+        <div class="row">
+          <!-- Utilizamos el KeyValuePipe para obtener los pares clave-valor (combinaciones idProducto-idCombo y arreglos de productos) -->
+          <div class="col-md-4" *ngFor="let productsGroup of productsArray | keyvalue">
+            <!-- Iteramos sobre los arreglos de productos correspondientes a cada combinación idProducto-idCombo -->
+            <div *ngFor="let data of productsGroup.value">
+              <div class="card border border-primary mt-4 mx-auto box" style="width:17rem;" (click)="openModal(data.idProducto)">
+                <!-- Accedemos a las propiedades de cada producto, como 'nombre' y 'precioVenta' -->
+                <img src="{{data.urlImagen}}" class="card-img-top" alt="Imagen no disponible" width="100" height="200">
+                <div class="card-body">
+                  <div class="row">
+                    <div class="col-md-7">
+                      <h2>{{data.nombre}}</h2><!-- Nombre del producto -->
+                    </div>
+                    <div class="col-md-5">
+                      <div class="rounded p-2 text-center border border-primary p-2"
+                        style="background-color: #f0f0f0; height: 60px;">
+                        <small>Precio</small><!-- Palabra "Precio" en tamaño más pequeño -->
+                        <h3>{{data.precioVenta | currency}}</h3><!-- Precio -->
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <!-- Otras opciones o contenido adicional -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

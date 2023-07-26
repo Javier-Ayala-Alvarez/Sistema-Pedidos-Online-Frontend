@@ -29,7 +29,6 @@ export class CusModalProductoComponent implements OnInit {
   ngOnInit(): void {
     const id = this.data.id;
     const idNumber = parseInt(id, 10);
-    console.log(idNumber);
     this.productsArray = this.products.getOneProducto(idNumber);
   }
 

@@ -18,17 +18,13 @@ this. loadData();
   getProduct(){
     return this.cusProductoArray;//Devuelve todo el arreglo
   }
-  getOneCategory(_id: number): EntityProducts[] {
-    this.loadData();
-    return this.cusProductoArray.filter((product) => product.category?.id == _id); 
-   
-  }
+ 
   
   
   
   
   getOneProducto(_id: number): EntityProducts[] {
-    return this.cusProductoArray.filter(x => x.id == Number(_id));//Devuelve todo el arreglo que coicida con el id de la categoria
+    return this.cusProductoArray.filter(x => x.idProducto == Number(_id));//Devuelve todo el arreglo que coicida con el id de la categoria
   }
 
   
@@ -36,8 +32,8 @@ this. loadData();
     return new Promise((resolve, reject) => {
       this.httpClient.get<EntityProducts[]>(`${baserUrl}/api/product/list`).subscribe(
         (data) => {
-          console.log(data); // Verifica que los datos estén llegando aquí correctamente
-          this.cusProductoArray = data;
+          //console.log(JSON.stringify(data, null, 2)); // Imprime el array de objetos como JSON con indentación
+            this.cusProductoArray = data;
           this.dataLoaded = true;
           resolve();
         },
@@ -49,5 +45,24 @@ this. loadData();
     });
   }
   
+
+
+    // Función para obtener los productos agrupados por idProducto, idCombo y filtrados por idCategoria
+    getOneCategory(id: number): { [key: string]: EntityProducts[] } {
+      this.loadData();
   
-}
+      const productosAgrupados: { [key: string]: EntityProducts[] } = {};
+  
+      for (const producto of this.cusProductoArray) {
+        const key = `${producto.idProducto}-${producto.idCombo}`;
+        
+        // Agregar solo si coincide con la categoría deseada (idCategoria)
+        if (!productosAgrupados[key] && producto.category == id) {
+          productosAgrupados[key] = [producto]; // Agregar solo un producto en la combinación
+        }
+      }
+      console.log(productosAgrupados);
+      return productosAgrupados;
+    }
+  }
+

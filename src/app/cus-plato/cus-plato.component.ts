@@ -12,7 +12,7 @@ import { CusModalProductoComponent } from '../cus-modal-producto/cus-modal-produ
 })
 export class CusPlatoComponent implements OnInit {
   @Output() idSelect = new EventEmitter(); // Decorador para enviar el id
-  productsArray: EntityProducts[] = [];
+  productsArray: { [key: string]: EntityProducts[] } = {};
 
   constructor(
     private products: CusProductoService,
@@ -27,7 +27,6 @@ export class CusPlatoComponent implements OnInit {
         const id = params['id'];
         // Utiliza el ID como necesites, por ejemplo:
         this.productsArray = this.products.getOneCategory(id);
-        console.log(this.productsArray);
       });
     });
   }
@@ -43,4 +42,5 @@ export class CusPlatoComponent implements OnInit {
       // Aquí puedes manejar cualquier lógica que desees realizar después de que se cierra el diálogo modal
     });
   }
+
 }
