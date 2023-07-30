@@ -23,15 +23,19 @@ export class CusModalProductoComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<CusModalProductoComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: { id: string },private products: CusProductoService
+    @Inject(MAT_DIALOG_DATA) public data: {
+      idCombo: any; id: string 
+},private products: CusProductoService
     ,private serviceCars : CusCardsService
   ) {}
 
   async ngOnInit(): Promise<void> {
     const id = this.data.id;
+    const idCombo = this.data.idCombo;
+    const idNumberCombo = parseInt(idCombo, 10);
     const idNumber = parseInt(id, 10);
-    this.productsArray = this.products.getOneProducto(idNumber);
-    this.productsArrayIdCombo = await this.products.getCombo(this.productsArray[0].idCombo);
+    this.productsArray = this.products.getOneProducto(idNumber, idNumberCombo);
+    this.productsArrayIdCombo = await this.products.getCombo(idNumberCombo);
 
   }
 

@@ -28,8 +28,8 @@
 
     
     
-    getOneProducto(_id: number): EntityProducts[] {
-      return this.cusProductoArray.filter(x => x.idProducto == Number(_id));//Devuelve todo el arreglo que coicida con el id de la categoria
+    getOneProducto(_id: number, _idCombo: number): EntityProducts[] {
+      return this.cusProductoArray.filter(x => x.idProducto == Number(_id) && x.idCombo == Number(_idCombo));//Devuelve todo el arreglo que coicida con el id de la categoria
     }
     getCombo(_id: number): Promise<EntityProducts[]> {
       if (_id !== 0) {

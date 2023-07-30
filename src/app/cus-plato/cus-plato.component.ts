@@ -31,11 +31,11 @@ export class CusPlatoComponent implements OnInit {
     });
   }
 
-  openModal(id: number) {
+  openModal(id: number, idCombo: number) {
     const dialogRef = this.dialog.open(CusModalProductoComponent, {
       width: '800px',
       height: '370px',
-      data: { id: id }
+      data: { id: id, idCombo : idCombo }
     });
 
     dialogRef.afterClosed().subscribe((result) => {

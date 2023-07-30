@@ -19,7 +19,7 @@
   bottom: 0; /* Se coloca en el pie del contenedor */
   left: 50%;
   transform: translateX(-50%);
-  font-size: 16px;
+  font-size: 15px;
   font-family: "Arial", sans-serif;
   color: #ffffff;
   background-color: rgba(0, 0, 0, 0.671);
@@ -27,8 +27,8 @@
   max-width: 92%;
   min-width: 92%;
   text-align: justify;
-  min-height: 100px;
-  max-height: 100px;
+  min-height: 0px;
+  max-height: 70px;
   overflow-y: auto;
   display: inline-block;
   margin-bottom: 0px;
@@ -59,11 +59,11 @@
 /* Estilo para el precio */
 .product-price {
   position: absolute;
-  font-size: 24px;
+  font-size: 20px;
   font-family: "Arial", sans-serif;
-  color: #000000;
-  background-color: rgba(48, 49, 49, 0.2); /* Fondo con opacidad */
-  padding: 10px 15px;
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0.671);
+  padding: 7px 10px;
   border-radius: 8px; /* Bordes redondeados */
   margin-top: 0px;
   display: inline-block; /* Para que el fondo se ajuste al tamaño del texto */
