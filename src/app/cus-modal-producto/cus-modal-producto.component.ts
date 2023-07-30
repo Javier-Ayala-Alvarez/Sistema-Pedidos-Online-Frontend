@@ -5,6 +5,7 @@ import { CusProductoService } from '../services/CusProducts/cus-producto.service
 import { CusCardsService } from '../services/cusCards/cus-cards.service';
 import { EntityCarrito } from '../entity/entityCarrito';
 import Swal from 'sweetalert2';
+import { log } from 'console';
 
 
 @Component({
@@ -14,8 +15,10 @@ import Swal from 'sweetalert2';
 })
 export class CusModalProductoComponent implements OnInit {
   productsArray: EntityProducts[] = [];
+  productsArrayIdCombo: EntityProducts[] = [];
+
   cards: EntityCarrito = new EntityCarrito();
- 
+  mostrarDetalle = false; // Agregar propiedad para controlar la visibilidad de la tabla de productos relacionados
   cantidad: number = 1;
 
   constructor(
@@ -26,11 +29,14 @@ export class CusModalProductoComponent implements OnInit {
   agregarElementoAlArray(elemento: any) {
    // this.serviceCars.agregarElemento(elemento);
   }
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     const id = this.data.id;
     const idNumber = parseInt(id, 10);
     this.productsArray = this.products.getOneProducto(idNumber);
+    this.productsArrayIdCombo = await this.products.getCombo(this.productsArray[0].idCombo);
+
   }
+  
 
   closeModal(): void {
     this.dialogRef.close();

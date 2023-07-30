@@ -9,18 +9,35 @@
   <div class="row">
     <div class="col-md-6">
       <!-- Sección de la imagen vertical -->
+      <p class="product-price">Precio: {{ productsArray[0]?.precioVenta  | currency}}</p>
       <img src="{{ productsArray[0]?.urlImagen }}" alt="Imagen" class="modal-image">
+      <p class="product-description">{{ productsArray[0]?.descripcion }}</p>
+
     </div>
     <div class="col-md-6">
       <!-- Sección de información -->
       <h3 class="product-name">{{ productsArray[0]?.nombre }}</h3>
-      <p class="product-description">{{ productsArray[0]?.descripcion }}</p>
-      <p class="product-price">Precio: {{ productsArray[0]?.precioVenta  | currency}}</p>
+    <div class="product-detalle">
+      <!--Agregaremos los productos-->
+      <table class="cart-table">
+       
+        <tbody>
+          <tr *ngFor="let det of productsArrayIdCombo">
+            <td >
+              <img [src]="det.urlImagen" alt="Imagen no disponible" width="60" height="60" class="imagenTabla">
+            </td>
+            <td class="textTabla">{{ det?.nombre }}</td>           
+          </tr>
+        </tbody>
+      </table>   
+     </div>
+     <div class="evento">
+      disponible de 6:34 am a 7:50 pm
+     </div>
       <div class="input-group">
         <div class=" numbers btn-group">
           <button class="btn btn-secondary" type="button" (click)="decrementarCantidad()" >-</button><!-- (click)="decrementarCantidad()"-->
-          <input type="number" class="form-control" min="1" value="1" [(ngModel)]="cantidad" ><!-- [(ngModel)]="cantidad" -->
-
+          <input type="number" class="form-control" min="1" value="1" [value]="cantidad" readonly><!-- [(ngModel)]="cantidad" -->
           <button class="btn btn-secondary" type="button" (click)="incrementarCantidad()">+</button><!-- (click)="incrementarCantidad()" -->
         </div>
         <button name="boton" class="btn btn-primary" type="button" (click)="AddCards()" >Agregar a carrito</button><!-- (click)="incrementarCantidad()" -->

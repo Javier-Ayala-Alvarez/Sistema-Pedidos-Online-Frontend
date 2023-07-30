@@ -34,7 +34,7 @@ export class CusPlatoComponent implements OnInit {
   openModal(id: number) {
     const dialogRef = this.dialog.open(CusModalProductoComponent, {
       width: '800px',
-      height: '400px',
+      height: '370px',
       data: { id: id }
     });
 
