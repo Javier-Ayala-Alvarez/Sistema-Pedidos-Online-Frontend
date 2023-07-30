@@ -9,7 +9,7 @@
           <div class="col-md-4" *ngFor="let productsGroup of productsArray | keyvalue">
             <!-- Iteramos sobre los arreglos de productos correspondientes a cada combinación idProducto-idCombo -->
             <div *ngFor="let data of productsGroup.value">
-              <div class="card border border-primary mt-4 mx-auto box" style="width:17rem;" (click)="openModal(data.idProducto)">
+              <div class="card border border-primary mt-4 mx-auto box" style="width:17rem;" (click)="openModal(data.idProducto, data.idCombo)">
                 <!-- Accedemos a las propiedades de cada producto, como 'nombre' y 'precioVenta' -->
                 <img src="{{data.urlImagen}}" class="card-img-top" alt="Imagen no disponible" width="100" height="200">
                 <div class="card-body">
