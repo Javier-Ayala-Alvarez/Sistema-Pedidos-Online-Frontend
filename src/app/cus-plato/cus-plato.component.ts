@@ -2,7 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CusProductoService } from '../services/CusProducts/cus-producto.service';
 import { ActivatedRoute } from '@angular/router';
 import { EntityProducts } from '../entity/entityProducts';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { CusModalProductoComponent } from '../cus-modal-producto/cus-modal-producto.component';
 
 @Component({

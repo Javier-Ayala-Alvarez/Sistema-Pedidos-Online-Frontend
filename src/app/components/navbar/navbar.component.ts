@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CusCardsComponent } from 'src/app/cus-cards/cus-cards.component';
 import { CusCardsService } from 'src/app/services/cusCards/cus-cards.service';
