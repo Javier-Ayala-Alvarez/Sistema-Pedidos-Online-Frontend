@@ -8,7 +8,6 @@ import { HomeComponent } from './components/home/home.component';
 import {SignupComponent} from './pages/signup/signup.component';
 import {AdminGuard} from './guards/admin/admin.guard';
 import {DashboardComponent} from './pages/admin/dashboard/dashboard.component';
-import {WelcomeComponent} from  './pages/admin/welcome/welcome.component';
 import { ListCategorysComponent } from './pages/admin/list-categorys/list-categorys.component';
 import { NewCategorysComponent } from './pages/admin/new-categorys/new-categorys.component';
 import { ViewCategorysComponent } from './pages/admin/view-categorys/view-categorys.component';
@@ -40,24 +39,24 @@ const routes:Routes=[
     path : '',
     component : HomeComponent,
     pathMatch : 'full',
-    
+
   },
   {
     path : 'Carrito',
     component : CusCardsComponent,
     pathMatch : 'full',
-    
+
   },
   {
     path : 'Productos/:id',
     component : CusPlatoComponent,
     pathMatch : 'full',
-    
+
   }, {
     path : 'ProductosModal/:id',
     component : CusModalProductoComponent,
     pathMatch : 'full',
-    
+
   },
   {
     path : 'login',
