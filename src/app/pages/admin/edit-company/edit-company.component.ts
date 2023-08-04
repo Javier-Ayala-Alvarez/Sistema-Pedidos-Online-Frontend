@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { error } from 'console';
 import { CompanyService } from 'src/app/services/company/company.service';
 import Swal from 'sweetalert2';
 

@@ -2,8 +2,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { CusProductoService } from '../services/CusProducts/cus-producto.service';
 import { ActivatedRoute } from '@angular/router';
 import { EntityProducts } from '../entity/entityProducts';
-import { MatLegacyDialog as MatDialog } from '@angular/material/legacy-dialog';
 import { CusModalProductoComponent } from '../cus-modal-producto/cus-modal-producto.component';
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-cus-plato',

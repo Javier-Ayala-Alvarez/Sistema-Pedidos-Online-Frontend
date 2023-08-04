@@ -1,10 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatLegacyDialogRef as MatDialogRef, MAT_LEGACY_DIALOG_DATA as MAT_DIALOG_DATA } from '@angular/material/legacy-dialog';
+
 import { EntityProducts } from '../entity/entityProducts';
 import { CusProductoService } from '../services/CusProducts/cus-producto.service';
 import { CusCardsService } from '../services/cusCards/cus-cards.service';
 import { EntityCarrito } from '../entity/entityCarrito';
 import Swal from 'sweetalert2';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 
 
 
@@ -24,7 +25,7 @@ export class CusModalProductoComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<CusModalProductoComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {
-      idCombo: any; id: string 
+      idCombo: any; id: string
 },private products: CusProductoService
     ,private serviceCars : CusCardsService
   ) {}
