@@ -67,6 +67,9 @@ import { EditProfileComponent } from './pages/customer/edit-profile/edit-profile
 import { CusPlatoComponent } from './cus-plato/cus-plato.component';
 import { CusModalProductoComponent } from './cus-modal-producto/cus-modal-producto.component';
 import { CusCardsComponent } from './cus-cards/cus-cards.component';
+import { CusDatosGeneralesComponent } from './cus-datos-generales/cus-datos-generales.component';
+import { CusIniciarSesionComponent } from './cus-iniciar-sesion/cus-iniciar-sesion.component';
+import { CusRegistrarseComponent } from './cus-registrarse/cus-registrarse.component';
 
 
 
@@ -106,7 +109,10 @@ import { CusCardsComponent } from './cus-cards/cus-cards.component';
 CusPlatoComponent,
 CusModalProductoComponent,
 CusCardsComponent,
-CusCardsComponent
+CusCardsComponent,
+CusDatosGeneralesComponent,
+CusIniciarSesionComponent,
+CusRegistrarseComponent
   ],
   imports: [
     BrowserModule,

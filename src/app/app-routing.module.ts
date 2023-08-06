@@ -33,6 +33,8 @@ import { EditProfileComponent } from './pages/customer/edit-profile/edit-profile
 import { CusPlatoComponent } from './cus-plato/cus-plato.component';
 import { CusModalProductoComponent } from './cus-modal-producto/cus-modal-producto.component';
 import { CusCardsComponent } from './cus-cards/cus-cards.component';
+import { CusDatosGeneralesComponent } from './cus-datos-generales/cus-datos-generales.component';
+import { CusIniciarSesionComponent } from './cus-iniciar-sesion/cus-iniciar-sesion.component';
 
 const routes:Routes=[
 
@@ -45,6 +47,18 @@ const routes:Routes=[
   {
     path : 'Carrito',
     component : CusCardsComponent,
+    pathMatch : 'full',
+    
+  },
+  {
+    path : 'IniciarSesion',
+    component : CusIniciarSesionComponent,
+    pathMatch : 'full',
+    
+  },
+  {
+    path : 'DatosGenerales',
+    component : CusDatosGeneralesComponent,
     pathMatch : 'full',
     
   },
