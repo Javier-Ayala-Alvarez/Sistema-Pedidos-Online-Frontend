@@ -1,11 +1,12 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
 import { EntityProducts } from '../entity/entityProducts';
 import { CusProductoService } from '../services/CusProducts/cus-producto.service';
 import { CusCardsService } from '../services/cusCards/cus-cards.service';
 import { EntityCarrito } from '../entity/entityCarrito';
 import Swal from 'sweetalert2';
-import { log } from 'console';
+import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+
 
 
 @Component({
@@ -18,19 +19,17 @@ export class CusModalProductoComponent implements OnInit {
   productsArrayIdCombo: EntityProducts[] = [];
 
   cards: EntityCarrito = new EntityCarrito();
-  mostrarDetalle = false; // Agregar propiedad para controlar la visibilidad de la tabla de productos relacionados
+
   cantidad: number = 1;
 
   constructor(
     public dialogRef: MatDialogRef<CusModalProductoComponent>,
     @Inject(MAT_DIALOG_DATA) public data: {
-      idCombo: any; id: string 
+      idCombo: any; id: string
 },private products: CusProductoService
     ,private serviceCars : CusCardsService
   ) {}
-  agregarElementoAlArray(elemento: any) {
-   // this.serviceCars.agregarElemento(elemento);
-  }
+
   async ngOnInit(): Promise<void> {
     const id = this.data.id;
     const idCombo = this.data.idCombo;
@@ -40,7 +39,7 @@ export class CusModalProductoComponent implements OnInit {
     this.productsArrayIdCombo = await this.products.getCombo(idNumberCombo);
 
   }
-  
+
 
   closeModal(): void {
     this.dialogRef.close();
@@ -49,11 +48,11 @@ export class CusModalProductoComponent implements OnInit {
     if (this.cantidad > 1) { // Verificamos que no se reduzca a un valor menor a 1
       this.cantidad--;
     }
- 
+
   }
   incrementarCantidad(): void {
       this.cantidad++;
-    
+
   }
   AddCards(): void{
     console.log("w");
@@ -66,12 +65,12 @@ export class CusModalProductoComponent implements OnInit {
       icon: 'success',
       title: 'Bien!',
       text: 'Se agrego con exito!',
-    });
+    }).then(r => r.isConfirmed);
         this.closeModal();
   }
 
- 
-  
+
+
 
 }
 

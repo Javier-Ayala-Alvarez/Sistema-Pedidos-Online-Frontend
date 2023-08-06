@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router } from '@angular/router';
 import { CusCardsComponent } from 'src/app/cus-cards/cus-cards.component';
-import { CusCardsService } from 'src/app/services/cusCards/cus-cards.service';
+
 import { LoginService } from 'src/app/services/login/login.service';
+import {MatDialog} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-navbar',
@@ -27,7 +27,7 @@ export class NavbarComponent implements OnInit {
         this.user=this.login.getUser();
       }
     )
-   
+
 
   }
 
@@ -37,7 +37,7 @@ export class NavbarComponent implements OnInit {
       height: '400px',
       //data: {  id: id} /* Puedes pasar datos adicionales al diálogo modal si es necesario */
     });
-  
+
     dialogRef.afterClosed().subscribe(result => {
       // Aquí puedes manejar cualquier lógica que desees realizar después de que se cierra el diálogo modal
     });

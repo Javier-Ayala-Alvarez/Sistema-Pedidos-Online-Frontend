@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from './../../services/login/login.service';
+import { LoginService } from '../../services/login/login.service';
 import { Router } from '@angular/router';
-import { MatSnackBar} from '@angular/material/snack-bar';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @Component({

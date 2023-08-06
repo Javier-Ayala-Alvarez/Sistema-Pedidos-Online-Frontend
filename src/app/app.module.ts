@@ -6,31 +6,26 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
 
 
-import {MatButtonModule} from '@angular/material/button';
+
 import { NavbarComponent } from './components/navbar/navbar.component';
-//import { SignupComponent } from './pages/signup/signup.component';
+
 import { LoginComponent } from './pages/login/login.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import {MatFormFieldModule} from '@angular/material/form-field';
-/**/
-import { MatInputModule } from '@angular/material/input';
+
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './pages/customer/profile/profile.component';
-/**/
-import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
-import {MatSelectModule} from '@angular/material/select';
-import {MatSlideToggleModule} from '@angular/material/slide-toggle';
-import {MatListModule} from '@angular/material/list';
+
+
+
+
 import { FormsModule } from '@angular/forms';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatCardModule} from '@angular/material/card';
+
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
-import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatExpansionModule } from '@angular/material/expansion';
-import {MatDialog, MatDialogModule} from '@angular/material/dialog';
+
 
 
 
@@ -70,6 +65,19 @@ import { CusCardsComponent } from './cus-cards/cus-cards.component';
 import { CusDatosGeneralesComponent } from './cus-datos-generales/cus-datos-generales.component';
 import { CusIniciarSesionComponent } from './cus-iniciar-sesion/cus-iniciar-sesion.component';
 import { CusRegistrarseComponent } from './cus-registrarse/cus-registrarse.component';
+import { NewPlatoComponent } from './pages/admin/new-plato/new-plato.component';
+import { ViewPlatoComponent } from './pages/admin/view-plato/view-plato.component';
+import {MatButtonModule} from "@angular/material/button";
+import {MatFormFieldModule} from "@angular/material/form-field";
+import {MatInputModule} from "@angular/material/input";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
+import {MatListModule} from "@angular/material/list";
+import {MatSlideToggleModule} from "@angular/material/slide-toggle";
+import {MatSelectModule} from "@angular/material/select";
+import {MatPaginatorModule} from "@angular/material/paginator";
+import {MatDialogModule} from "@angular/material/dialog";
+import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
+import {MatCardModule} from "@angular/material/card";
 
 
 
@@ -112,7 +120,9 @@ CusCardsComponent,
 CusCardsComponent,
 CusDatosGeneralesComponent,
 CusIniciarSesionComponent,
-CusRegistrarseComponent
+CusRegistrarseComponent,
+NewPlatoComponent,
+ViewPlatoComponent
   ],
   imports: [
     BrowserModule,
