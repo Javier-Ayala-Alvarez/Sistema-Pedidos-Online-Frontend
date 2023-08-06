@@ -1,3 +1,3 @@
-let baserUrl = 'http://localhost:8080'
+let baserUrl = 'api-sistema-pedidos-linea-production.up.railway.app'
 export default baserUrl;
 
