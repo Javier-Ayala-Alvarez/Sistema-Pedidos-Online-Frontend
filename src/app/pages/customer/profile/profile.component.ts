@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CustomersService } from 'src/app/services/customers/customers.service';
-import Swal from 'sweetalert2';
+
 import { LoginService } from 'src/app/services/login/login.service';
+import Swal from "sweetalert2";
 
 @Component({
   selector: 'app-profile',
@@ -35,7 +36,7 @@ export class ProfileComponent implements OnInit {
     },
     (error)=>{
       console.log(error);
-      Swal.fire('Error !!','Error al cargar la empresa','error');
+      Swal.fire('Error !!','Error al cargar el empleado','error');
     }
 
   )
