@@ -1,10 +1,12 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { CusCardsService } from '../services/cusCards/cus-cards.service';
-import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dialog';
+
 import { EntityCarrito } from '../entity/entityCarrito';
 import Swal from 'sweetalert2';
-import { Router } from '@angular/router';
-import { CusIniciarSesionComponent } from '../cus-iniciar-sesion/cus-iniciar-sesion.component';
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {Router} from "@angular/router";
+import {CusIniciarSesionComponent} from "../cus-iniciar-sesion/cus-iniciar-sesion.component";
+
 
 @Component({
   selector: 'app-cus-cards',
@@ -17,10 +19,11 @@ export class CusCardsComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<CusCardsComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { },
+
     public servicesCard: CusCardsService,
     private router: Router,
     private dialog: MatDialog
-  
+
   ) { }
 
   ngOnInit(): void {
@@ -69,7 +72,7 @@ export class CusCardsComponent implements OnInit {
 }
 
 
- 
+
 
 
 
