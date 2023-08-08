@@ -1,0 +1,26 @@
+
+.total-amount {
+    position: absolute;
+    top: 25px;
+    right: 18px;
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+  }
+  
+  /* Estilos para la tabla del carrito */
+  .cart-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+  }
+  
+  .cart-table th,
+  .cart-table td {
+    padding: 8px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+  }
+  
+  .cart-table th {
+    background-color: #f8f8f8;
+  }

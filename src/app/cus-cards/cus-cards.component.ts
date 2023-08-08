@@ -3,7 +3,10 @@ import { CusCardsService } from '../services/cusCards/cus-cards.service';
 
 import { EntityCarrito } from '../entity/entityCarrito';
 import Swal from 'sweetalert2';
-import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialog, MatDialogRef} from "@angular/material/dialog";
+import {Router} from "@angular/router";
+import {CusIniciarSesionComponent} from "../cus-iniciar-sesion/cus-iniciar-sesion.component";
+
 
 @Component({
   selector: 'app-cus-cards',
@@ -16,7 +19,10 @@ export class CusCardsComponent implements OnInit {
   constructor(
     public dialogRef: MatDialogRef<CusCardsComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { },
-    public servicesCard: CusCardsService
+
+    public servicesCard: CusCardsService,
+    private router: Router,
+    private dialog: MatDialog
 
   ) { }
 
@@ -49,6 +55,18 @@ export class CusCardsComponent implements OnInit {
           this.calculateTotal();
         }
       }
+    });
+  }
+
+  openDatosGenerales(){
+    const dialogRef = this.dialog.open(CusIniciarSesionComponent, {
+      width: '500px', // Establece el ancho del diálogo modal según tus necesidades
+      height: '450px',
+      //data: {  id: id} /* Puedes pasar datos adicionales al diálogo modal si es necesario */
+    });
+  this.closeModal();
+    dialogRef.afterClosed().subscribe(result => {
+      // Aquí puedes manejar cualquier lógica que desees realizar después de que se cierra el diálogo modal
     });
   }
 }

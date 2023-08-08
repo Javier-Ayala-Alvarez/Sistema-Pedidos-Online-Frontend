@@ -15,7 +15,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './pages/customer/profile/profile.component';
-/**/
+
 
 
 
@@ -62,6 +62,9 @@ import { EditProfileComponent } from './pages/customer/edit-profile/edit-profile
 import { CusPlatoComponent } from './cus-plato/cus-plato.component';
 import { CusModalProductoComponent } from './cus-modal-producto/cus-modal-producto.component';
 import { CusCardsComponent } from './cus-cards/cus-cards.component';
+import { CusDatosGeneralesComponent } from './cus-datos-generales/cus-datos-generales.component';
+import { CusIniciarSesionComponent } from './cus-iniciar-sesion/cus-iniciar-sesion.component';
+import { CusRegistrarseComponent } from './cus-registrarse/cus-registrarse.component';
 import { NewPlatoComponent } from './pages/admin/new-plato/new-plato.component';
 import { ViewPlatoComponent } from './pages/admin/view-plato/view-plato.component';
 import {MatButtonModule} from "@angular/material/button";
@@ -115,6 +118,9 @@ CusPlatoComponent,
 CusModalProductoComponent,
 CusCardsComponent,
 CusCardsComponent,
+CusDatosGeneralesComponent,
+CusIniciarSesionComponent,
+CusRegistrarseComponent,
 NewPlatoComponent,
 ViewPlatoComponent
   ],

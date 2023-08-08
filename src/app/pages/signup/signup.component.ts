@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import  Swal  from 'sweetalert2';
-import { MatLegacySnackBar as MatSnackBar } from '@angular/material/legacy-snack-bar';
 import { Router } from '@angular/router';
 import { SignupService } from 'src/app/services/signup/signup.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-signup',
