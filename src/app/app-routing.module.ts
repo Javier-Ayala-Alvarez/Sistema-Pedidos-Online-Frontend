@@ -1,5 +1,3 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
 import { RouterModule,Routes } from '@angular/router';
 import { LoginComponent } from './pages/login/login.component';
 
@@ -34,6 +32,7 @@ import { CusModalProductoComponent } from './cus-modal-producto/cus-modal-produc
 import { CusCardsComponent } from './cus-cards/cus-cards.component';
 import { CusDatosGeneralesComponent } from './cus-datos-generales/cus-datos-generales.component';
 import { CusIniciarSesionComponent } from './cus-iniciar-sesion/cus-iniciar-sesion.component';
+import { NgModule } from '@angular/core';
 
 const routes:Routes=[
 

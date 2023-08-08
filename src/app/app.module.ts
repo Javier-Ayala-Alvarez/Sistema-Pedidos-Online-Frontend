@@ -16,9 +16,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { ProfileComponent } from './pages/customer/profile/profile.component';
 
-
-
-
 import { FormsModule } from '@angular/forms';
 
 import {MatToolbarModule} from '@angular/material/toolbar';
