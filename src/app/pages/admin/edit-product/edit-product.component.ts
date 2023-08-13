@@ -44,6 +44,7 @@ export class EditProductComponent implements OnInit {
   }
 
   public actualizarProduct(){
+    
     this.productsService.actualizarProduct(this.product,this.id).subscribe(
       (data)=>{
         Swal.fire('Producto actualizado','El producto ha sido actualizado con èxito','success').

@@ -26,6 +26,9 @@ export class ProductsService {
   }
 
   public actualizarProduct(product:any,id:any){
+    const jsonToSend = JSON.stringify(product);
+    console.log('JSON que se enviará:', jsonToSend);
+    console.log(`${baserUrl}/api/product/actualizar/${id}`);
     return this.httpClient.put(`${baserUrl}/api/product/actualizar/${id}`,product);
   }
 
