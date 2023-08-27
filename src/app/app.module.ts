@@ -75,6 +75,7 @@ import {MatPaginatorModule} from "@angular/material/paginator";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatCardModule} from "@angular/material/card";
+import { ListPlatoComponent } from './pages/admin/list-plato/list-plato.component';
 
 
 
@@ -119,7 +120,8 @@ CusDatosGeneralesComponent,
 CusIniciarSesionComponent,
 CusRegistrarseComponent,
 NewPlatoComponent,
-ViewPlatoComponent
+ViewPlatoComponent,
+ListPlatoComponent
   ],
   imports: [
     BrowserModule,

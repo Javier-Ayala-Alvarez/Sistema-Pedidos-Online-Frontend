@@ -10,10 +10,10 @@ import { Router } from '@angular/router';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-  
 
-  @Output() idSelect = new EventEmitter(); // Decorador para enviar el id  
-  entityArray: EntityCategory[] = []; // Inicializamos el array 
+
+  @Output() idSelect = new EventEmitter(); // Decorador para enviar el "id"
+  entityArray: EntityCategory[] = []; // Inicializamos el array
 
   constructor(private category: CusCategoryService,private router:Router) { } // Inicializar en el constructor el servicio
 
@@ -25,7 +25,7 @@ export class HomeComponent implements OnInit {
     this.category.onDelete(_id);
   }
 
-  getPosition(_id: number) { // Mandamos el id del registro para cargar en el formulario
+  getPosition(_id: number) { // Mandamos el "id" del registro para cargar en el formulario
     this.idUpdate.emit(_id); // Enviamos por medio del decorador
   }
   */
