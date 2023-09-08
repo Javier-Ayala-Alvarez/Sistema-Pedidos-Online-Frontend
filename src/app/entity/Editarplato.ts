@@ -1,4 +1,4 @@
-export class Plato {
+export class Editarplato {
 
 
     id: number | undefined;
@@ -9,6 +9,7 @@ export class Plato {
     idCategoria: number | undefined;
     idPromocion: number | undefined;
     precio: number | undefined;
+    estado: boolean | undefined;
 
 
 

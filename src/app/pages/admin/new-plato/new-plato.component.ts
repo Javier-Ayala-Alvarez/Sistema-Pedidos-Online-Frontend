@@ -8,6 +8,9 @@ import {CategoriaInterface} from "../../../interface/categoria-interface";
 import {Plato} from "../../../entity/plato";
 import Swal from "sweetalert2";
 import {ProductoInterface} from "../../../interface/producto-interface";
+import {PromocionesService} from "../../../services/promociones/promociones.service";
+import {PromocionInterface} from "../../../interface/promocion-interface";
+import {Editarplato} from "../../../entity/Editarplato";
 
 @Component({
     selector: 'app-new-plato',
@@ -18,9 +21,12 @@ export class NewPlatoComponent implements OnInit {
 
     public categorias: CategoriaInterface[] | undefined;
     public productos: ProductoInterface[] | undefined;
-    public plato: Plato = new Plato();
+    public promociones: PromocionInterface[] | undefined;
+    public productosSelecionados: any[] = [];
 
-    constructor(private categoryService: CategorysService, private productService: ProductsService, private platoService: PlatoService, private router: Router, private snack: MatSnackBar) {
+    public plato: Editarplato = new Editarplato();
+
+    constructor(private promocionService: PromocionesService, private categoryService: CategorysService, private productService: ProductsService, private platoService: PlatoService, private router: Router, private snack: MatSnackBar) {
     }
 
     ngOnInit(): void {
@@ -47,18 +53,63 @@ export class NewPlatoComponent implements OnInit {
         )
 
 
+        this.promocionService.listarPromocionesActivas().subscribe(
+            (data: PromocionInterface[]) => {
+                this.promociones = data;
+                console.log(this.promociones);
+            },
+            (error) => {
+                console.log(error);
+                Swal.fire('Error !!', 'Error al cargar los datos', 'error');
+            }
+        )
+
+
+    }
+
+    public agregarProducto(producto: ProductoInterface) {
+        console.log(producto);
+        this.plato.listaProductos?.push(producto.id);
+        console.log(this.plato.listaProductos);
+        this.productosSelecionados.push(producto);
+    }
+
+    public eliminarProducto(producto: ProductoInterface) {
+        console.log(producto);
+        this.plato.listaProductos?.splice(this.plato.listaProductos.indexOf(producto.id), 1);
+        console.log(this.plato.listaProductos);
+        this.productosSelecionados.splice(this.productosSelecionados.indexOf(producto), 1);
     }
 
 
     agregarPlato() {
-        if (!this.validarCampos()) return;
+        if (this.plato.nombre?.trim() == '' || this.plato.descripcion?.trim() == '' || this.plato.urlImagen?.trim() == '' ) {
+            this.snack.open("Los datos son requeridos", "", {
+                duration: 3000
+            })
+            return ;
+        }
+
+        this.platoService.savePlate(this.plato).subscribe(
+            (data) => {
+                console.log(data);
+                Swal.fire('Producto guardado', 'El producto ha sido guardado con éxito', 'success');
+                this.plato = new Editarplato();
+                this.router.navigate(['/admin/list-plate']);
+            },
+            (error) => {
+                Swal.fire('Error', 'Error al guardar el plato', 'error');
+            }
+        )
     }
 
-    validarCampos()
-        :
-        Boolean {
-
-
+    validarCampos(): Boolean {
+        if (this.plato.nombre?.trim() == '' || this.plato.descripcion?.trim() == '' || this.plato.urlImagen?.trim() == '' ) {
+            this.snack.open("Los datos son requeridos", "", {
+                duration: 3000
+            })
+            return true;
+        }
         return false;
     }
 }

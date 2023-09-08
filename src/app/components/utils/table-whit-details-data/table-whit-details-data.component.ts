@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./table-whit-details-data.component.css']
 })
 export class TableWhitDetailsDataComponent {
-
+  selected = 'option2';
+  protected readonly alert = alert;
 }

@@ -57,7 +57,7 @@ export class NewProductsComponent implements OnInit {
     this.productsService.guardarProduct(this.product).subscribe(
       (data)=>{
         console.log(data);
-        Swal.fire('ProductoInterface guardado','El producto ha sido guardado con éxito','success');
+        Swal.fire('Producto guardado','El producto ha sido guardado con éxito','success');
         this.product={
           nombre:'',
           descripcion:'',
