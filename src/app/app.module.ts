@@ -63,7 +63,6 @@ import { CusDatosGeneralesComponent } from './cus-datos-generales/cus-datos-gene
 import { CusIniciarSesionComponent } from './cus-iniciar-sesion/cus-iniciar-sesion.component';
 import { CusRegistrarseComponent } from './cus-registrarse/cus-registrarse.component';
 import { NewPlatoComponent } from './pages/admin/new-plato/new-plato.component';
-import { ViewPlatoComponent } from './pages/admin/view-plato/view-plato.component';
 import {MatButtonModule} from "@angular/material/button";
 import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
@@ -76,6 +75,9 @@ import {MatDialogModule} from "@angular/material/dialog";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatCardModule} from "@angular/material/card";
 import { ListPlatoComponent } from './pages/admin/list-plato/list-plato.component';
+import { ViewPlateDetailsComponent } from './pages/admin/view-plate-details/view-plate-details.component';
+import { EditPlateComponent } from './pages/admin/edit-plate/edit-plate.component';
+import { TableWhitDetailsDataComponent } from './components/utils/table-whit-details-data/table-whit-details-data.component';
 
 
 
@@ -120,8 +122,10 @@ CusDatosGeneralesComponent,
 CusIniciarSesionComponent,
 CusRegistrarseComponent,
 NewPlatoComponent,
-ViewPlatoComponent,
-ListPlatoComponent
+ListPlatoComponent,
+ViewPlateDetailsComponent,
+EditPlateComponent,
+TableWhitDetailsDataComponent
   ],
   imports: [
     BrowserModule,

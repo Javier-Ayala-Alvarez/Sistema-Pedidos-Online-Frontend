@@ -1,71 +1,95 @@
-<!--<mat-card>-->
-<!--  <mat-list>-->
-<!--    <div mat-subheader>-->
-<!--      <h1>-->
-<!--        Listar Productos-->
-<!--      </h1>-->
-<!--    </div>-->
-<!--    <div mat-subheader>-->
-<!--      <button type="button" class="btn btn-primary"-->
-<!--              routerLink="/admin/add-product">-->
-<!--        Agregar Producto-->
-<!--      </button>-->
-<!--    </div>-->
-<!--    <br>-->
-<!--    <div mat-subheader>-->
-<!--      <form class="form-inline">-->
-<!--        <input class="form-control mr-sm-2" type="search"-->
-<!--               placeholder="Search" aria-label="Search"-->
-<!--               name="search"-->
-<!--               [(ngModel)]="search"-->
-<!--        >-->
-<!--        <button class="btn btn-outline-success my-2 my-sm-0"-->
-<!--                type="submit" (click)="listarProductPorNombrePagina()">Search</button>-->
-<!--      </form>-->
-<!--    </div>-->
-<!--    <br>-->
-<!--    <table class="table">-->
-<!--      <thead style="border-left-color: black; text-align: center;">-->
-<!--      <tr>-->
-<!--        <th class="col-md-3">Nombre</th>-->
-<!--        <th class="col-md-3">Descripcion</th>-->
-<!--        <th class="col-md-3">Precio de Venta</th>-->
-<!--        <th class="col-md-3">Acciones</th>-->
-<!--      </tr>-->
-<!--      </thead>-->
-<!--      <tbody>-->
-<!--      <tr style="text-align: center;" *ngFor="let p of product">-->
-<!--        <td class="align-middle">{{p.nombre}}</td>-->
-<!--        <td class="align-middle">{{p.descripcion}}</td>-->
-<!--        <td class="align-middle">{{p.precioVenta}}</td>-->
-<!--        <td>-->
-<!--          <button type="button" style="margin-right: 10px;" class="btn btn-info"><mat-icon>remove_red_eye</mat-icon></button>-->
-<!--          <button type="button" style="margin-right: 10px;" class="btn btn-warning"-->
-<!--                  [routerLink]="'/admin/edit-product/'+p.id"><mat-icon>edit</mat-icon></button>-->
-<!--          <button type="button" style="margin-right: 10px;" class="btn btn-danger" (click)="eliminarProduct(p.id)"><mat-icon>delete</mat-icon></button>-->
-<!--        </td>-->
-<!--      </tr>-->
-<!--      </tbody>-->
-<!--    </table>-->
-<!--  </mat-list>-->
-<!--</mat-card>-->
+<mat-card>
+  <mat-list>
+    <div mat-subheader>
+      <h1>
+        Lista de platos
+      </h1>
+    </div>
+    <div mat-subheader>
+      <button type="button" class="btn btn-primary"
+              routerLink="/admin/add-plate">
+        Agregar Plato
+      </button>
+    </div>
+    <br>
+    <div mat-subheader>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search"
+               placeholder="Search" aria-label="Search"
+               name="search"
+               [(ngModel)]="search">
+        <!--        <button class="btn btn-outline-success my-2 my-sm-0"-->
+        <!--                type="submit" (click)="listarProductPorNombrePagina()">Search</button>-->
+      </form>
+    </div>
+    <br>
+    <table class="table">
+      <thead style="border-left-color: black; text-align: center;">
+      <tr>
+        <th class="col-md-2">Nombre</th>
+        <th class="col-md-2">Descripción</th>
+        <th class="col-md-2">Precio venta</th>
+        <th class="col-md-2">Conformado</th>
+        <th class="col-md-2">Promoción</th>
+        <th class="col-md-2">Acciones</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr style="text-align: center;" *ngFor="let p of platos">
+        <td class="align-middle">{{p.nombre}}</td>
+        <td class="align-middle">{{p.descripcion}}</td>
+        <td class="align-middle"> ${{p.precio}}</td>
+        <td class="align-middle">
+          <ng-container *ngFor="let pr of p.productos">
+            {{pr.nombre}} <br>
 
-<!--<nav aria-label="Page navigation example" style="margin-top: 15px;">-->
-<!--  <ul class="pagination justify-content-end">-->
-<!--    <li class="page-item" style="margin-left: 25px; margin-right: 25px;">-->
-<!--      <div>Items por pagina {{size}}</div>-->
-<!--    </li>-->
-<!--    <li class="page-item">-->
-<!--      <div>Pagina  {{page+1}}</div>-->
-<!--    </li>-->
-<!--    <li class="page-item" style="margin-left: 25px;">-->
-<!--      <div> hasta {{totalPages.length}}</div>-->
-<!--    </li>-->
-<!--    <li class="page-item">-->
-<!--      <a style="margin: 15px; margin-top: 25px;" (click)="paginaAnterior"><mat-icon>skip_previous</mat-icon></a>-->
-<!--    </li>-->
-<!--    <li class="page-item">-->
-<!--      <a style="margin: 15px;" (click)="paginaSiguiente()"><mat-icon>skip_next</mat-icon></a>-->
-<!--    </li>-->
-<!--  </ul>-->
-<!--</nav>-->
+          </ng-container>
+        </td>
+        <td>
+          <ng-container *ngIf="p.promocion != null; else elseBlock">
+            {{p.promocion.nombre}}
+          </ng-container>
+          <ng-template #elseBlock>
+            No tiene promoción
+          </ng-template>
+        </td>
+
+        <td  >
+          <button type="button" class="btn btn-info" style="margin-right: 1%" [routerLink]="'/admin/view-plate/'+p.id">
+            <mat-icon>remove_red_eye</mat-icon>
+          </button>
+          <button type="button" class="btn btn-warning" style="margin-left: 1%"
+                  [routerLink]="'/admin/edit-plate/'+p.id">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <!--          <button type="button" style="margin-right: 10px;" class="btn btn-danger" (click)="eliminarProduct(p.id)"><mat-icon>delete</mat-icon></button>-->
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </mat-list>
+</mat-card>
+
+<nav aria-label="Page navigation example" style="margin-top: 15px;">
+  <ul class="pagination justify-content-end">
+    <li class="page-item" style="margin-left: 25px; margin-right: 25px;">
+      <div>Items por pagina {{paginationConfig.size}}</div>
+    </li>
+    <li class="page-item">
+      <div>Pagina  {{paginationConfig.page + 1}}</div>
+    </li>
+    <li class="page-item" style="margin-left: 25px;">
+      <div> hasta {{totalPages.length}}</div>
+    </li>
+    <li class="page-item">
+      <a style="margin: 15px; margin-top: 25px;" (click)="paginaAnterior()">
+        <mat-icon>skip_previous</mat-icon>
+      </a>
+    </li>
+    <li class="page-item">
+      <a style="margin: 15px;" (click)="paginaSiguiente()">
+        <mat-icon>skip_next</mat-icon>
+      </a>
+    </li>
+  </ul>
+</nav>

@@ -91,7 +91,7 @@ export class ListCategorysComponent implements OnInit {
         this.categorysService.eliminarCategory(id).subscribe(
         (data)=>{
           this.category=this.category.filter((category:any)=> this.category.id!=id);
-          Swal.fire('Categoria eliminada','La categoria ha sido eliminada de la base de datos','success');
+          Swal.fire('CategoriaInterface eliminada','La categoria ha sido eliminada de la base de datos','success');
           this.ngOnInit();
         },
         (error)=> {

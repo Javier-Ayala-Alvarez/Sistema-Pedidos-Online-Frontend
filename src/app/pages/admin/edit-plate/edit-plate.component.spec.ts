@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ViewPlatoComponent } from './view-plato.component';
+import { EditPlateComponent } from './edit-plate.component';
 
-describe('ViewPlatoComponent', () => {
-  let component: ViewPlatoComponent;
-  let fixture: ComponentFixture<ViewPlatoComponent>;
+describe('EditPlateComponent', () => {
+  let component: EditPlateComponent;
+  let fixture: ComponentFixture<EditPlateComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ViewPlatoComponent ]
+      declarations: [ EditPlateComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ViewPlatoComponent);
+    fixture = TestBed.createComponent(EditPlateComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -34,6 +34,9 @@ import {CusDatosGeneralesComponent} from './cus-datos-generales/cus-datos-genera
 import {CusIniciarSesionComponent} from './cus-iniciar-sesion/cus-iniciar-sesion.component';
 import {NgModule} from '@angular/core';
 import {ListPlatoComponent} from "./pages/admin/list-plato/list-plato.component";
+import {ViewPlateDetailsComponent} from "./pages/admin/view-plate-details/view-plate-details.component";
+import {NewPlatoComponent} from "./pages/admin/new-plato/new-plato.component";
+import {EditPlateComponent} from "./pages/admin/edit-plate/edit-plate.component";
 
 const routes: Routes = [
 
@@ -132,18 +135,18 @@ const routes: Routes = [
         component: ListPlatoComponent
       },
       {
-        path: 'add-product',
-        component: NewProductsComponent
+        path: 'add-plate',
+        component: NewPlatoComponent
       },
       {
-        path: 'view-product',
-        component: ViewProductsComponent
+        path: 'view-plate/:id',
+        component: ViewPlateDetailsComponent
       },
       {
-        path: 'edit-product/:id',
-        component: EditProductComponent
+        path: 'edit-plate/:id',
+        component: EditPlateComponent
       },
-
+      //End path for plate components
       {
         path: 'list-employee',
         component: ListEmployeesComponent

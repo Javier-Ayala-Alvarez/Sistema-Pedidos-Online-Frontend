@@ -1,1 +1,71 @@
-<p>new-plato works!</p>
+<mat-card>
+  <div mat-subheader>
+    <h1>
+      Agregar plato
+    </h1>
+  </div>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-md-12 mb-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <form (ngSubmit)="agregarPlato()">
+              <div class="row mb-6">
+                <div class="col">
+                  <div class="form-outline">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                      <mat-label>Nombre de plato</mat-label>
+                      <input
+                        required
+                        autofocus
+                        type="text"
+                        name="product.nombre"
+                        matInput
+                        placeholder="Digie el nombre"
+                        [(ngModel)]="plato.nombre">
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                      <mat-label>Descripcion</mat-label>
+                      <input
+                        required
+                        autofocus
+                        type="text"
+                        name="product.descripcion"
+                        matInput
+                        placeholder="Digite una descripcion"
+                        [(ngModel)]="plato.descripcion">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-6">
+                <div class="col">
+                  <div class="form-outline">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                      <mat-label>Categoria</mat-label>
+                      <mat-select name="category"  [(ngModel)] ="plato.idCategoria">
+                        <mat-option *ngFor="let c of categorias"[value]="c.id">
+                          {{c.nombre}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <br>
+              <br>
+              <div class="containter text-center mt15">
+                <button mat-raised-button color="primary">Guardar</button>
+              </div>
+
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

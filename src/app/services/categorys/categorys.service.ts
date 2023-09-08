@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import baserUrl from '../helper';
+import {Observable} from "rxjs";
+import {CategoriaInterface} from "../../interface/categoria-interface";
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,10 @@ export class CategorysService {
 
   public guardarCategory(category:any){
     return this.httpClient.post(`${baserUrl}/api/category/new`,category);
+  }
+
+  public listaCategotyDTOActivos():Observable<CategoriaInterface[]>{
+    return this.httpClient.get<CategoriaInterface[]>(`${baserUrl}/api/category/list/DTO/activo`);
   }
 
   public listarCategoryActivo(){

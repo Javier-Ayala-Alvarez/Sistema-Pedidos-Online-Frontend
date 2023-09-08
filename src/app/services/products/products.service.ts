@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import baserUrl from '../helper';
+import {Observable} from "rxjs";
+import {ProductoInterface} from "../../interface/producto-interface";
 @Injectable({
   providedIn: 'root'
 })
@@ -11,6 +13,11 @@ export class ProductsService {
   public guardarProduct(product:any){
     return this.httpClient.post(`${baserUrl}/api/product/new`,product);
   }
+
+    public listarProductActivo():Observable<ProductoInterface[]>{
+        return this.httpClient.get<ProductoInterface[]>(`${baserUrl}/api/product/list/DTO/activo`);
+    }
+
 
 
   public listarProductPorId(id:any){

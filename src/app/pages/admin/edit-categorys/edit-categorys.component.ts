@@ -33,10 +33,10 @@ export class EditCategorysComponent implements OnInit {
   }
 
   public actualizarCategory(){
-   
+
     this.categorysService.actualizarCategory(this.category,this.id).subscribe(
       (data)=>{
-        Swal.fire('Categoria actualizado','La Categoria ha sido actualizada con èxito','success').
+        Swal.fire('CategoriaInterface actualizado','La CategoriaInterface ha sido actualizada con èxito','success').
         then((e)=>{
           this.router.navigate(['/admin/list-category']);
         })
