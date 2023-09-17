@@ -8,7 +8,6 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {CategoriaInterface} from "../../../interface/categoria-interface";
 import {PromocionInterface} from "../../../interface/promocion-interface";
-import {Plato} from "../../../entity/plato";
 import {Editarplato} from "../../../entity/Editarplato";
 import Swal from "sweetalert2";
 import {PlatoInterface} from "../../../interface/plato-interface";
@@ -48,8 +47,8 @@ export class EditPlateComponent implements OnInit {
     ngOnInit(): void {
         this.id = this.route.snapshot.params['id'];
         this.getDataPlatoOfService();
-        console.log(this.platoInterface);
-        this.transladarInformacion();
+
+
 
         this.categoryService.listaCategotyDTOActivos().subscribe(
             (data: CategoriaInterface[]) => {
@@ -65,7 +64,6 @@ export class EditPlateComponent implements OnInit {
         this.productService.listarProductActivo().subscribe(
             (data: ProductoInterface[]) => {
                 this.productos = data;
-                console.log(this.productos);
             },
             (error) => {
                 console.log(error);
@@ -77,22 +75,21 @@ export class EditPlateComponent implements OnInit {
         this.promocionService.listarPromocionesActivas().subscribe(
             (data: PromocionInterface[]) => {
                 this.promociones = data;
-                console.log(this.promociones);
+
             },
             (error) => {
                 console.log(error);
                 Swal.fire('Error !!', 'Error al cargar los datos', 'error');
             }
         )
-
-
     }
 
     private getDataPlatoOfService() {
         this.platoService.ObtenerPlatoPorId(this.id).subscribe(
             (data) => {
                 this.platoInterface = data;
-                console.log(data);
+                this.transladarInformacion();
+
             },
             (error) => {
                 console.log(error);
