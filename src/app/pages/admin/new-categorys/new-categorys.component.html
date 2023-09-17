@@ -15,10 +15,21 @@
               required
               autofocus
               type="text"
-              name="ct_Nombre"
+              name="nombre"
               matInput
               placeholder="Digite el nombre de la categoria"
-              [(ngModel)]="category.ct_Nombre">
+              [(ngModel)]="category.nombre">
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Url</mat-label>
+              <input
+              required
+              autofocus
+              type="text"
+              name="img"
+              matInput
+              placeholder="Digite la direccion url de la imagen"
+              [(ngModel)]="category.img">
             </mat-form-field>
             <div class="containter text-center mt15">
               <button mat-raised-button color="primary">Guardar</button>

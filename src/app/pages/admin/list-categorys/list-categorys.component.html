@@ -8,7 +8,7 @@
     <div mat-subheader>
       <button type="button" class="btn btn-primary"
       routerLink="/admin/add-category">
-        Agregar CategoriaInterface
+        Agregar Categoria
       </button>
     </div>
     <br>
@@ -29,17 +29,18 @@
         <tr>
           <th class="col-md-3">ID</th>
           <th class="col-md-3">Nombre</th>
+          <th class="col-md-3">Imagen</th>
           <th class="col-md-3">Acciones</th>
         </tr>
       </thead>
       <tbody>
         <tr style="text-align: center;" *ngFor="let c of category">
           <td class="align-middle">{{c.id}}</td>
-          <td class="align-middle">{{c.ct_Nombre}}</td>
+          <td class="align-middle">{{c.nombre}}</td>
+          <td class="align-middle"><img src="{{c.img}}" alt="" class="img-fluid" style="max-width: 60%;"></td>
           <td class="align-middle">
-            <button type="button" style="margin-right: 10px;" class="btn btn-warning"
+            <button type="button"  class="btn btn-warning"
             [routerLink]="'/admin/edit-category/'+c.id"><mat-icon>edit</mat-icon></button>
-            <button type="button" style="margin-right: 10px;" class="btn btn-danger" (click)="eliminarCategory(c.id)"><mat-icon>delete</mat-icon></button>
           </td>
         </tr>
       </tbody>

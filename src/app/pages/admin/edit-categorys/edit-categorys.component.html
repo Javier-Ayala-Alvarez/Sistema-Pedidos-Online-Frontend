@@ -15,14 +15,26 @@
               required
               autofocus
               type="text"
-              name="ct_Nombre"
+              name="nombre"
               matInput
               placeholder="Digite el nombre de la categoria"
-              [(ngModel)]="category.ct_Nombre">
+              [(ngModel)]="category.nombre">
             </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Url imagen</mat-label>
+              <input
+              required
+              autofocus
+              type="text"
+              name="img"
+              matInput
+              placeholder="Digite el nombre de la categoria"
+              [(ngModel)]="category.img">
+            </mat-form-field>
+
             <mat-slide-toggle class="mt20"
             name="activo"
-            [(ngModel)]="category.ct_Estado"
+            [(ngModel)]="category.estado"
             color="primary">Estado CategoriaInterface
             </mat-slide-toggle>
             <br>
