@@ -21,7 +21,6 @@ export class NewPlatoComponent implements OnInit {
 
     public categorias: CategoriaInterface[] | undefined;
     public productos: ProductoInterface[] | undefined;
-    public promociones: PromocionInterface[] | undefined;
     public productosSelecionados: any[] = [];
 
     public plato: Editarplato = new Editarplato();
@@ -37,7 +36,7 @@ export class NewPlatoComponent implements OnInit {
             },
             (error) => {
                 console.log(error);
-                Swal.fire('Error !!', 'Error al cargar los datos', 'error');
+                Swal.fire('Error !!', 'Asegurese que existan registros de categorias en el sistema', 'info');
             }
         )
 
@@ -48,21 +47,12 @@ export class NewPlatoComponent implements OnInit {
             },
             (error) => {
                 console.log(error);
-                Swal.fire('Error !!', 'Error al cargar los datos', 'error');
+                Swal.fire('Error !!', 'Asegurese que existan registros de productos en el sistema', 'info');
             }
         )
 
 
-        this.promocionService.listarPromocionesActivas().subscribe(
-            (data: PromocionInterface[]) => {
-                this.promociones = data;
-                console.log(this.promociones);
-            },
-            (error) => {
-                console.log(error);
-                Swal.fire('Error !!', 'Error al cargar los datos', 'error');
-            }
-        )
+
 
 
     }
@@ -93,7 +83,7 @@ export class NewPlatoComponent implements OnInit {
         this.platoService.savePlate(this.plato).subscribe(
             (data) => {
                 console.log(data);
-                Swal.fire('Producto guardado', 'El producto ha sido guardado con éxito', 'success');
+                Swal.fire('Plato guardado', 'El plato ha sido guardado con éxito', 'success');
                 this.plato = new Editarplato();
                 this.router.navigate(['/admin/list-plate']);
             },
