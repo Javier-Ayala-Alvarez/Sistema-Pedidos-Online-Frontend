@@ -190,7 +190,8 @@ const routes: Routes = [
         component: EditCompanyComponent
       }
     ]
-  }, {
+  },
+  {
     path: 'customer-dashboard',
     component: CustomerDashboardComponent,
     canActivate: [NormalGuard],
@@ -203,7 +204,6 @@ const routes: Routes = [
         path: 'edit-profile',
         component: EditProfileComponent
       },
-
     ]
   }
 ];
