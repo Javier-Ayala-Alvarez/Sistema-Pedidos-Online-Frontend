@@ -32,6 +32,7 @@ export class ListProductsComponent implements OnInit {
     this.productSservice.listarProductPorPagina(this.page,this.size,this.order,this.asc).subscribe(
       (dato:any)=>{
         this.product=dato.content;
+        console.log("c",this.product)
         this.isFirst=dato.first;
         this.isLast=dato.last;
         this.totalPages=new Array(dato['totalPages']);
