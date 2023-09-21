@@ -35,7 +35,9 @@ export class EditProductComponent implements OnInit {
     )
     this.categorysService.listarCategory().subscribe(
       (data:any)=>{
+       
         this.categorys=data;
+        console.log("aaa",this.categorys);
       },
       (error)=>{
         alert('Error al cargar las categorias');
