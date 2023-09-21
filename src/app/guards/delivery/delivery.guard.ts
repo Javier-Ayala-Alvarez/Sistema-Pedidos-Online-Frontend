@@ -6,18 +6,18 @@ import { LoginService } from 'src/app/services/login/login.service';
 @Injectable({
   providedIn: 'root'
 })
-export class NormalGuard implements CanActivate {
+export class DeliveryGuard implements CanActivate {
 
-  constructor(private loginService:LoginService, private router:Router){
+  constructor(private loginService:LoginService,private router:Router){
 
   }
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
-      if(this.loginService.isLoggedIn()&& this.loginService.getUserRole()=='CLIENTE'){
-        return true;
-      }
-      this.router.navigate(['login']);
+    if(this.loginService.isLoggedIn()&&this.loginService.getUserRole()=='DELIVERY'){
+      return true;
+    }
+    this.router.navigate(['login']);
       return false;
   }
 

@@ -12,8 +12,10 @@ import Swal from 'sweetalert2';
 export class NewCategorysComponent implements OnInit {
 
   category={
-    ct_Nombre:'',
-    ct_Estado:true
+    nombre:'',
+    estado:true,
+    img:'',
+
   }
   constructor(private categorysService:CategorysService,
     private scnack:MatSnackBar,
@@ -23,8 +25,8 @@ export class NewCategorysComponent implements OnInit {
   }
 
   guardarCategory(){
-    if(this.category.ct_Nombre.trim()==''||
-      this.category.ct_Nombre==null){
+    if(this.category.nombre.trim()==''||
+      this.category.estado==null){
         this.scnack.open("el campo es requerido","",{
           duration:3000
         })
@@ -32,7 +34,7 @@ export class NewCategorysComponent implements OnInit {
       }
       this.categorysService.guardarCategory(this.category).subscribe(
         (dato:any)=>{
-          this.category.ct_Nombre='';
+          this.category.nombre='';
           Swal.fire('Categorìa agregada','La categorìa ha sido agregada con èxito','success');
           this.router.navigate(['/admin/list-category']);
         }

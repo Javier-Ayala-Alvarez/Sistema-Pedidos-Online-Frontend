@@ -78,6 +78,10 @@ import { ListPlatoComponent } from './pages/admin/list-plato/list-plato.componen
 import { ViewPlateDetailsComponent } from './pages/admin/view-plate-details/view-plate-details.component';
 import { EditPlateComponent } from './pages/admin/edit-plate/edit-plate.component';
 import { TableWhitDetailsDataComponent } from './components/utils/table-whit-details-data/table-whit-details-data.component';
+import { CocinaDashboardComponent } from './pages/cocina/cocina-dashboard/cocina-dashboard.component';
+import { DeliveryDashboardComponent } from './pages/delivery/delivery-dashboard/delivery-dashboard.component';
+import { DeliverySidebarComponent } from './pages/delivery/delivery-sidebar/delivery-sidebar.component';
+import { CocinaSidebarComponent } from './pages/cocina/cocina-sidebar/cocina-sidebar.component';
 
 
 
@@ -125,7 +129,11 @@ NewPlatoComponent,
 ListPlatoComponent,
 ViewPlateDetailsComponent,
 EditPlateComponent,
-TableWhitDetailsDataComponent
+TableWhitDetailsDataComponent,
+CocinaDashboardComponent,
+DeliveryDashboardComponent,
+DeliverySidebarComponent,
+CocinaSidebarComponent
   ],
   imports: [
     BrowserModule,
