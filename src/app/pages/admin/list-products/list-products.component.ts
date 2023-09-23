@@ -92,7 +92,7 @@ export class ListProductsComponent implements OnInit {
         this.productSservice.eliminarProduct(id).subscribe(
           (data)=>{
             this.product=this.product.filter((product:any)=>this.product.id!=id);
-            Swal.fire('ProductoInterface eliminada','El producto ha sido eliminado de la base de datos','success');
+            Swal.fire('Producto eliminada','El producto ha sido eliminado de la base de datos','success');
             this.ngOnInit();
           },
           (error)=>{
