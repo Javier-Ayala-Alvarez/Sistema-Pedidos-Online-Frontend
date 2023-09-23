@@ -31,7 +31,7 @@ export class ListProductsComponent implements OnInit {
   ngOnInit(): void {
     this.productSservice.listarProductPorPagina(this.page,this.size,this.order,this.asc).subscribe(
       (dato:any)=>{
-        this.product=dato.content;
+        this.product=dato;
         console.log("c",this.product)
         this.isFirst=dato.first;
         this.isLast=dato.last;
