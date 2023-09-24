@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { EntityProducts } from '../entity/entityProducts';
 import { CusModalProductoComponent } from '../cus-modal-producto/cus-modal-producto.component';
 import {MatDialog} from "@angular/material/dialog";
-import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.component';
+import { LoadingSpinnerComponent } from '../components/loading-spinner/loading-spinner.component';
 
 @Component({
   selector: 'app-cus-plato',

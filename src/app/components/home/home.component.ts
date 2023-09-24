@@ -2,7 +2,7 @@ import { Component, OnInit, Output,EventEmitter, ViewChild } from '@angular/core
 import { EntityCategory } from 'src/app/entity/entityCategory';
 import { CusCategoryService } from 'src/app/services/cusCategory/cus-category.service';//src\app\entity
 import { Router } from '@angular/router';
-import { LoadingSpinnerComponent } from 'src/app/loading-spinner/loading-spinner.component';
+import { LoadingSpinnerComponent } from 'src/app/components/loading-spinner/loading-spinner.component';
 
 
 @Component({
