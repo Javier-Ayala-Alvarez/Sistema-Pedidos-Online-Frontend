@@ -53,7 +53,6 @@ export class ListPlatoComponent implements OnInit {
   }
 
 
-
   paginaSiguiente(): void {
     if (!this.isLast) {
       this.paginationConfig.page++;
@@ -66,5 +65,30 @@ export class ListPlatoComponent implements OnInit {
       this.paginationConfig.page--;
       this.callListarPlatoPorPaginaService();
     }
+  }
+
+
+  public darBajaPlato(id: number): void {
+    Swal.fire({
+      title: '¿Estas seguro de dar de baja?',
+      text: 'El plato se dará de baja',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonText: 'Si, dar de baja',
+      cancelButtonText: 'No, cancelar'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.platoService.bajaPlato(id).subscribe(
+          (data:any) => {
+            Swal.fire('Baja !!', 'Plato dado de baja correctamente', 'success');
+            this.callListarPlatoPorPaginaService();
+          } , (error) => {
+            console.log(error);
+            Swal.fire('Error !!', 'Error al dar de baja el plato', 'error');
+          }
+        );
+      }
+    })
+
   }
 }

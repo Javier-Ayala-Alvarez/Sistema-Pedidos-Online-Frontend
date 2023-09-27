@@ -30,4 +30,8 @@ export class PlatoService {
     public updatePlate(plate:Plato){
         return this.httpClient.put<PlatoInterface>(`${baserUrl}/api/platos/actualizar`,plate );
     }
+
+  public bajaPlato(id:number):Observable<any>{
+    return this.httpClient.put<any>(`${baserUrl}/api/platos/baja/${id}`,null);
+  }
 }
