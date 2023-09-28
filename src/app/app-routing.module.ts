@@ -37,6 +37,15 @@ import {ListPlatoComponent} from "./pages/admin/list-plato/list-plato.component"
 import {ViewPlateDetailsComponent} from "./pages/admin/view-plate-details/view-plate-details.component";
 import {NewPlatoComponent} from "./pages/admin/new-plato/new-plato.component";
 import {EditPlateComponent} from "./pages/admin/edit-plate/edit-plate.component";
+import { DeliveryDashboardComponent } from './pages/delivery/delivery-dashboard/delivery-dashboard.component';
+import { DeliveryGuard } from './guards/delivery/delivery.guard';
+import { CocinaDashboardComponent } from './pages/cocina/cocina-dashboard/cocina-dashboard.component';
+import { CocinaGuard } from './guards/cocina/cocina.guard';
+import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
+import { CocinaWelcomeComponent } from './pages/cocina/cocina-welcome/cocina-welcome.component';
+import { CocinaPedidosComponent } from './pages/cocina/cocina-pedidos/cocina-pedidos.component';
+import { DeliveryWelcomeComponent } from './pages/delivery/delivery-welcome/delivery-welcome.component';
+import { DeliveryPedidosComponent } from './pages/delivery/delivery-pedidos/delivery-pedidos.component';
 
 const routes: Routes = [
 
@@ -91,6 +100,10 @@ const routes: Routes = [
     component: DashboardComponent,
     canActivate: [AdminGuard],
     children: [
+      {
+        path:'welcome',
+        component:WelcomeComponent
+      },
       {
         path: 'profile',
         component: ProfileComponent
@@ -188,6 +201,36 @@ const routes: Routes = [
       {
         path: 'edit-company/:id',
         component: EditCompanyComponent
+      }
+    ]
+  },
+  {
+    path:'delivery-dashboard',
+    component:DeliveryDashboardComponent,
+    canActivate:[DeliveryGuard],
+    children:[
+      {
+        path:'delivery-welcome',
+        component:DeliveryWelcomeComponent
+      },
+      {
+        path:'delivery-pedidos',
+        component:DeliveryPedidosComponent
+      }
+    ]
+  },
+  {
+    path:'cocina-dashboard',
+    component:CocinaDashboardComponent,
+    canActivate:[CocinaGuard],
+    children:[
+      {
+        path:'cocina-welcome',
+        component:CocinaWelcomeComponent
+      },
+      {
+        path:'cocina-pedidos',
+        component:CocinaPedidosComponent
       }
     ]
   },

@@ -42,17 +42,22 @@ export class LoginComponent implements OnInit {
           this.loginService.setUser(user);
           console.log(user);
           if(this.loginService.getUserRole() == 'ADMIN'){
-            //dashboard admin
-            //window.location.href = '/admin';
-            this.router.navigate(['admin']);
+            this.router.navigate(['admin/welcome']);
             this.loginService.loginStatusSubjec.next(true);
           }
           else if(this.loginService.getUserRole()=='CLIENTE'){
-            //user dashboard
-            //window.location.href /user-dashboard
             this.router.navigate(['customer-dashboard']);
             this.loginService.loginStatusSubjec.next(true);
-          }else{
+          }
+          else if(this.loginService.getUserRole()=='COCINA'){
+            this.router.navigate(['cocina-dashboard/cocina-welcome']);
+            this.loginService.loginStatusSubjec.next(true);
+          }
+          else if(this.loginService.getUserRole()=='DELIVERY'){
+            this.router.navigate(['delivery-dashboard/delivery-welcome']);
+            this.loginService.loginStatusSubjec.next(true);
+          }
+          else{
             this.loginService.logout();
           }
         })

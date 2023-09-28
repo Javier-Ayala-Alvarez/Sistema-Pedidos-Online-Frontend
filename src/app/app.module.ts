@@ -82,6 +82,10 @@ import { CocinaDashboardComponent } from './pages/cocina/cocina-dashboard/cocina
 import { DeliveryDashboardComponent } from './pages/delivery/delivery-dashboard/delivery-dashboard.component';
 import { DeliverySidebarComponent } from './pages/delivery/delivery-sidebar/delivery-sidebar.component';
 import { CocinaSidebarComponent } from './pages/cocina/cocina-sidebar/cocina-sidebar.component';
+import { CocinaWelcomeComponent } from './pages/cocina/cocina-welcome/cocina-welcome.component';
+import { CocinaPedidosComponent } from './pages/cocina/cocina-pedidos/cocina-pedidos.component';
+import { DeliveryWelcomeComponent } from './pages/delivery/delivery-welcome/delivery-welcome.component';
+import { DeliveryPedidosComponent } from './pages/delivery/delivery-pedidos/delivery-pedidos.component';
 
 
 
@@ -133,7 +137,11 @@ TableWhitDetailsDataComponent,
 CocinaDashboardComponent,
 DeliveryDashboardComponent,
 DeliverySidebarComponent,
-CocinaSidebarComponent
+CocinaSidebarComponent,
+CocinaWelcomeComponent,
+CocinaPedidosComponent,
+DeliveryWelcomeComponent,
+DeliveryPedidosComponent
   ],
   imports: [
     BrowserModule,
