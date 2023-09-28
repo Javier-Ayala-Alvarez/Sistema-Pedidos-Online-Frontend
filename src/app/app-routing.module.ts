@@ -41,11 +41,6 @@ import { DeliveryDashboardComponent } from './pages/delivery/delivery-dashboard/
 import { DeliveryGuard } from './guards/delivery/delivery.guard';
 import { CocinaDashboardComponent } from './pages/cocina/cocina-dashboard/cocina-dashboard.component';
 import { CocinaGuard } from './guards/cocina/cocina.guard';
-import { WelcomeComponent } from './pages/admin/welcome/welcome.component';
-import { CocinaWelcomeComponent } from './pages/cocina/cocina-welcome/cocina-welcome.component';
-import { CocinaPedidosComponent } from './pages/cocina/cocina-pedidos/cocina-pedidos.component';
-import { DeliveryWelcomeComponent } from './pages/delivery/delivery-welcome/delivery-welcome.component';
-import { DeliveryPedidosComponent } from './pages/delivery/delivery-pedidos/delivery-pedidos.component';
 
 const routes: Routes = [
 
@@ -100,10 +95,6 @@ const routes: Routes = [
     component: DashboardComponent,
     canActivate: [AdminGuard],
     children: [
-      {
-        path:'welcome',
-        component:WelcomeComponent
-      },
       {
         path: 'profile',
         component: ProfileComponent
@@ -209,14 +200,7 @@ const routes: Routes = [
     component:DeliveryDashboardComponent,
     canActivate:[DeliveryGuard],
     children:[
-      {
-        path:'delivery-welcome',
-        component:DeliveryWelcomeComponent
-      },
-      {
-        path:'delivery-pedidos',
-        component:DeliveryPedidosComponent
-      }
+
     ]
   },
   {
@@ -224,14 +208,7 @@ const routes: Routes = [
     component:CocinaDashboardComponent,
     canActivate:[CocinaGuard],
     children:[
-      {
-        path:'cocina-welcome',
-        component:CocinaWelcomeComponent
-      },
-      {
-        path:'cocina-pedidos',
-        component:CocinaPedidosComponent
-      }
+
     ]
   },
   {
