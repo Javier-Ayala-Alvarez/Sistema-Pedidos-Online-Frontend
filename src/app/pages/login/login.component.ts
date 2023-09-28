@@ -42,7 +42,7 @@ export class LoginComponent implements OnInit {
           this.loginService.setUser(user);
           console.log(user);
           if(this.loginService.getUserRole() == 'ADMIN'){
-            this.router.navigate(['admin/welcome']);
+            this.router.navigate(['admin']);
             this.loginService.loginStatusSubjec.next(true);
           }
           else if(this.loginService.getUserRole()=='CLIENTE'){
