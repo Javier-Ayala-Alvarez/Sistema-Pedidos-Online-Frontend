@@ -135,6 +135,7 @@ ListPlatoComponent,
 ViewPlateDetailsComponent,
 EditPlateComponent,
 TableWhitDetailsDataComponent,
+
 CocinaDashboardComponent,
 DeliveryDashboardComponent,
 DeliverySidebarComponent,
