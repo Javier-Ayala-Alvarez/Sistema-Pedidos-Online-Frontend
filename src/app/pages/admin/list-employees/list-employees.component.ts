@@ -42,11 +42,6 @@ export class ListEmployeesComponent implements OnInit {
     )
   }
 
-
-
-
-
-
   paginaSiguiente():void{
     if(!this.isLast){
       this.page++;
@@ -60,8 +55,26 @@ export class ListEmployeesComponent implements OnInit {
     }
   }
 
-  public eliminarEmployee(id:any){
+  public listarEmpleadosPorNombrePagina(){
+    if(this.search==''){
+      this.ngOnInit();
+    }else
+    this.employeesService.listarEmpleadosPorNombrePagina(this.search,this.page,this.size,this.asc).subscribe(
+      (dato:any)=>{
+        this.employee=dato.content;
+        this.isFirst=dato.first;
+        this.isLast=dato.last;
+        this.totalPages=new Array(dato['totalPages']);
+        console.log(this.employee);
+      },
+      (error)=>{
+        console.log(error);
+        Swal.fire('Error !!','Error al realizar la busqueda','error');
+      }
+    )
+  }
 
+  public eliminarEmployee(id:any){
     Swal.fire({
       title:'Eliminar categoria',
       text:'¿Estás seguro , quieres eliminar esta categoria?',
