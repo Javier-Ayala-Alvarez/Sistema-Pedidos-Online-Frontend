@@ -44,8 +44,18 @@ export class EditEmployessComponent implements OnInit {
   }
 
   public actualizarEmployee(){
-
-   // this.employeesService.
+    this.employeesService.actualizarEmployee(this.employee,this.id).subscribe(
+      (data)=>{
+        Swal.fire('Empleado actualizado','El empleado ha sido actualizado con èxito','success').
+        then((e)=>{
+          this.router.navigate(['/admin/list-employee']);
+        })
+      },
+      (error)=>{
+        Swal.fire('Error en el sistema','No se ha podido actualizar el empleado','error');
+        console.log(error);
+      }
+    )
   }
 
 }

@@ -25,7 +25,7 @@ export class EmployeesService {
     return this.httpClient.get(`${baserUrl}/api/empleados/list/search?empleado=${search}&size=${size}&asc=${asc}`);
   }
   public actualizarEmployee(employee:any,id:any){
-    return this.httpClient.put(`${baserUrl}/api/empleados/update/${id}`,employee);
+    return this.httpClient.put(`${baserUrl}/api/empleados/update2/${id}`,employee);
   }
 
   public darDeBajaEmployee(employee:any,id:any){
