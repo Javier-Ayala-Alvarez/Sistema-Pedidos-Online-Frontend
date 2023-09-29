@@ -28,6 +28,7 @@ export class HomeComponent implements OnInit {
     this.loading = true; // Activar el spinner
   
     this.category.loadData().then(() => {
+      
       this.entityArray = this.category.entityArray;
       this.loading = false; // Desactivar el spinner cuando los datos estén cargados
     });

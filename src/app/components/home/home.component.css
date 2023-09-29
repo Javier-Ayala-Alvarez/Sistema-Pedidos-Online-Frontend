@@ -22,3 +22,12 @@
 .box:hover:before {
   opacity: 1;
 }
+
+.food-name {
+  text-align: center;
+  color: #ff6600; /* Color del texto */
+  font-family: "Arial", sans-serif; /* Cambia la fuente al que prefieras */
+  font-size: 18px; /* Cambia el tamaño de la fuente al que prefieras */
+  padding: 5px; /* Espacio alrededor del texto */
+  border-radius: 10px; /* Bordes redondeados */
+}

@@ -22,10 +22,8 @@
                 </div>
                 <div class="mb-3">
                     <label for="apodo" class="form-label">Apodo:</label>
-                    <input type="text" class="form-control" id="apodo" name="apodo" [(ngModel)]="customer.apodo" required #apodo="ngModel">
-                    <div class="invalid-feedback" *ngIf="apodo.invalid && (apodo.dirty || apodo.touched)">
-                      Campo requerido
-                    </div>
+                    <input type="text" class="form-control" id="apodo" name="apodo" [(ngModel)]="customer.apodo" >
+                 
                   </div>
                   <div class="mb-3">
                     <label for="fechaNacimiento" class="form-label">Fecha de Nacimiento:</label>
