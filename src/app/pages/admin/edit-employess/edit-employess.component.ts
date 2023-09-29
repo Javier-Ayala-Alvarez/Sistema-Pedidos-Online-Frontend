@@ -43,8 +43,9 @@ export class EditEmployessComponent implements OnInit {
     )
   }
 
-  public actualizarSucursal(){
+  public actualizarEmployee(){
 
+   // this.employeesService.
   }
 
 }

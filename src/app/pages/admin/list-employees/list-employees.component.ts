@@ -100,6 +100,29 @@ export class ListEmployeesComponent implements OnInit {
     })
   }
   public darBajaEmployee(id:any){
+    Swal.fire({
+      title:'Dar de baja Empleado',
+      text:'¿Estás seguro , quiere dar de baja este empleado?',
+      icon:'warning',
+      showCancelButton:true,
+      confirmButtonColor:'#3085d6',
+      cancelButtonColor:'#d33',
+      confirmButtonText:'dar baja',
+      cancelButtonText:'Cancelar'
+    }).then((resultado)=>{
+      if(resultado.isConfirmed){
+        this.employeesService.darDeBajaEmployee(this.employee,id).subscribe(
+          (data)=>{
+            this.employee=this.employee.filter((employee:any)=>this.employee.id!=id);
+            Swal.fire('Empleado dado de baja','El empleado ha sido dado de baja de la base de datos','success');
+          this.ngOnInit();
+          },
+          (error)=> {
+            Swal.fire('Error','Error al dar de baja el empleado','error');
+          }
+        )
+      }
+    })
 
 
   }

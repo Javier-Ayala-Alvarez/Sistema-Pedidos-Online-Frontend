@@ -8,7 +8,7 @@
     <div class="bootstrap-wrapper">
       <div class="row">
         <div class="col-md-8 offset-md-2">
-          <form *ngIf="employee">
+          <form *ngIf="employee" (ngSubmit)="actualizarEmployee()">
             <mat-form-field class="w100" appearance="outline">
               <mat-label>DUI</mat-label>
               <input
@@ -79,6 +79,11 @@
               color="primary">
                 Estado de Empleado
               </mat-slide-toggle>
+              <br>
+              <br>
+              <div class="container text-center mt15">
+                <button mat-raised-button color="primary">Guardar</button>
+              </div>
           </form>
         </div>
       </div>
