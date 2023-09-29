@@ -13,8 +13,16 @@ export class EmployeesService {
     return this.httpClient.post(`${baserUrl}/api/empleados/new`,employee);
   }
 
+  public listarEmployeePorId(id:any){
+    return this.httpClient.get(`${baserUrl}/api/empleados/list/${id}`);
+
+  }
   public  listarEmployeePorPagina(page:number,size:number,order:string,asc:boolean){
     return this.httpClient.get(`${baserUrl}/api/empleados/list/pageable?page=${page}&size=${size}&order=${order}&asc=${asc}`);
+  }
+
+  public listarEmpleadosPorNombrePagina(search:string,page:number,size:number,asc:boolean){
+    return this.httpClient.get(`${baserUrl}/api/empleados/list/search?empleado=${search}&size=${size}&asc=${asc}`);
   }
 
 

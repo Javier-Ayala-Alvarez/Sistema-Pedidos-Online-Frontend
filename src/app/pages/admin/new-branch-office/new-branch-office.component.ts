@@ -21,6 +21,9 @@ export class NewBranchOfficeComponent implements OnInit {
     abreviatura:'',
     direccion:'',
     estado:true,
+    altitud:'',
+    longitud:'',
+    radio:'',
     empresa:{
       id:''
     }
@@ -63,6 +66,9 @@ export class NewBranchOfficeComponent implements OnInit {
           abreviatura:'',
           direccion:'',
           estado:true,
+          altitud:'',
+          longitud:'',
+          radio:'',
           empresa:{
             id:''
           }

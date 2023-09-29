@@ -84,6 +84,11 @@ import { DeliverySidebarComponent } from './pages/delivery/delivery-sidebar/deli
 import { CocinaSidebarComponent } from './pages/cocina/cocina-sidebar/cocina-sidebar.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
+import { CocinaWelcomeComponent } from './pages/cocina/cocina-welcome/cocina-welcome.component';
+import { CocinaPedidosComponent } from './pages/cocina/cocina-pedidos/cocina-pedidos.component';
+import { DeliveryWelcomeComponent } from './pages/delivery/delivery-welcome/delivery-welcome.component';
+import { DeliveryPedidosComponent } from './pages/delivery/delivery-pedidos/delivery-pedidos.component';
+
 
 
 @NgModule({
@@ -131,11 +136,17 @@ ListPlatoComponent,
 ViewPlateDetailsComponent,
 EditPlateComponent,
 TableWhitDetailsDataComponent,
+
 CocinaDashboardComponent,
 DeliveryDashboardComponent,
 DeliverySidebarComponent,
 CocinaSidebarComponent,
-LoadingSpinnerComponent
+LoadingSpinnerComponent,
+
+CocinaWelcomeComponent,
+CocinaPedidosComponent,
+DeliveryWelcomeComponent,
+DeliveryPedidosComponent
   ],
   imports: [
     BrowserModule,

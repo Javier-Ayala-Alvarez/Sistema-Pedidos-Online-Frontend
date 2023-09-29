@@ -43,6 +43,39 @@
               [(ngModel)] ="branchOffice.direccion">
             </mat-form-field>
             <mat-form-field class="w100" appearance="outline">
+              <mat-label>Altitud sucursal</mat-label>
+              <input
+              required
+              autofocus
+              type="number"
+              name="altitud"
+              matInput
+              placeholder="Digite la altitud de la sucursal"
+              [(ngModel)] ="branchOffice.altitud">
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Longitud sucursal</mat-label>
+              <input
+              required
+              autofocus
+              type="number"
+              name="longitud"
+              matInput
+              placeholder="Digite la longitud de la sucursal"
+              [(ngModel)] ="branchOffice.longitud">
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Radio sucursal</mat-label>
+              <input
+              required
+              autofocus
+              type="number"
+              name="radio"
+              matInput
+              placeholder="Digite el radio de la sucursal"
+              [(ngModel)] ="branchOffice.radio">
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
               <mat-label>Empresa</mat-label>
               <mat-select name="cp_nombre" [(ngModel)] ="branchOffice.empresa.id">
                 <mat-option *ngFor="let c of companys"[value]="c.id" >

@@ -49,7 +49,7 @@ export class EditProductComponent implements OnInit {
 
     this.productsService.actualizarProduct(this.product,this.id).subscribe(
       (data)=>{
-        Swal.fire('ProductoInterface actualizado','El producto ha sido actualizado con èxito','success').
+        Swal.fire('Producto actualizado','El producto ha sido actualizado con èxito','success').
         then((e)=>{
           this.router.navigate(['/admin/list-product']);
         })
