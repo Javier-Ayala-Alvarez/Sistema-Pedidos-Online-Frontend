@@ -148,7 +148,11 @@ LoadingSpinnerComponent,
 CocinaWelcomeComponent,
 CocinaPedidosComponent,
 DeliveryWelcomeComponent,
-DeliveryPedidosComponent
+DeliveryPedidosComponent,
+
+
+LoadingSpinnerComponent
+
   ],
   imports: [
     MatDatepickerModule,
