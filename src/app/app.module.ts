@@ -89,6 +89,8 @@ import { CocinaPedidosComponent } from './pages/cocina/cocina-pedidos/cocina-ped
 import { DeliveryWelcomeComponent } from './pages/delivery/delivery-welcome/delivery-welcome.component';
 import { DeliveryPedidosComponent } from './pages/delivery/delivery-pedidos/delivery-pedidos.component';
 
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 
 
 @NgModule({
@@ -149,6 +151,8 @@ DeliveryWelcomeComponent,
 DeliveryPedidosComponent
   ],
   imports: [
+    MatDatepickerModule,
+    MatNativeDateModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -170,11 +174,12 @@ DeliveryPedidosComponent
     MatDialogModule,
     HttpClientModule,
     NgxUiLoaderModule,
+
     NgxUiLoaderHttpModule.forRoot({
       showForeground:true
     })
   ],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders,{provide:MAT_DATE_LOCALE,useValue:'en-GB'}],
   bootstrap: [AppComponent]
 })
 

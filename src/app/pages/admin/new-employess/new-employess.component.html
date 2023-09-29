@@ -45,18 +45,15 @@
               [(ngModel)]="employee.apellido"
               >
             </mat-form-field>
-            <mat-form-field class="w100" appearance="outline">
-              <mat-label>Fecha nacimiento</mat-label>
-              <input
-              required
-              autofocus
-              type="text"
+            <mat-form-field>
+              <mat-label>Fecha de Nacimiento</mat-label>
+              <input matInput [matDatepicker]="basicDatepicker"
               name="fechaNacimiento"
-              matInput
-              placeholder="Digite fecha de nacimiento"
-              [(ngModel)]="employee.fechaNacimiento"
-              >
+              [(ngModel)]="employee.fechaNacimiento">
+              <mat-datepicker-toggle matIconSuffix [for]="basicDatepicker"></mat-datepicker-toggle>
+              <mat-datepicker #basicDatepicker></mat-datepicker>
             </mat-form-field>
+
             <mat-form-field class="w100" appearance="outline">
               <mat-label>Telefono</mat-label>
               <input
