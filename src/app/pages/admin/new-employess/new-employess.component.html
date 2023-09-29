@@ -46,6 +46,18 @@
               >
             </mat-form-field>
             <mat-form-field class="w100" appearance="outline">
+              <mat-label>Salario</mat-label>
+              <input
+              required
+              autofocus
+              type="number"
+              name="salario"
+              matInput
+              placeholder="Digite salario"
+              [(ngModel)]="employee.salario"
+              >
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
               <mat-label>Fecha de Nacimiento</mat-label>
               <input matInput [matDatepicker]="basicDatepicker"
               name="fechaNacimient"
@@ -53,7 +65,6 @@
               <mat-datepicker-toggle matIconSuffix [for]="basicDatepicker"></mat-datepicker-toggle>
               <mat-datepicker #basicDatepicker></mat-datepicker>
             </mat-form-field>
-
             <mat-form-field class="w100" appearance="outline">
               <mat-label>Telefono</mat-label>
               <input

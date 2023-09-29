@@ -21,6 +21,7 @@ export class NewEmployessComponent implements OnInit {
     apellido:'',
     dui:'',
     fechaNacimiento:'',
+    salario:'',
     telefono:'',
     estado:true,
     sucursal:{
