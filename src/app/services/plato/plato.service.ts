@@ -26,4 +26,8 @@ export class PlatoService {
     public savePlate(plate:Plato){
         return this.httpClient.post<PlatoInterface>(`${baserUrl}/api/platos/new`,plate );
     }
+
+    public updatePlate(plate:Plato){
+        return this.httpClient.put<PlatoInterface>(`${baserUrl}/api/platos/actualizar`,plate );
+    }
 }

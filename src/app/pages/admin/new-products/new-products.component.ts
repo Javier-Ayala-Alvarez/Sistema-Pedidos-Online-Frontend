@@ -54,9 +54,11 @@ export class NewProductsComponent implements OnInit {
           })
           return ;
     }
+    console.log("sss",this.product);
+  
     this.productsService.guardarProduct(this.product).subscribe(
       (data)=>{
-        console.log(data);
+        console.log("sssh",data);
         Swal.fire('Producto guardado','El producto ha sido guardado con éxito','success');
         this.product={
           nombre:'',

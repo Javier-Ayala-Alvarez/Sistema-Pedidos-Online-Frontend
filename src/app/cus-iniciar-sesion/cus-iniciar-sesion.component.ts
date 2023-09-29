@@ -3,6 +3,8 @@ import { MatDialogRef, MAT_DIALOG_DATA, MatDialog } from '@angular/material/dial
 import { Router } from '@angular/router';
 import { CusCardsComponent } from '../cus-cards/cus-cards.component';
 import { CusRegistrarseComponent } from '../cus-registrarse/cus-registrarse.component';
+import { LoginService } from '../services/login/login.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-cus-iniciar-sesion',
@@ -11,11 +13,12 @@ import { CusRegistrarseComponent } from '../cus-registrarse/cus-registrarse.comp
 })
 export class CusIniciarSesionComponent implements OnInit {
   newSesion = {//Agregamos este objeto
-    usuario:'',
-    contrasenia:'',
+    username : '',
+    password : '',
  
   }
-  constructor( private router: Router, public dialogRef: MatDialogRef<CusIniciarSesionComponent>,
+
+  constructor( private snack:MatSnackBar, private loginService:LoginService,private router: Router, public dialogRef: MatDialogRef<CusIniciarSesionComponent>,
     @Inject(MAT_DIALOG_DATA) public data: { },
     private dialog: MatDialog
     ) { }
@@ -23,10 +26,6 @@ export class CusIniciarSesionComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  addContrasenia(){
-    this.router.navigateByUrl('/DatosGenerales');
-    this.closeModal();
-  }
   closeModal(): void {
     this.dialogRef.close();
   }
@@ -43,5 +42,45 @@ export class CusIniciarSesionComponent implements OnInit {
       // Aquí puedes manejar cualquier lógica que desees realizar después de que se cierra el diálogo modal
     });
 
+  }
+  formSubmit(){
+    if(this.newSesion.username.trim()==''|| this.newSesion.password.trim()==null){
+      this.snack.open('El nombre de usuario es requerido ', 'Aceptar',{duration:3000})
+      return;
+    }
+    if(this.newSesion.password.trim()==''||this.newSesion.password.trim()==null){
+      this.snack.open('La contraseña es requerida ','Aceptar',{
+        duration:3000
+      })
+      return;
+    }
+    console.log("1sss");
+    this.loginService.generateToken(this.newSesion).subscribe(
+   
+      (data:any)=>{
+        console.log("sss");
+        console.log(data);
+        this.loginService.loginUser(data.token);
+        this.loginService.getCurrentUser().subscribe((user:any)=>{
+          this.loginService.setUser(user);
+          console.log(user);
+          if(this.loginService.getUserRole()=='CLIENTE'){
+            this.router.navigateByUrl('/DatosGenerales');
+            this.closeModal();
+          }else{
+            this.loginService.logout();
+          }
+        })
+        
+      },(error: any)=>{
+        console.log(error);
+        this.snack.open('Detalles inválidos, vuelva a intentar ','Aceptar',{
+          duration:3000
+        })
+      }
+    )
+  }
+  loginData(loginData: any) {
+    throw new Error('Method not implemented.');
   }
 }

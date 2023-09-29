@@ -23,7 +23,6 @@
         <th class="col-md-2">Descripción</th>
         <th class="col-md-2">Precio venta</th>
         <th class="col-md-2">Conformado</th>
-        <th class="col-md-2">Promoción</th>
         <th class="col-md-2">Acciones</th>
       </tr>
       </thead>
@@ -38,16 +37,8 @@
 
           </ng-container>
         </td>
-        <td>
-          <ng-container *ngIf="p.promocion != null; else elseBlock">
-            {{p.promocion.nombre}}
-          </ng-container>
-          <ng-template #elseBlock>
-            No tiene promoción
-          </ng-template>
-        </td>
 
-        <td  >
+        <td>
           <button type="button" class="btn btn-info" style="margin-right: 1%" [routerLink]="'/admin/view-plate/'+p.id">
             <mat-icon>remove_red_eye</mat-icon>
           </button>

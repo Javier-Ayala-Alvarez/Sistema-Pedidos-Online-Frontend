@@ -1,182 +1,162 @@
 <mat-card>
-    <div mat-subheader>
-        <h1>
-            Agregar plato
-        </h1>
-    </div>
-    <mat-card-content>
-        <div class="row">
-            <div class="col-md-12 mb-4">
-                <div class="card mb-4">
-                    <div class="card-body">
-                        <form (ngSubmit)="agregarPlato()">
-                            <div class="row mb-6">
-                                <div class="col">
-                                    <div class="form-outline">
-                                        <mat-form-field appearance="outline" style="width: 100%;">
-                                            <mat-label>Nombre de plato</mat-label>
-                                            <input
-                                                    required
-                                                    autofocus
-                                                    type="text"
-                                                    name="plato.nombre"
-                                                    matInput
-                                                    placeholder="Digie el nombre"
-                                                    [(ngModel)]="plato.nombre">
-                                        </mat-form-field>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-outline">
-                                        <mat-form-field appearance="outline" style="width: 100%;">
-                                            <mat-label>Descripción</mat-label>
-                                            <input
-                                                    required
-                                                    autofocus
-                                                    type="text"
-                                                    name="plato.descripcion"
-                                                    matInput
-                                                    placeholder="Digite una descripcion"
-                                                    [(ngModel)]="plato.descripcion">
-                                        </mat-form-field>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-6">
-                                <div class="col">
-                                    <div class="form-outline">
-                                        <mat-form-field appearance="outline" style="width: 100%;">
-                                            <mat-label>Imagen</mat-label>
-                                            <input
-                                                    required
-                                                    autofocus
-                                                    type="text"
-                                                    name="plato.urlImagen"
-                                                    matInput
-                                                    placeholder="Digite una URL de imagen"
-                                                    [(ngModel)]="plato.urlImagen">
-                                        </mat-form-field>
-                                    </div>
-                                </div>
-                                <div class="col">
-                                    <div class="form-outline">
-                                        <mat-form-field appearance="outline" style="width: 100%;">
-                                            <mat-label>Precio de venta</mat-label>
-                                            <input
-                                                    required
-                                                    autofocus
-                                                    type="number"
-                                                    name="plato.precio"
-                                                    matInput
-                                                    placeholder="Digite el precio de venta a público"
-                                                    [(ngModel)]="plato.precio">
-                                        </mat-form-field>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row mb-6">
-                                <div class="col">
-                                    <div class="form-outline">
-                                        <mat-form-field appearance="outline" style="width: 100%;">
-                                            <mat-label>Categoria</mat-label>
-                                            <mat-select [(ngModel)]="plato.idCategoria" name="plato.idCategoria">
-                                                <mat-option *ngFor="let c of categorias" [value]="c.id">
-                                                    {{c.nombre}}
-                                                </mat-option>
-                                            </mat-select>
-                                        </mat-form-field>
-                                    </div>
-                                </div>
-
-                                <div class="col">
-                                    <div class="form-outline">
-                                        <mat-form-field appearance="outline" style="width: 100%;">
-                                            <mat-label>Promoción (opcional)</mat-label>
-                                            <mat-select [(ngModel)]="plato.idPromocion" name="plato.idPromocion">
-                                                <mat-option *ngFor="let p of promociones" [value]="p.id">
-                                                    {{p.nombre}}
-                                                </mat-option>
-                                            </mat-select>
-                                        </mat-form-field>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="row ">
-                                <div class="col-3 ">
-                                    <div>
-
-                                        <mat-form-field appearance="outline">
-                                            <mat-label>Producto</mat-label>
-                                            <mat-select>
-                                                <mat-option *ngFor="let p of productos" (click)="agregarProducto(p)">
-                                                    {{p.nombre}}
-                                                </mat-option>
-                                            </mat-select>
-                                        </mat-form-field>
-                                        <br>
-                                        <mat-slide-toggle class="mt20"
-                                                          name="activo"
-                                                          [(ngModel)]="plato.estado"
-                                                          color="primary">
-                                            Estado de producto
-                                        </mat-slide-toggle>
-                                        <br>
-
-                                        <button mat-raised-button color="primary">Guardar</button>
-                                    </div>
-                                </div>
-                                <div class="col-9">
-                                    <table class="table">
-                                        <thead style="border-left-color: black; text-align: center;">
-                                        <tr>
-                                            <th class="col-md-2">Imagen</th>
-                                            <th class="col-md-2">Nombre</th>
-                                            <th class="col-md-2">Descripción</th>
-                                            <th class="col-md-2">Precio unitario</th>
-                                            <th class="col-md-2">Acciones</th>
-
-
-                                        </tr>
-                                        </thead>
-                                        <tbody>
-                                        <tr *ngIf="productosSelecionados.length == 0 ">
-                                            <td colspan="4" class="text-center">No hay productos agregados</td>
-                                        </tr>
-                                        <tr style="text-align: center;"
-                                            *ngFor="let p of productosSelecionados.reverse()">
-
-                                            <td class="align-middle"><img src="{{p.urlImagen}}" alt="" class="img-fluid"
-                                                                          style="max-width: 60%;">
-                                            </td>
-                                            <td class="align-middle">
-                                                {{p.nombre}}
-                                            </td>
-                                            <td class="align-middle">{{p.descripcion}}</td>
-                                            <td class="align-middle">${{p.precioVenta}}</td>
-                                            <td class="align-middle">
-                                                <button mat-raised-button color="warn" (click)="eliminarProducto(p)">
-                                                    Eliminar
-                                                </button>
-
-                                        </tr>
-                                        </tbody>
-                                    </table>
-
-                                </div>
-
-                            </div>
-
-                            <br>
-                            <br>
-                            <div class="containter text-center mt15">
-
-                            </div>
-
-                        </form>
-                    </div>
+  <div mat-subheader>
+    <h1>
+      Agregar plato
+    </h1>
+  </div>
+  <mat-card-content>
+    <div class="row">
+      <div class="col-md-12 mb-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <form (ngSubmit)="agregarPlato()">
+              <div class="row mb-6">
+                <div class="col">
+                  <div class="form-outline">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                      <mat-label>Nombre de plato</mat-label>
+                      <input
+                        required
+                        autofocus
+                        type="text"
+                        name="plato.nombre"
+                        matInput
+                        placeholder="Digie el nombre"
+                        [(ngModel)]="plato.nombre">
+                    </mat-form-field>
+                  </div>
                 </div>
-            </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                      <mat-label>Descripción</mat-label>
+                      <input
+                        required
+                        autofocus
+                        type="text"
+                        name="plato.descripcion"
+                        matInput
+                        placeholder="Digite una descripcion"
+                        [(ngModel)]="plato.descripcion">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-6">
+                <div class="col">
+                  <div class="form-outline">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                      <mat-label>Imagen</mat-label>
+                      <input
+                        required
+                        autofocus
+                        type="text"
+                        name="plato.urlImagen"
+                        matInput
+                        placeholder="Digite una URL de imagen"
+                        [(ngModel)]="plato.urlImagen">
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="col">
+                  <div class="form-outline">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                      <mat-label>Precio de venta</mat-label>
+                      <input
+                        required
+                        autofocus
+                        type="number"
+                        name="plato.precio"
+                        matInput
+                        placeholder="Digite el precio de venta a público"
+                        [(ngModel)]="plato.precio">
+                    </mat-form-field>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-6">
+                <div class="col">
+                  <div class="form-outline">
+                    <mat-form-field appearance="outline" style="width: 100%;">
+                      <mat-label>Categoria</mat-label>
+                      <mat-select [(ngModel)]="plato.idCategoria" name="plato.idCategoria">
+                        <mat-option *ngFor="let c of categorias" [value]="c.id">
+                          {{c.nombre}}
+                        </mat-option>
+                      </mat-select>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="col">
+                  <mat-form-field appearance="outline" style="width: 100%;">
+                    <mat-label>Producto</mat-label>
+                    <mat-select>
+                      <mat-option *ngFor="let p of productos" (click)="agregarProducto(p)">
+                        {{p.nombre}}
+                      </mat-option>
+                    </mat-select>
+                  </mat-form-field>
+
+                </div>
+
+              </div>
+              <div class="containter text-center mt15">
+                <button mat-raised-button color="primary">Guardar</button>
+                <br>
+                <br>
+              </div>
+              <div class="row ">
+
+                <div class="col-12">
+                  <table class="table">
+                    <thead style="border-left-color: black; text-align: center;">
+                    <tr>
+                      <th class="col-md-2">Imagen</th>
+                      <th class="col-md-2">Nombre</th>
+                      <th class="col-md-2">Descripción</th>
+                      <th class="col-md-2">Precio unitario</th>
+                      <th class="col-md-2">Acciones</th>
+
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngIf="productosSelecionados.length == 0 ">
+                      <td colspan="4" class="text-center">No hay productos agregados</td>
+                    </tr>
+                    <tr style="text-align: center;"
+                        *ngFor="let p of productosSelecionados.reverse()">
+
+                      <td class="align-middle"><img src="{{p.urlImagen}}" alt="" class="img-fluid"
+                                                    style="max-width: 60%;">
+                      </td>
+                      <td class="align-middle">
+                        {{p.nombre}}
+                      </td>
+                      <td class="align-middle">{{p.descripcion}}</td>
+                      <td class="align-middle">${{p.precioVenta}}</td>
+                      <td class="align-middle">
+                        <a mat-raised-button color="warn" (click)="eliminarProducto(p)">
+                          Eliminar
+                        </a>
+
+                    </tr>
+                    </tbody>
+                  </table>
+
+                </div>
+
+              </div>
+
+              <br>
+              <br>
+
+
+            </form>
+          </div>
         </div>
-    </mat-card-content>
+      </div>
+    </div>
+  </mat-card-content>
 </mat-card>

@@ -12,7 +12,6 @@ export interface PlatoInterface {
   urlImagen: string;
   categoria: CategoriaInterface;
   productos: ProductoInterface[] ;
-  promocion: PromocionInterface;
 
 
 

@@ -82,6 +82,7 @@ import { CocinaDashboardComponent } from './pages/cocina/cocina-dashboard/cocina
 import { DeliveryDashboardComponent } from './pages/delivery/delivery-dashboard/delivery-dashboard.component';
 import { DeliverySidebarComponent } from './pages/delivery/delivery-sidebar/delivery-sidebar.component';
 import { CocinaSidebarComponent } from './pages/cocina/cocina-sidebar/cocina-sidebar.component';
+import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
 
 import { CocinaWelcomeComponent } from './pages/cocina/cocina-welcome/cocina-welcome.component';
 import { CocinaPedidosComponent } from './pages/cocina/cocina-pedidos/cocina-pedidos.component';
@@ -142,10 +143,14 @@ CocinaDashboardComponent,
 DeliveryDashboardComponent,
 DeliverySidebarComponent,
 CocinaSidebarComponent,
+
 CocinaWelcomeComponent,
 CocinaPedidosComponent,
 DeliveryWelcomeComponent,
-DeliveryPedidosComponent
+DeliveryPedidosComponent,
+
+LoadingSpinnerComponent
+
   ],
   imports: [
     MatDatepickerModule,

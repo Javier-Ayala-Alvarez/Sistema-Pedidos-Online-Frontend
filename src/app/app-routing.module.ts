@@ -246,7 +246,12 @@ const routes: Routes = [
       {
         path: 'edit-profile',
         component: EditProfileComponent
-      },
+      },{
+        path: 'Productos/:id',
+        component: CusPlatoComponent,
+        pathMatch: 'full',
+
+      }
     ]
   }
 ];

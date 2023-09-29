@@ -32,6 +32,7 @@ export class ListProductsComponent implements OnInit {
     this.productSservice.listarProductPorPagina(this.page,this.size,this.order,this.asc).subscribe(
       (dato:any)=>{
         this.product=dato.content;
+        console.log("cddd",this.product)
         this.isFirst=dato.first;
         this.isLast=dato.last;
         this.totalPages=new Array(dato['totalPages']);
@@ -91,7 +92,7 @@ export class ListProductsComponent implements OnInit {
         this.productSservice.eliminarProduct(id).subscribe(
           (data)=>{
             this.product=this.product.filter((product:any)=>this.product.id!=id);
-            Swal.fire('ProductoInterface eliminada','El producto ha sido eliminado de la base de datos','success');
+            Swal.fire('Producto eliminada','El producto ha sido eliminado de la base de datos','success');
             this.ngOnInit();
           },
           (error)=>{
