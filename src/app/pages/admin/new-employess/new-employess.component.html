@@ -45,13 +45,10 @@
               [(ngModel)]="employee.apellido"
               >
             </mat-form-field>
-           
-
             <mat-form-field class="w100" appearance="outline">
               <mat-label>Fecha de Nacimiento</mat-label>
-
               <input matInput [matDatepicker]="basicDatepicker"
-              name="fechaNacimiento"
+              name="fechaNacimient"
               [(ngModel)]="employee.fechaNacimiento">
               <mat-datepicker-toggle matIconSuffix [for]="basicDatepicker"></mat-datepicker-toggle>
               <mat-datepicker #basicDatepicker></mat-datepicker>
@@ -68,6 +65,14 @@
               placeholder="Digite numero de telefono"
               [(ngModel)]="employee.telefono"
               >
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w100">
+              <mat-label>Sucursal</mat-label>
+              <mat-select name="sucursal" [(ngModel)]="employee.sucursal.id">
+                <mat-option *ngFor="let s of sucursales" [value]="s.id">
+                  {{s.nombre}}
+                </mat-option>
+              </mat-select>
             </mat-form-field>
             <div class="containter text-center mt15">
               <button mat-raised-button color="primary">Guardar</button>

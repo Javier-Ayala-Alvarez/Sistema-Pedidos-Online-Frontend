@@ -37,7 +37,7 @@ export class ListEmployeesComponent implements OnInit {
       ,
       (error)=>{
         console.log(error);
-        Swal.fire('Error !!','Error al cargar las categorías','error');
+        Swal.fire('Error !!','Error al cargar los empleados','error');
       }
     )
   }
@@ -98,6 +98,10 @@ export class ListEmployeesComponent implements OnInit {
         )
       }
     })
+  }
+  public darBajaEmployee(id:any){
+
+
   }
 
 }
