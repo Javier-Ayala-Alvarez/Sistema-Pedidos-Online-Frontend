@@ -61,6 +61,7 @@ export class CusModalProductoComponent implements OnInit {
     this.cards.idProducto = productos[0];
     this.cards.cantidad = this.cantidad;
     this.serviceCars.agregarElemento(this.cards);
+
     Swal.fire({
       icon: 'success',
       title: 'Bien!',

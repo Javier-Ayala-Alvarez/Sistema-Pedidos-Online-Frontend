@@ -1,1 +1,104 @@
-<p>edit-employess works!</p>
+<mat-card>
+  <div mat-subheader>
+    <h1>
+      Actualizar Empleado
+    </h1>
+  </div>
+  <mat-card-content>
+    <div class="bootstrap-wrapper">
+      <div class="row">
+        <div class="col-md-8 offset-md-2">
+          <form *ngIf="employee" (ngSubmit)="actualizarEmployee()">
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>DUI</mat-label>
+              <input
+              required
+              autofocus
+              type="text"
+              name="dui"
+              matInput
+              placeholder="Digite numero de dui"
+              [(ngModel)]="employee.dui"
+              >
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Nombre Empleado</mat-label>
+              <input
+              required
+              autofocus
+              type="text"
+              name="nombre"
+              matInput
+              placeholder="Digite el nombre del empleado"
+              [(ngModel)]="employee.nombre"
+              >
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Apellido</mat-label>
+              <input
+              required
+              autofocus
+              type="text"
+              name="apellido"
+              matInput
+              placeholder="Digite el apeliido"
+              [(ngModel)]="employee.apellido"
+              >
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Salario</mat-label>
+              <input
+              required
+              autofocus
+              type="number"
+              name="salario"
+              matInput
+              placeholder="Digite salario"
+              [(ngModel)]="employee.salario"
+              >
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Fecha de Nacimiento</mat-label>
+              <input matInput [matDatepicker]="basicDatepicker"
+              name="fechaNacimient"
+              [(ngModel)]="employee.fechaNacimiento">
+              <mat-datepicker-toggle matIconSuffix [for]="basicDatepicker"></mat-datepicker-toggle>
+              <mat-datepicker #basicDatepicker></mat-datepicker>
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Telefono</mat-label>
+              <input
+              required
+              autofocus
+              type="text"
+              name="telefono"
+              matInput
+              placeholder="Digite numero de telefono"
+              [(ngModel)]="employee.telefono"
+              >
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="w100">
+              <mat-label>Sucursal</mat-label>
+              <mat-select name="sucursal" [(ngModel)]="employee.sucursal.id">
+                <mat-option *ngFor="let s of sucursal" [value]="s.id">
+                  {{s.nombre}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-slide-toggle class="mt20"
+              name="activo"
+              [(ngModel)] = "employee.estado"
+              color="primary">
+                Estado de Empleado
+              </mat-slide-toggle>
+              <br>
+              <br>
+              <div class="container text-center mt15">
+                <button mat-raised-button color="primary">Guardar</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

@@ -56,8 +56,8 @@ export class CusIniciarSesionComponent implements OnInit {
     }
     console.log("1sss");
     this.loginService.generateToken(this.newSesion).subscribe(
-   
       (data:any)=>{
+        localStorage.setItem('accessToken', data.token)
         console.log("sss");
         console.log(data);
         this.loginService.loginUser(data.token);
@@ -65,7 +65,8 @@ export class CusIniciarSesionComponent implements OnInit {
           this.loginService.setUser(user);
           console.log(user);
           if(this.loginService.getUserRole()=='CLIENTE'){
-            this.router.navigateByUrl('/DatosGenerales');
+            this.router.navigateByUrl('/customer-dashboard/DatosGenerales');
+            this.loginService.loginStatusSubjec.next(true);
             this.closeModal();
           }else{
             this.loginService.logout();

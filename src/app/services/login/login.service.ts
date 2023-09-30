@@ -40,6 +40,9 @@ export class LoginService {
   public logout(){
     localStorage.removeItem('token');
     localStorage.removeItem('user');
+    localStorage.removeItem('userData');
+    // Eliminar el token de acceso del localStorage o la cookie
+    localStorage.removeItem('accessToken');
     return true;
   }
 

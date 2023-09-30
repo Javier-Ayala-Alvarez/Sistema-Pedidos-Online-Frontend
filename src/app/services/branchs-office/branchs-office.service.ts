@@ -26,6 +26,14 @@ export class BranchsOfficeService {
     return this.httpClient.get(`${baserUrl}/api/sucursal/list/search?sucursal=${search}&size=${size}&asc=${asc}`);
   }
 
+  public listarSucursalActivo(){
+    return this.httpClient.get(`${baserUrl}/api/sucursal/list/activo`);
+  }
+
+  public listarSucursal(){
+    return this.httpClient.get(`${baserUrl}/api/sucursal/list`);
+  }
+
   public actualizarSucursal(branchOffice:any,id:any){
     return this.httpClient.put(`${baserUrl}/api/sucursal/actualizar/${id}`,branchOffice);
   }

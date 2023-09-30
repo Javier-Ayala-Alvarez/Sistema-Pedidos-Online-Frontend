@@ -22,15 +22,27 @@ export class HomeComponent implements OnInit {
   constructor(private category: CusCategoryService,private router:Router) { } // Inicializar en el constructor el servicio
 
   redireccionar(id: number) {
-    this.router.navigate(['/Productos', id]);
+    if(this.isLoggedIn1()== true){
+      this.router.navigate(['/customer-dashboard/Productos', id]);
+
+    }else{
+      this.router.navigate(['/Productos', id]);
+
+    }
+    
   }
   ngOnInit(): void {
     this.loading = true; // Activar el spinner
   
     this.category.loadData().then(() => {
+      
       this.entityArray = this.category.entityArray;
       this.loading = false; // Desactivar el spinner cuando los datos estén cargados
     });
+  }
+
+  isLoggedIn1(): boolean {
+    return !!localStorage.getItem('accessToken');
   }
   
 

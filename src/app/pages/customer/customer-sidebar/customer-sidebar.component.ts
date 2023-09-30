@@ -17,6 +17,9 @@ export class CustomerSidebarComponent implements OnInit {
   public logout(){
     this.login.logout();
     window.location.reload();
+    localStorage.removeItem('userData');
+    // Eliminar el token de acceso del localStorage o la cookie
+    localStorage.removeItem('accessToken');
   }
 
 }

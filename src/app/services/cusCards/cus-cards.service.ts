@@ -16,6 +16,7 @@ export class CusCardsService {
   }
   agregarElemento(elemento: any) {
     this.arryProductCars.push(elemento);
+    console.log("Hola",elemento);
   }
   eliminarElemento(elemento: any) {
     const index = this.arryProductCars.indexOf(elemento);
@@ -23,6 +24,10 @@ export class CusCardsService {
       this.arryProductCars.splice(index, 1);
     }
   }
-  
+  eliminarTodo() {
+    
+      this.arryProductCars =[];
+    
+  }
 
 }

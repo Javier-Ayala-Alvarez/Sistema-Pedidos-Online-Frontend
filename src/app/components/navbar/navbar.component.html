@@ -1,12 +1,13 @@
+
 <mat-toolbar color="primary">
-  <button [routerLink]="'/'" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+  <button (click)="direccionar()" mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     Diseño de Sistemas
   </button>
   <span class="example-spacer"></span>
   <button style="margin-right: 10px;" *ngIf="!isLoggedIn" [routerLink]="'/login'" mat-button>
     Iniciar sesión
   </button>
-  <button *ngIf="!isLoggedIn" [routerLink]="'/signup'" mat-button>
+  <button *ngIf="!isLoggedIn" (click)="registrar()"  mat-button> <!--[routerLink]="'/signup'"-->
     Registrarse
   </button>
   <button mat-button (click)="openModal()">
@@ -15,12 +16,26 @@
   <button class="menu-icon" (click)="toggleMenu()">
     &#9776;
   </button>
+  <a (click)="usuario()" *ngIf="isLoggedIn">
+        <img src="../../../assets/01-user.png" width = "38" height = "38">
+  </a>
+  
 </mat-toolbar>
+<div class="menu-card" [ngClass]="{'open': usuario1}"  >
+  <div class="menu-card-header">
+    <div class = "container text-center">
+      <img src="../../../assets/01-user.png" width = "50" height = "50">
+    </div>  </div>
+  <div class="menu-card-body">
+   {{nombre}}
+  </div>
+</div>
+
 
 <div class="menu" [ngClass]="{'open': isMenuOpen}">
   <a [routerLink]="'/'">Diseño de Sistemas</a>
   <a *ngIf="!isLoggedIn" [routerLink]="'/login'">Iniciar sesión</a>
-  <a *ngIf="!isLoggedIn" [routerLink]="'/signup'">Registrarse</a>
+  <a *ngIf="!isLoggedIn" (click)="registrar()">Registrarse</a>
   <a (click)="openModal()">Carrito</a>
 </div>
 

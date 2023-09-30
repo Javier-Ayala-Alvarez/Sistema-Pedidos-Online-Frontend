@@ -41,7 +41,7 @@ export class ListBranchOfficeComponent implements OnInit {
       },
       (error)=>{
         console.log(error);
-        Swal.fire('Error !!','Error al cargar los productos','error');
+        Swal.fire('Error !!','Error al cargar las sucursales','error');
       }
     )
   }
