@@ -58,22 +58,31 @@ export class CusCardsComponent implements OnInit {
     });
   }
 
-  openDatosGenerales(){
-    const dialogRef = this.dialog.open(CusIniciarSesionComponent, {
-      width: '500px', // Establece el ancho del diálogo modal según tus necesidades
-      height: '450px',
-      //data: {  id: id} /* Puedes pasar datos adicionales al diálogo modal si es necesario */
-    });
-  this.closeModal();
-    dialogRef.afterClosed().subscribe(result => {
-      // Aquí puedes manejar cualquier lógica que desees realizar después de que se cierra el diálogo modal
-    });
+  openDatosGenerales() {
+
+    // Verifica si el usuario está autenticado
+
+
+    if (this.isLoggedIn()) {
+      this.router.navigateByUrl('/DatosGenerales');
+      this.closeModal();
+    } else {
+      const dialogRef = this.dialog.open(CusIniciarSesionComponent, {
+        width: '500px', // Establece el ancho del diálogo modal según tus necesidades
+        height: '450px',
+        //    data: {  id: id} /* Puedes pasar datos adicionales al diálogo modal si es necesario */
+      });
+      this.closeModal();
+      dialogRef.afterClosed().subscribe(result => {
+        // Aquí puedes manejar cualquier lógica que desees realizar después de que se cierra el diálogo modal
+      });
+    }
+
+
+
+
+  }
+  isLoggedIn(): boolean {
+    return !!localStorage.getItem('accessToken');
   }
 }
-
-
-
-
-
-
-

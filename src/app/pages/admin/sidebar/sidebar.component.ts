@@ -8,13 +8,18 @@ import { LoginService } from 'src/app/services/login/login.service';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor(public login:LoginService) { }
+  constructor(public login: LoginService) { }
 
   ngOnInit(): void {
   }
-  public logout(){
+  public logout() {
     this.login.logout();
     window.location.reload();
+    // Limpiar información de usuario almacenada en el cliente
+    localStorage.removeItem('userData');
+    // Eliminar el token de acceso del localStorage o la cookie
+    localStorage.removeItem('accessToken');
+
   }
 
 }

@@ -56,8 +56,8 @@ export class CusIniciarSesionComponent implements OnInit {
     }
     console.log("1sss");
     this.loginService.generateToken(this.newSesion).subscribe(
-   
       (data:any)=>{
+        localStorage.setItem('accessToken', data.token)
         console.log("sss");
         console.log(data);
         this.loginService.loginUser(data.token);

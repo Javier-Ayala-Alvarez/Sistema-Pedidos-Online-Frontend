@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../services/login/login.service';
 import { Router } from '@angular/router';
-import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
-import {MatButtonModule} from '@angular/material/button';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatButtonModule } from '@angular/material/button';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 
 @Component({
@@ -16,60 +16,63 @@ export class LoginComponent implements OnInit {
 
 
   loginData = {
-    "username" : '',
-    "password" : '',
+    "username": '',
+    "password": '',
   }
-  constructor(private snack:MatSnackBar, private loginService:LoginService, private router:Router) { }
+  constructor(private snack: MatSnackBar, private loginService: LoginService, private router: Router) { }
 
   ngOnInit(): void {
   }
-  formSubmit(){
-    if(this.loginData.username.trim()==''|| this.loginData.password.trim()==null){
-      this.snack.open('El nombre de usuario es requerido ', 'Aceptar',{duration:3000})
+  formSubmit() {
+    if (this.loginData.username.trim() == '' || this.loginData.password.trim() == null) {
+      this.snack.open('El nombre de usuario es requerido ', 'Aceptar', { duration: 3000 })
       return;
     }
-    if(this.loginData.password.trim()==''||this.loginData.password.trim()==null){
-      this.snack.open('La contraseña es requerida ','Aceptar',{
-        duration:3000
+    if (this.loginData.password.trim() == '' || this.loginData.password.trim() == null) {
+      this.snack.open('La contraseña es requerida ', 'Aceptar', {
+        duration: 3000
       })
       return;
     }
     this.loginService.generateToken(this.loginData).subscribe(
-      (data:any)=>{
+      (data: any) => {
         console.log(data);
+        // Almacenar el token en localStorage
+        localStorage.setItem('accessToken', data.token);
+
         this.loginService.loginUser(data.token);
-        this.loginService.getCurrentUser().subscribe((user:any)=>{
+        this.loginService.getCurrentUser().subscribe((user: any) => {
           this.loginService.setUser(user);
           console.log(user);
-          if(this.loginService.getUserRole() == 'ADMIN'){
+          if (this.loginService.getUserRole() == 'ADMIN') {
             //dashboard admin
             //window.location.href = '/admin';
             this.router.navigate(['admin/welcome']);
             this.loginService.loginStatusSubjec.next(true);
           }
-          else if(this.loginService.getUserRole()=='CLIENTE'){
+          else if (this.loginService.getUserRole() == 'CLIENTE') {
             //user dashboard
             //window.location.href /user-dashboard
-            this.router.navigate(['customer-dashboard']);
+            this.router.navigate(['customer-dashboard/Category']);
             this.loginService.loginStatusSubjec.next(true);
 
           }
-          else if(this.loginService.getUserRole()=='COCINA'){
+          else if (this.loginService.getUserRole() == 'COCINA') {
             this.router.navigate(['cocina-dashboard/cocina-welcome']);
             this.loginService.loginStatusSubjec.next(true);
           }
-          else if(this.loginService.getUserRole()=='DELIVERY'){
+          else if (this.loginService.getUserRole() == 'DELIVERY') {
             this.router.navigate(['delivery-dashboard/delivery-welcome']);
             this.loginService.loginStatusSubjec.next(true);
           }
-          else{
+          else {
             this.loginService.logout();
           }
         })
-      },(error)=>{
+      }, (error) => {
         console.log(error);
-        this.snack.open('Detalles inválidos, vuelva a intentar ','Aceptar',{
-          duration:3000
+        this.snack.open('Detalles inválidos, vuelva a intentar ', 'Aceptar', {
+          duration: 3000
         })
       }
     )

@@ -91,11 +91,13 @@ import { DeliveryPedidosComponent } from './pages/delivery/delivery-pedidos/deli
 
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+   
     SignupComponent,
     NavbarComponent,
     LoginComponent,
@@ -156,6 +158,7 @@ LoadingSpinnerComponent
   ],
   imports: [
     MatDatepickerModule,
+    MatMenuModule, 
     MatNativeDateModule,
     BrowserModule,
     AppRoutingModule,

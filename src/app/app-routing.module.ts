@@ -46,6 +46,7 @@ import { CocinaWelcomeComponent } from './pages/cocina/cocina-welcome/cocina-wel
 import { CocinaPedidosComponent } from './pages/cocina/cocina-pedidos/cocina-pedidos.component';
 import { DeliveryWelcomeComponent } from './pages/delivery/delivery-welcome/delivery-welcome.component';
 import { DeliveryPedidosComponent } from './pages/delivery/delivery-pedidos/delivery-pedidos.component';
+import { AppComponent } from './app.component';
 
 const routes: Routes = [
 
@@ -58,6 +59,12 @@ const routes: Routes = [
   {
     path: 'Carrito',
     component: CusCardsComponent,
+    pathMatch: 'full',
+
+  },
+  {
+    path: 'Login',
+    component: CusIniciarSesionComponent,
     pathMatch: 'full',
 
   },
@@ -244,12 +251,16 @@ const routes: Routes = [
         component: ProfileComponent
       },
       {
+        path: 'Category',
+        component: HomeComponent
+      },
+      {
         path: 'edit-profile',
         component: EditProfileComponent
       },{
         path: 'Productos/:id',
         component: CusPlatoComponent,
-        pathMatch: 'full',
+   
 
       }
     ]
