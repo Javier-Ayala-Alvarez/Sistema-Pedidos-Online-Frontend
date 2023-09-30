@@ -24,6 +24,10 @@ export class CusCardsService {
       this.arryProductCars.splice(index, 1);
     }
   }
-  
+  eliminarTodo() {
+    
+      this.arryProductCars =[];
+    
+  }
 
 }

@@ -29,6 +29,7 @@ export class HomeComponent implements OnInit {
       this.router.navigate(['/Productos', id]);
 
     }
+    
   }
   ngOnInit(): void {
     this.loading = true; // Activar el spinner

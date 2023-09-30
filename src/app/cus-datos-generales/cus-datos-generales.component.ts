@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { CusCardsService } from '../services/cusCards/cus-cards.service';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EntityCarrito } from '../entity/entityCarrito';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-cus-datos-generales',
@@ -43,6 +44,28 @@ export class CusDatosGeneralesComponent implements OnInit {
       male:false,
       comment:''
     }
+  }
+
+
+  cancelarContact(){
+    Swal.fire({
+      title:'Eliminar producto',
+      text:'¿Estás seguro , quieres eliminar este el Pedido?',
+      icon:'warning',
+      showCancelButton:true,
+      confirmButtonColor:'#3085d6',
+      cancelButtonColor:'#d33',
+      confirmButtonText:'Eliminar',
+      cancelButtonText:'Cancelar'
+    }).then((resultado)=>{
+      if(resultado.isConfirmed){
+        this.servicesCard.eliminarTodo();
+        this.arrayCards = this.servicesCard.arryProductCars;
+            Swal.fire('Producto eliminada','El pedido ha sido eliminado de la base de datos','success');
+            this.ngOnInit();
+         
+      }
+    })
   }
 
 }

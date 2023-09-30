@@ -255,6 +255,10 @@ const routes: Routes = [
         component: HomeComponent
       },
       {
+        path: 'DatosGenerales',
+        component: CusDatosGeneralesComponent
+      },
+      {
         path: 'edit-profile',
         component: EditProfileComponent
       },{

@@ -64,7 +64,8 @@ export class CusCardsComponent implements OnInit {
 
 
     if (this.isLoggedIn()) {
-      this.router.navigateByUrl('/DatosGenerales');
+      
+      this.router.navigateByUrl('/customer-dashboard/DatosGenerales');
       this.closeModal();
     } else {
       const dialogRef = this.dialog.open(CusIniciarSesionComponent, {
@@ -78,8 +79,7 @@ export class CusCardsComponent implements OnInit {
       });
     }
 
-
-
+    
 
   }
   isLoggedIn(): boolean {

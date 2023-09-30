@@ -65,7 +65,8 @@ export class CusIniciarSesionComponent implements OnInit {
           this.loginService.setUser(user);
           console.log(user);
           if(this.loginService.getUserRole()=='CLIENTE'){
-            this.router.navigateByUrl('/DatosGenerales');
+            this.router.navigateByUrl('/customer-dashboard/DatosGenerales');
+            this.loginService.loginStatusSubjec.next(true);
             this.closeModal();
           }else{
             this.loginService.logout();
