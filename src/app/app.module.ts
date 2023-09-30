@@ -83,6 +83,7 @@ import { DeliveryDashboardComponent } from './pages/delivery/delivery-dashboard/
 import { DeliverySidebarComponent } from './pages/delivery/delivery-sidebar/delivery-sidebar.component';
 import { CocinaSidebarComponent } from './pages/cocina/cocina-sidebar/cocina-sidebar.component';
 import { LoadingSpinnerComponent } from './components/loading-spinner/loading-spinner.component';
+import {MapsModule} from "./maps/maps.module";
 
 
 
@@ -138,6 +139,7 @@ CocinaSidebarComponent,
 LoadingSpinnerComponent
   ],
   imports: [
+    MapsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
