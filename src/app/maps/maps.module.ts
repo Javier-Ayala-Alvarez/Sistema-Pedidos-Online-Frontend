@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { MapScreenComponent } from './screens/map-screen/map-screen.component';
 import { MapViewComponent } from './Componets/map-view/map-view.component';
 
-
-
 @NgModule({
   declarations: [
     MapScreenComponent,
@@ -13,7 +11,6 @@ import { MapViewComponent } from './Componets/map-view/map-view.component';
   imports: [
     CommonModule
   ], exports: [
-        MapScreenComponent,
         MapViewComponent
     ]
 })
