@@ -12,9 +12,10 @@ import { MapViewComponent } from './Componets/map-view/map-view.component';
   ],
   imports: [
     CommonModule
-  ], exports:[
-    MapScreenComponent
-  ]
+  ], exports: [
+        MapScreenComponent,
+        MapViewComponent
+    ]
 })
 export class MapsModule {
 

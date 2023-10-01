@@ -10,19 +10,27 @@ import {Map} from "mapbox-gl";
 export class MapViewComponent implements AfterViewInit {
 
     @ViewChild('mapDiv') mapDivElement!: ElementRef;
+    public coordenadas!:[number,number];
+
 
     constructor(private placesServices: PlacesServicesService) {
     }
 
-    ngAfterViewInit(): void {
-        if (!this.placesServices.useLocation) throw new Error('No hay placesServices.useLocation');
 
-        const map = new Map({
-            container: this.mapDivElement.nativeElement, // container ID
-            style: 'mapbox://styles/mapbox/streets-v12', // style URL
-            center: this.placesServices.useLocation, // starting position [lng, lat]
-            zoom: 14 // starting zoom
+
+    ngAfterViewInit(): void {
+
+        this.placesServices.getUserLocation().then((coords) => {
+
+            const map = new Map({
+                container: this.mapDivElement.nativeElement, // container ID
+                style: 'mapbox://styles/mapbox/streets-v12', // style URL
+                center: coords, // starting position [lng, lat]
+                zoom: 14 // starting zoom
+            });
         });
+
+
 
     }
 
