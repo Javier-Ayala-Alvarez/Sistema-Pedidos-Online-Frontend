@@ -11,7 +11,7 @@
     Registrarse
   </button>
   <button mat-button (click)="openModal()">
-    Carrito
+    Orden
   </button>
   <button class="menu-icon" (click)="toggleMenu()">
     &#9776;
@@ -36,6 +36,6 @@
   <a [routerLink]="'/'">Diseño de Sistemas</a>
   <a *ngIf="!isLoggedIn" [routerLink]="'/login'">Iniciar sesión</a>
   <a *ngIf="!isLoggedIn" (click)="registrar()">Registrarse</a>
-  <a (click)="openModal()">Carrito</a>
+  <a (click)="openModal()">Orden</a>
 </div>
 
