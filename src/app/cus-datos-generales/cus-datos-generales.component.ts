@@ -56,7 +56,10 @@ export class CusDatosGeneralesComponent implements OnInit {
       }
 
     )
-
+  
+    this.loginService.getCurrentUser().subscribe((user:any)=>{
+      this.newVenta.usuarioDTO.id =  user.id;
+    })
   }
   calculateTotal(): void {
     this.total = this.arrayCards.reduce((sum, car) => sum + (car.cantidad * (car.idProducto?.precioVenta || 0)), 0);
@@ -65,14 +68,10 @@ export class CusDatosGeneralesComponent implements OnInit {
 
 
   addVenta() {
-    this.newVenta.sucursal.id = "1";
-    console.log("LLego aqui");
-    this.loginService.getCurrentUser().subscribe((user:any)=>{
-      this.newVenta.usuarioDTO.id =  user.id;
-      console.log("Entro aqui", user.id );
-    })
-    
+    this.newVenta.sucursal.id = "1";   
     this.newVenta.total = this.total;
+    console.log("ArrayVenta",this.newVenta);
+
     this.realizarVenta.guardarVenta(this.newVenta).subscribe(
       (dato: any) => {
         this.newVenta = {
@@ -91,7 +90,7 @@ export class CusDatosGeneralesComponent implements OnInit {
         }
         this.idVenta = dato.idVenta;
         this.tranformarArray();
-        console.log("ArrayListo",this.arrayVentaDetalle);
+        console.log("ArrayDetalle",this.arrayVentaDetalle);
         this.guardarDetalle();
         this.arrayVentaDetalle = [];
         this.arrayCards = [];
