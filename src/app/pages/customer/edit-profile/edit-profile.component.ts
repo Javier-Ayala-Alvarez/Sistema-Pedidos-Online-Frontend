@@ -41,11 +41,6 @@ export class EditProfileComponent implements OnInit {
     this.customer=this.customersService.getUser();
     this.cargar2=this.customersService.getUserId();
 
-
-
-
-
-
    this.customersService.listarCustomer(this.cargar2).subscribe(
     (data)=>{
       this.cargar=data;

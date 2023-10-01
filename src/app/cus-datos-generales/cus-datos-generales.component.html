@@ -7,7 +7,7 @@
         <div class="p-4 mb-2 border = 2 ">
             <div class="mb-2">
                 <label for="" class="form-label">Nombre:</label>
-                <input type="text" class="form-control" name="name" [(ngModel)]="newContact.name " required #name="ngModel" /><!--[(ngModel)]="newContact.name " required #name="ngModel"-->
+                <input type="text" class="form-control"   name="name" [(ngModel)]="newVenta.nombreEncargado " required #name="ngModel" /><!--[(ngModel)]="newContact.name " required #name="ngModel"-->
                 <!--Agrega el ngModel para enviar los datos al componete, repetimos en todos los imput-->
                 <div class="alert alert-danger" [hidden]="name.valid || name.pristine"> Campo requerido</div> <!--[hidden]="name.valid || name.pristine"-->
                 <!--Alert de Validaciones valid sirve para que se muestre cuando los requerimiento no se cumplan y 
@@ -15,7 +15,7 @@
             </div>
             <div class="mb-2">
                 <label for="" class="form-label">Correo:</label>
-                <input type="text" class="form-control" name="email" [(ngModel)]="newContact.email " required #email="ngModel" />
+                <input type="text" class="form-control"    name="email" [(ngModel)]="newVenta.correoEncargado " required #email="ngModel" />
                 <!--Agrega el ngModel para enviar los datos al componete, repetimos en todos los imput-->
                 <div class="alert alert-danger" [hidden]="email.valid || email.pristine"> Campo requerido</div>
                 <!--Alert de Validaciones valid sirve para que se muestre cuando los requerimiento no se cumplan y 
@@ -23,7 +23,7 @@
             </div>
             <div class="mb-2">
                 <label for="" class="form-label">Numero telefonico:</label>
-                <input type="text" class="form-control" name="phone" pattern="[0-9- ]+" name="phone" [(ngModel)]="newContact.phone" required #phone="ngModel"/>
+                <input type="text" class="form-control" name="phone" pattern="[0-9- ]+" name="phone" [(ngModel)]="newVenta.numeroTelefono" required #phone="ngModel"/>
                 <div class="alert alert-danger" [hidden]="phone.valid || phone.pristine"> Campo requerido</div><!-- Alert de Validaciones-->
             <!--Alert de Validaciones valid sirve para que se muestre cuando los requerimiento no se cumplan y 
                     pristine es cuando el usuario a tocado el input-->
@@ -35,7 +35,7 @@
         <div class="p-4 mb-2 border = 2 ">
             <div class="mb-2">
                 <label for="" class="form-label">Indicaciones de mi orden</label>
-                <textarea name="" id="" rows="1" class="form-control" name="comment" ></textarea><!--[(ngModel)]="newContact.comment"-->
+                <textarea name="" id="" rows="1" class="form-control" name="comment"  [(ngModel)]="newVenta.otrasIndicaciones"></textarea><!--[(ngModel)]="newContact.comment"-->
             </div>
         </div>
         Ubicación
@@ -44,8 +44,8 @@
         </div>
         
         <div class="d-flex justify-content-between">
-          <button class="btn btn-info btn-lg" (click)="addContact()" [disabled]="contactFrom.invalid">Guardar pedido</button>
-          <button class="btn btn-danger btn-lg" (click)="cancelarContact()">Cancelar pedido</button>
+          <button class="btn btn-info btn-lg" (click)="addVenta()" [disabled]="contactFrom.invalid">Guardar pedido</button>
+          <button class="btn btn-danger btn-lg" (click)="cancelarCompra()">Cancelar pedido</button>
         </div>
         </form>
         
