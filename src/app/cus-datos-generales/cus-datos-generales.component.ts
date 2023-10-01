@@ -6,6 +6,7 @@ import { CustomersService } from '../services/customers/customers.service';
 import { RealizarVentaService } from '../services/realizarVenta/realizar-venta.service';
 import { ventaDetalle } from '../entity/ventaDetalle';
 import { LoginService } from '../services/login/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cus-datos-generales',
@@ -35,7 +36,7 @@ export class CusDatosGeneralesComponent implements OnInit {
 
 
   constructor(private customersService: CustomersService,
-    public servicesCard: CusCardsService, private realizarVenta: RealizarVentaService, private loginService:LoginService) {
+    public servicesCard: CusCardsService, private realizarVenta: RealizarVentaService, private loginService:LoginService,private router:Router) {
 
   }
 
@@ -94,6 +95,7 @@ export class CusDatosGeneralesComponent implements OnInit {
         this.guardarDetalle();
         this.arrayVentaDetalle = [];
         this.arrayCards = [];
+      
       },
       (error: any) => {
         // Captura y muestra el mensaje de error de la API al usuario
@@ -133,6 +135,8 @@ for (let i = 0; i < this.arrayCards.length; i++) {
       (dato: any) => {
         this.servicesCard.eliminarTodo();
         Swal.fire('Compra creada', 'Compra creada con éxito', 'success');
+        this.router.navigate(['customer-dashboard/Category']);
+        this.loginService.loginStatusSubjec.next(true);
       },
       (error: any) => {
         // Captura y muestra el mensaje de error de la API al usuario
