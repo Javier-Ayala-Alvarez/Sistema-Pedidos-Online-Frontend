@@ -1,4 +1,4 @@
-import { Component, OnInit, Inject } from '@angular/core';
+import {Component, OnInit, Inject, AfterViewInit, ViewChild} from '@angular/core';
 import { CusCardsService } from '../services/cusCards/cus-cards.service';
 import { EntityCarrito } from '../entity/entityCarrito';
 import Swal from 'sweetalert2';
@@ -7,13 +7,16 @@ import { RealizarVentaService } from '../services/realizarVenta/realizar-venta.s
 import { ventaDetalle } from '../entity/ventaDetalle';
 import { LoginService } from '../services/login/login.service';
 import { Router } from '@angular/router';
+import {MapViewComponent} from "../maps/Componets/map-view/map-view.component";
 
 @Component({
   selector: 'app-cus-datos-generales',
   templateUrl: './cus-datos-generales.component.html',
   styleUrls: ['./cus-datos-generales.component.css']
 })
-export class CusDatosGeneralesComponent implements OnInit {
+export class CusDatosGeneralesComponent implements OnInit, AfterViewInit {
+
+  @ViewChild(MapViewComponent) map!: MapViewComponent;
   arrayCards: EntityCarrito[] = [];
   arrayVentaDetalle: ventaDetalle[] = [];
   total: number = 0;
@@ -56,7 +59,7 @@ export class CusDatosGeneralesComponent implements OnInit {
       }
 
     )
-  
+
     this.loginService.getCurrentUser().subscribe((user:any)=>{
       this.newVenta.usuarioDTO.id =  user.id;
     })
@@ -68,7 +71,7 @@ export class CusDatosGeneralesComponent implements OnInit {
 
 
   addVenta() {
-    this.newVenta.sucursal.id = "1";   
+    this.newVenta.sucursal.id = "1";
     this.newVenta.total = this.total;
     console.log("ArrayVenta",this.newVenta);
 
@@ -94,7 +97,7 @@ export class CusDatosGeneralesComponent implements OnInit {
         this.guardarDetalle();
         this.arrayVentaDetalle = [];
         this.arrayCards = [];
-      
+
       },
       (error: any) => {
         // Captura y muestra el mensaje de error de la API al usuario
@@ -111,7 +114,7 @@ export class CusDatosGeneralesComponent implements OnInit {
 tranformarArray(){
   this.arrayVentaDetalle = [];
 for (let i = 0; i < this.arrayCards.length; i++) {
-  
+
   const product = this.arrayCards[i].idProducto?.idProducto || null;
   const ventaDetalle: ventaDetalle = {
     idVentaDetalle: 0,
@@ -122,8 +125,8 @@ for (let i = 0; i < this.arrayCards.length; i++) {
     platoDTO: { id: this.arrayCards[i].idProducto?.idCombo || null },
     ventaEntity: { idVenta: this.idVenta || null }
   };
-  
-  
+
+
   this.arrayVentaDetalle.push(ventaDetalle);
 }
 
@@ -185,6 +188,11 @@ for (let i = 0; i < this.arrayCards.length; i++) {
 
       }
     })
+  }
+
+  ngAfterViewInit(): void {
+
+
   }
 
 }
