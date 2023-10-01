@@ -1,6 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
 import { CusCardsService } from '../services/cusCards/cus-cards.service';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { EntityCarrito } from '../entity/entityCarrito';
 import Swal from 'sweetalert2';
 import { CustomersService } from '../services/customers/customers.service';
@@ -33,6 +32,7 @@ export class CusDatosGeneralesComponent implements OnInit {
       id: '',
     }
   }
+
 
   constructor(private customersService: CustomersService,
     public servicesCard: CusCardsService, private realizarVenta: RealizarVentaService, private loginService:LoginService) {
@@ -175,8 +175,10 @@ for (let i = 0; i < this.arrayCards.length; i++) {
           }
         }
         this.arrayCards = this.servicesCard.arryProductCars;
+
         Swal.fire('Producto eliminada', 'El pedido ha sido eliminado de la base de datos', 'success');
         this.ngOnInit();
+
 
       }
     })
