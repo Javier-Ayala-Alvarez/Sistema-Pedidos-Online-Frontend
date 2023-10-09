@@ -34,7 +34,9 @@ export class CusDatosGeneralesComponent implements OnInit, AfterViewInit {
     },
     sucursal: {
       id: '',
-    }
+    },
+    altitud: 0,
+    longitud: 0,
   }
 
 
@@ -76,8 +78,15 @@ export class CusDatosGeneralesComponent implements OnInit, AfterViewInit {
       return;
     }
 
+    if (this.map.coordenadas == null) {
+      Swal.fire('Error', 'No se pudo obtener su ubicación.', 'error');
+      return;
+    }
+
     this.newVenta.sucursal.id = this.map.idSucursal.toString();
     this.newVenta.total = this.total;
+    this.newVenta.altitud = this.map.coordenadas[1];
+    this.newVenta.longitud = this.map.coordenadas[0];
     console.log("ArrayVenta",this.newVenta);
 
     this.realizarVenta.guardarVenta(this.newVenta).subscribe(
@@ -94,7 +103,9 @@ export class CusDatosGeneralesComponent implements OnInit, AfterViewInit {
           },
           sucursal: {
             id: ''
-          }
+          },
+          altitud: 0,
+          longitud: 0,
         }
         this.idVenta = dato.idVenta;
         this.tranformarArray();
@@ -183,7 +194,9 @@ for (let i = 0; i < this.arrayCards.length; i++) {
           },
           sucursal: {
             id: '',
-          }
+          },
+          altitud: 0,
+          longitud: 0,
         }
         this.arrayCards = this.servicesCard.arryProductCars;
 
