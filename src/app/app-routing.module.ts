@@ -47,6 +47,7 @@ import { CocinaPedidosComponent } from './pages/cocina/cocina-pedidos/cocina-ped
 import { DeliveryWelcomeComponent } from './pages/delivery/delivery-welcome/delivery-welcome.component';
 import { DeliveryPedidosComponent } from './pages/delivery/delivery-pedidos/delivery-pedidos.component';
 import { AppComponent } from './app.component';
+import {MapViewComponent} from "./maps/Componets/map-view/map-view.component";
 
 const routes: Routes = [
 
@@ -55,6 +56,11 @@ const routes: Routes = [
     component: HomeComponent,
     pathMatch: 'full',
 
+  },
+  {
+    path: 'mapa',
+    component: MapViewComponent,
+    pathMatch: 'full',
   },
   {
     path: 'Carrito',
@@ -264,7 +270,7 @@ const routes: Routes = [
       },{
         path: 'Productos/:id',
         component: CusPlatoComponent,
-   
+
 
       }
     ]

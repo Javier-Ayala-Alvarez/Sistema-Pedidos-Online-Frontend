@@ -71,7 +71,12 @@ export class CusDatosGeneralesComponent implements OnInit, AfterViewInit {
 
 
   addVenta() {
-    this.newVenta.sucursal.id = "1";
+    if (this.map.idSucursal == 0) {
+      Swal.fire('Error', 'No existe una sucursal cercana a su ubicación.', 'error');
+      return;
+    }
+
+    this.newVenta.sucursal.id = this.map.idSucursal.toString();
     this.newVenta.total = this.total;
     console.log("ArrayVenta",this.newVenta);
 
@@ -191,6 +196,9 @@ for (let i = 0; i < this.arrayCards.length; i++) {
   }
 
   ngAfterViewInit(): void {
+
+
+
 
 
   }
