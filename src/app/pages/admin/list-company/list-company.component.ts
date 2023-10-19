@@ -15,6 +15,13 @@ export class ListCompanyComponent implements OnInit {
   id=1;
 
   ngOnInit(): void {
+    this.company={
+      evento:{
+        id:null,
+        ev_horaInicio:'',
+        ev_horaCierre:''
+      }
+    }
     this.companyService.listarCompanyId(this.id).subscribe(
       (data)=>{
         this.company=data;

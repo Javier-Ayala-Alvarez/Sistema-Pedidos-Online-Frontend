@@ -91,6 +91,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {MatMenuModule} from '@angular/material/menu';
 
+//import { DateInputsModule } from "@progress/kendo-angular-dateinputs";
+//import { LabelModule } from "@progress/kendo-angular-label";
+//import { FormFieldModule } from "@progress/kendo-angular-inputs";
+//import { ButtonsModule } from "@progress/kendo-angular-buttons";
 
 @NgModule({
     declarations: [
@@ -180,6 +184,12 @@ import {MatMenuModule} from '@angular/material/menu';
         MatDialogModule,
         HttpClientModule,
         NgxUiLoaderModule,
+
+       /* DateInputsModule,
+        LabelModule,
+        FormFieldModule,
+        ButtonsModule,*/
+
 
         NgxUiLoaderHttpModule.forRoot({
             showForeground: true

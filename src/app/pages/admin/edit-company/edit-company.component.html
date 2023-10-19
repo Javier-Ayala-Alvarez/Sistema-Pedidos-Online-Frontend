@@ -36,6 +36,26 @@
               [(ngModel)] = "company.cp_abreviatura"
               >
             </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Hora de Apertura</mat-label>
+              <input
+              type="text"
+              name="company.evento.ev_horaInicio"
+              matInput
+              [(ngModel)] = "company.evento.ev_horaInicio"
+              >
+
+
+            </mat-form-field>
+            <mat-form-field class="w100" appearance="outline">
+              <mat-label>Hora de Cierre</mat-label>
+              <input
+              type="text"
+              name="company.evento.ev_horaCierre"
+              matInput
+              [(ngModel)] = "company.evento.ev_horaCierre"
+              >
+            </mat-form-field>
             <div class="container text-center mt15">
               <button mat-raised-button color="primary">Guardar</button>
             </div>
