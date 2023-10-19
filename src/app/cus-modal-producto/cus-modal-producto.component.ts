@@ -17,7 +17,8 @@ import {MAT_DIALOG_DATA, MatDialogRef} from "@angular/material/dialog";
 export class CusModalProductoComponent implements OnInit {
   productsArray: EntityProducts[] = [];
   productsArrayIdCombo: EntityProducts[] = [];
-
+  horaIncio: any = "";
+  horaFin: any = "";
   cards: EntityCarrito = new EntityCarrito();
 
   cantidad: number = 1;
@@ -37,7 +38,20 @@ export class CusModalProductoComponent implements OnInit {
     const idNumber = parseInt(id, 10);
     this.productsArray = this.products.getOneProducto(idNumber, idNumberCombo);
     this.productsArrayIdCombo = await this.products.getCombo(idNumberCombo);
+    this.serviceCars.listarHora().subscribe(
+      (data: any) => {
+        console.log(data);
 
+         this.horaIncio = data[0].ev_horaInicio;
+         this.horaFin = data[0].ev_horaCierre;
+
+      },
+      (error: any) => {
+        console.log(error);
+        Swal.fire('Error !!', '', 'error');
+      }
+
+    )
   }
 
 
@@ -55,6 +69,9 @@ export class CusModalProductoComponent implements OnInit {
 
   }
   AddCards(): void{
+    if(!this.validarHoraDelDispositivo()){
+      return
+    }
     console.log("w");
     const productos = this.productsArray
     this.cards.id = 0;
@@ -71,7 +88,19 @@ export class CusModalProductoComponent implements OnInit {
   }
 
 
+  validarHoraDelDispositivo() {
+    const currentHour = new Date().getHours();
+    const horaInicio = Number(this.horaIncio.split(':')[0]); // Obtén la hora de inicio del rango
+    const horaCierre = Number(this.horaFin.split(':')[0]); // Obtén la hora de cierre del rango
 
+    if (currentHour >= horaInicio && currentHour <= horaCierre) {
+    return true      
+    } else {
+      Swal.fire('Error !!', 'No puede agregar al carrito no se encuentra en el rango de horas de servicio', 'error');
+      return false
+
+    }
+  }
 
 }
 

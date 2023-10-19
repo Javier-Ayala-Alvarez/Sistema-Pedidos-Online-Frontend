@@ -1,5 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { CusCardsComponent } from 'src/app/cus-cards/cus-cards.component';
+import baserUrl from '../helper';
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +11,12 @@ export class CusCardsService {
   private isOpen = false;
   private cusCardsComponent: CusCardsComponent | undefined;
 
-  constructor() {}
-
+  constructor(private httpClient:HttpClient) {}
+  public listarHora(){
+  
+      return this.httpClient.get(`${baserUrl}/api/Evento/list`);
+    
+  }
   registerComponent(cusCardsComponent: CusCardsComponent) {
     this.cusCardsComponent = cusCardsComponent;
   }
