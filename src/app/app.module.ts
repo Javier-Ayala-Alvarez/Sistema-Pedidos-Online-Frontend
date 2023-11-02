@@ -90,6 +90,7 @@ import {DeliveryPedidosComponent} from './pages/delivery/delivery-pedidos/delive
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {MatMenuModule} from '@angular/material/menu';
+import {PedidosModule} from "./pedidos/pedidos.module";
 
 //import { DateInputsModule } from "@progress/kendo-angular-dateinputs";
 //import { LabelModule } from "@progress/kendo-angular-label";
@@ -185,15 +186,16 @@ import {MatMenuModule} from '@angular/material/menu';
         HttpClientModule,
         NgxUiLoaderModule,
 
-       /* DateInputsModule,
-        LabelModule,
-        FormFieldModule,
-        ButtonsModule,*/
+        /* DateInputsModule,
+         LabelModule,
+         FormFieldModule,
+         ButtonsModule,*/
 
 
         NgxUiLoaderHttpModule.forRoot({
             showForeground: true
-        })
+        }),
+        PedidosModule
     ],
     providers: [authInterceptorProviders, {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
     bootstrap: [AppComponent]

@@ -1,0 +1,28 @@
+<table class="table">
+  <thead style="border-left-color: black; text-align: center;">
+  <tr>
+    <th class="col-md-2">Producto / plato</th>
+    <th class="col-md-2">Precio unitario</th>
+    <th class="col-md-2">Cantidad</th>
+    <th class="col-md-2">Total</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr style="text-align: center;" *ngFor="let p of data">
+
+    <td class="align-middle">{{
+      p.producto ? p.producto.nombre : p.plato?.nombre
+
+      }}</td>
+    <td class="align-middle"> ${{
+      p.producto ? p.producto.precioVenta : p.plato?.precio
+      }}</td>
+    <td class="align-middle">
+      p.cantidad
+    </td>
+    <td class="align-middle">
+      p.total
+    </td>
+  </tr>
+  </tbody>
+</table>
