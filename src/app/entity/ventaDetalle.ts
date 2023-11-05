@@ -16,8 +16,10 @@ export interface ventaDetalle {
         };
         ventaEntity: {
           idVenta: number | null,
-        };
-      
-      
+          nombreEncargado?: string,
+          correoEncargado?: string,
+          numeroTelefono?: string,
+
+        };      
 
 }
