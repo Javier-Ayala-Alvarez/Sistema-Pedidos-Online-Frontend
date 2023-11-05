@@ -75,7 +75,6 @@ export class CusDatosGeneralesComponent implements OnInit, AfterViewInit {
     }else{
       this.detalle();
       
-      
     }
    
   }
