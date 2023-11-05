@@ -48,6 +48,7 @@ import { DeliveryWelcomeComponent } from './pages/delivery/delivery-welcome/deli
 import { DeliveryPedidosComponent } from './pages/delivery/delivery-pedidos/delivery-pedidos.component';
 import { AppComponent } from './app.component';
 import {MapViewComponent} from "./maps/Componets/map-view/map-view.component";
+import { VentasComponent } from './pages/customer/ventas/ventas.component';
 
 const routes: Routes = [
 
@@ -272,7 +273,13 @@ const routes: Routes = [
         component: CusPlatoComponent,
 
 
+      },{
+        path: 'Ventas',
+        component: VentasComponent,
+
+
       }
+      
     ]
   }
 ];
