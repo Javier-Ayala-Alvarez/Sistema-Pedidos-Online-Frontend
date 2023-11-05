@@ -266,6 +266,10 @@ const routes: Routes = [
         component: CusDatosGeneralesComponent
       },
       {
+        path: 'MostrarVenta/:id',
+        component: CusDatosGeneralesComponent
+      },
+      {
         path: 'edit-profile',
         component: EditProfileComponent
       },{

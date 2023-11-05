@@ -38,15 +38,23 @@
                 <textarea name="" id="" rows="1" class="form-control" name="comment"  [(ngModel)]="newVenta.otrasIndicaciones"></textarea><!--[(ngModel)]="newContact.comment"-->
             </div>
         </div>
+        <div *ngIf="verIdVenta == undefined">
         Ubicación
         <div class="p-4 mb-2 border = 2 ">
             <app-map-view></app-map-view>
         </div>
 
         <div class="d-flex justify-content-between">
-          <button class="btn btn-info btn-lg" (click)="addVenta()" [disabled]="contactFrom.invalid">Guardar pedido</button>
-          <button class="btn btn-danger btn-lg" (click)="cancelarCompra()">Cancelar pedido</button>
+            <button class="btn btn-info btn-lg" (click)="addVenta()" [disabled]="contactFrom.invalid">Guardar pedido</button>
+            <button class="btn btn-danger btn-lg" (click)="cancelarCompra()">Cancelar pedido</button>         
         </div>
+      </div>
+      <div *ngIf="verIdVenta != undefined">
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-danger btn-lg" (click)="Salir()">Salir</button>         
+      </div>
+      </div>
+
         </form>
 
       </div>
