@@ -1,17 +1,21 @@
 export interface ventaDetalle {
 
-        idVentaDetalle: number | null;
-        cantidad: number;
-        precioUnitario: number;
-        precioTotal: number;
+        idVentaDetalle: number | null,
+        cantidad: number,
+        precioUnitario: number,
+        precioTotal: number,
         product: {
-          id: number | null;
+          id: number | null,
+          urlImagen ?: string,
+          nombre ?: string,
+
         };
+
         platoDTO: {
-          id: number | null;
+          id: number | null,
         };
         ventaEntity: {
-          idVenta: number | null;
+          idVenta: number | null,
         };
       
       

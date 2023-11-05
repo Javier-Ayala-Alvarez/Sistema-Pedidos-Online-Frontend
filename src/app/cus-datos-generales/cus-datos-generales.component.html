@@ -62,7 +62,9 @@
         <h2>Tu Pedido</h2>
         <h2 class="total-amount">Total: {{total | currency}}</h2>
         <table class="cart-table">
-          <thead>
+          
+            <div *ngIf="verIdVenta == undefined">
+              <thead>
             <tr>
               <th>Imagen</th>
               <th>Nombre</th>
@@ -71,7 +73,8 @@
               <th>Total</th>
             </tr>
           </thead>
-          <tbody>
+              <tbody>
+
             <tr *ngFor="let car of arrayCards">
               <td>
                 <img [src]="car.idProducto?.urlImagen" alt="Imagen del producto" width="50" height="50">
@@ -83,6 +86,33 @@
 
             </tr>
           </tbody>
+
+          </div>
+          <div *ngIf="verIdVenta != undefined">
+            <thead>
+              <tr>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let car of arrayVentaDetalle">
+              <td>
+                <img [src]="car.product.urlImagen" alt="Imagen del producto" width="50" height="50">
+              </td>
+              <td>{{ car.product.nombre }}</td>
+              <td>{{ car.cantidad }}</td>
+              <td>{{ car.precioUnitario | currency }}</td>
+              <td>{{ car.precioTotal | currency }}</td>
+
+            </tr>
+          </tbody>
+
+          </div>
+
         </table>
       </div>
     </div>

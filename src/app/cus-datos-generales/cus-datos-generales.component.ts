@@ -8,6 +8,7 @@ import { ventaDetalle } from '../entity/ventaDetalle';
 import { LoginService } from '../services/login/login.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import {MapViewComponent} from "../maps/Componets/map-view/map-view.component";
+import { EntityProducts } from '../entity/entityProducts';
 
 @Component({
   selector: 'app-cus-datos-generales',
@@ -49,9 +50,9 @@ export class CusDatosGeneralesComponent implements OnInit, AfterViewInit {
 
   ngOnInit(): void {
     this.verIdVenta=this.route.snapshot.params['id'];
-console.log(this.verIdVenta);
+    console.log(this.verIdVenta);
 
-    if(this.verIdVenta != 0){
+    if(this.verIdVenta == undefined){
       this.arrayCards = this.servicesCard.arryProductCars;
       this.calculateTotal();
       this.customersService.listarCustomer(this.customersService.getUserId()).subscribe(
@@ -72,14 +73,18 @@ console.log(this.verIdVenta);
         this.newVenta.usuarioDTO.id =  user.id;
       })
     }else{
-
+      this.detalle();
+      
+      
     }
    
   }
   calculateTotal(): void {
     this.total = this.arrayCards.reduce((sum, car) => sum + (car.cantidad * (car.idProducto?.precioVenta || 0)), 0);
   }
-
+  calculateTotal1(): void {
+    this.total = this.arrayVentaDetalle.reduce((sum, car) => sum + car.precioTotal, 0);
+  }
 
 
   addVenta() {
@@ -138,7 +143,7 @@ console.log(this.verIdVenta);
 
 
 tranformarArray(){
-  this.arrayVentaDetalle = [];
+  this.arrayVentaDetalle  ;
 for (let i = 0; i < this.arrayCards.length; i++) {
 
   const product = this.arrayCards[i].idProducto?.idProducto || null;
@@ -147,7 +152,10 @@ for (let i = 0; i < this.arrayCards.length; i++) {
     cantidad: this.arrayCards[i].cantidad || 0,
     precioUnitario: this.arrayCards[i].idProducto?.precioVenta || 0,
     precioTotal: ((this.arrayCards[i].idProducto?.precioVenta || 0) * (this.arrayCards[i].cantidad || 0)),
-    product: { id: product },
+    product: {
+      id: product,
+      
+    },
     platoDTO: { id: this.arrayCards[i].idProducto?.idCombo || null },
     ventaEntity: { idVenta: this.idVenta || null }
   };
@@ -157,6 +165,7 @@ for (let i = 0; i < this.arrayCards.length; i++) {
 }
 
 }
+
 
   guardarDetalle() {
     this.realizarVenta.guardarDetalle(this.arrayVentaDetalle).subscribe(
@@ -228,5 +237,25 @@ for (let i = 0; i < this.arrayCards.length; i++) {
 
 
   }
+  detalle() {
+    this.realizarVenta.listar(this.verIdVenta).subscribe(
+      (dato: any) => {
+        this.arrayVentaDetalle = dato;  
+        console.log("venta", this.arrayVentaDetalle);
+        this.calculateTotal1();
+      },
+      (error) => {
+        console.log(error);
+        Swal.fire('Error !!', 'Error al cargar las Compras', 'error');
+      }
+    );
+    
 
+  }
+  
+  
+  
+  
+  
+  
 }
