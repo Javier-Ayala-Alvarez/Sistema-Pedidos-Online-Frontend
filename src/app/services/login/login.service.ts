@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 import baserUrl from '../helper';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class LoginService {
 

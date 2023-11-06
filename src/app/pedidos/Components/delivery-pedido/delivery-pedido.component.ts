@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {LoginService} from "../../../services/login/login.service";
 
 @Component({
   selector: 'app-delivery-pedido',
@@ -6,13 +7,16 @@ import {Component} from '@angular/core';
   styleUrls: ['./delivery-pedido.component.css']
 })
 export class DeliveryPedidoComponent {
-
-  constructor() {
+  constructor(private loginService:LoginService) {
   }
   comentario :string = '';
 
   enviarComentario(){
-    console.log(this.comentario);
+
+    console.log(this.loginService.getUser());
+
+    // get session user 
+
   }
 
 }

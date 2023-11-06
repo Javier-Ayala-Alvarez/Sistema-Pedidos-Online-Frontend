@@ -91,6 +91,7 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {MatMenuModule} from '@angular/material/menu';
 import {PedidosModule} from "./pedidos/pedidos.module";
+import {LoginService} from "./services/login/login.service";
 
 //import { DateInputsModule } from "@progress/kendo-angular-dateinputs";
 //import { LabelModule } from "@progress/kendo-angular-label";
@@ -196,7 +197,9 @@ import {PedidosModule} from "./pedidos/pedidos.module";
             showForeground: true
         }),
         PedidosModule
-    ],
+    ],exports:[
+
+],
     providers: [authInterceptorProviders, {provide: MAT_DATE_LOCALE, useValue: 'en-GB'}],
     bootstrap: [AppComponent]
 })
