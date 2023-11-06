@@ -81,7 +81,8 @@ export class MapViewComponent implements AfterViewInit {
                   this.idSucursal = sucursal.id;
                   console.log(`la distancia es de ${distancia} y el id de la sucursal es ${this.idSucursal}`);
                 }else{
-                  console.log("no hay sucursal cercana");
+                  // sweet alert
+                    Swal.fire('Info', 'No se encontró sucursal cercana', 'info');
                 }
 
 

@@ -24,5 +24,12 @@ export class RealizarVentaService {
       })
     );
   }
+  public listarPorNombrePagina(search: string, page: number, size: number,order: string, asc: boolean) {
+    return this.httpClient.get(`${baserUrl}/venta/list/pageable?id=${search}&size=${size}&order=${order}&asc=${asc}`);
+  }
+
+  public listar(id: number) {
+    return this.httpClient.get(`${baserUrl}/ventaDetalle/list/${id}`);
+  }
   
 }

@@ -6,8 +6,9 @@ import { CustomersService } from '../services/customers/customers.service';
 import { RealizarVentaService } from '../services/realizarVenta/realizar-venta.service';
 import { ventaDetalle } from '../entity/ventaDetalle';
 import { LoginService } from '../services/login/login.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import {MapViewComponent} from "../maps/Componets/map-view/map-view.component";
+import { EntityProducts } from '../entity/entityProducts';
 
 @Component({
   selector: 'app-cus-datos-generales',
@@ -21,6 +22,7 @@ export class CusDatosGeneralesComponent implements OnInit, AfterViewInit {
   arrayVentaDetalle: ventaDetalle[] = [];
   total: number = 0;
   idVenta : number = 0;
+  verIdVenta : number = 0;
   cargar: any = {};
   newVenta = {//Agregamos este objeto
     idVenta: null,
@@ -41,35 +43,47 @@ export class CusDatosGeneralesComponent implements OnInit, AfterViewInit {
 
 
   constructor(private customersService: CustomersService,
-    public servicesCard: CusCardsService, private realizarVenta: RealizarVentaService, private loginService:LoginService,private router:Router) {
+    public servicesCard: CusCardsService, private realizarVenta: RealizarVentaService, private loginService:LoginService,private router:Router,private route:ActivatedRoute,
+    ) {
 
   }
 
   ngOnInit(): void {
-    this.arrayCards = this.servicesCard.arryProductCars;
-    this.calculateTotal();
-    this.customersService.listarCustomer(this.customersService.getUserId()).subscribe(
-      (data) => {
-        this.cargar = data;
-        this.newVenta.nombreEncargado = this.cargar.nombre;
-        this.newVenta.correoEncargado = this.cargar.correo;
-        console.log(this.cargar);
-      },
-      (error) => {
-        console.log(error);
-        Swal.fire('Error !!', '', 'error');
-      }
+    this.verIdVenta=this.route.snapshot.params['id'];
+    console.log(this.verIdVenta);
 
-    )
-
-    this.loginService.getCurrentUser().subscribe((user:any)=>{
-      this.newVenta.usuarioDTO.id =  user.id;
-    })
+    if(this.verIdVenta == undefined){
+      this.arrayCards = this.servicesCard.arryProductCars;
+      this.calculateTotal();
+      this.customersService.listarCustomer(this.customersService.getUserId()).subscribe(
+        (data) => {
+          this.cargar = data;
+          this.newVenta.nombreEncargado = this.cargar.nombre;
+          this.newVenta.correoEncargado = this.cargar.correo;
+          console.log(this.cargar);
+        },
+        (error) => {
+          console.log(error);
+          Swal.fire('Error !!', '', 'error');
+        }
+  
+      )
+  
+      this.loginService.getCurrentUser().subscribe((user:any)=>{
+        this.newVenta.usuarioDTO.id =  user.id;
+      })
+    }else{
+      this.detalle();
+      
+    }
+   
   }
   calculateTotal(): void {
     this.total = this.arrayCards.reduce((sum, car) => sum + (car.cantidad * (car.idProducto?.precioVenta || 0)), 0);
   }
-
+  calculateTotal1(): void {
+    this.total = this.arrayVentaDetalle.reduce((sum, car) => sum + car.precioTotal, 0);
+  }
 
 
   addVenta() {
@@ -128,7 +142,7 @@ export class CusDatosGeneralesComponent implements OnInit, AfterViewInit {
 
 
 tranformarArray(){
-  this.arrayVentaDetalle = [];
+  this.arrayVentaDetalle  ;
 for (let i = 0; i < this.arrayCards.length; i++) {
 
   const product = this.arrayCards[i].idProducto?.idProducto || null;
@@ -137,7 +151,10 @@ for (let i = 0; i < this.arrayCards.length; i++) {
     cantidad: this.arrayCards[i].cantidad || 0,
     precioUnitario: this.arrayCards[i].idProducto?.precioVenta || 0,
     precioTotal: ((this.arrayCards[i].idProducto?.precioVenta || 0) * (this.arrayCards[i].cantidad || 0)),
-    product: { id: product },
+    product: {
+      id: product,
+      
+    },
     platoDTO: { id: this.arrayCards[i].idProducto?.idCombo || null },
     ventaEntity: { idVenta: this.idVenta || null }
   };
@@ -147,6 +164,7 @@ for (let i = 0; i < this.arrayCards.length; i++) {
 }
 
 }
+
 
   guardarDetalle() {
     this.realizarVenta.guardarDetalle(this.arrayVentaDetalle).subscribe(
@@ -207,7 +225,10 @@ for (let i = 0; i < this.arrayCards.length; i++) {
       }
     })
   }
+  Salir() {
+    this.router.navigate(['customer-dashboard/Ventas']);
 
+  }
   ngAfterViewInit(): void {
 
 
@@ -215,5 +236,25 @@ for (let i = 0; i < this.arrayCards.length; i++) {
 
 
   }
+  detalle() {
+    this.realizarVenta.listar(this.verIdVenta).subscribe(
+      (dato: any) => {
+        this.arrayVentaDetalle = dato;  
+        console.log("venta", this.arrayVentaDetalle);
+        this.calculateTotal1();
+      },
+      (error) => {
+        console.log(error);
+        Swal.fire('Error !!', 'Error al cargar las Compras', 'error');
+      }
+    );
+    
 
+  }
+  
+  
+  
+  
+  
+  
 }

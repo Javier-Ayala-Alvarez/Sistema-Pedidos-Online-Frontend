@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import baserUrl from '../helper';
+import {Observable} from "rxjs";
+import {sucursalInterface} from "../../interface/sucursalInterface";
 
 @Injectable({
   providedIn: 'root'
@@ -35,4 +37,9 @@ export class EmployeesService {
   public eliminarEmployee(id:any){
     return this.httpClient.delete(`${baserUrl}/api/empleados/delete/${id}`);
   }
+
+  // obtener estado de empleado por idusuario
+    public verificarPedidoAsignado(id:number):Observable<boolean> {
+        return this.httpClient.get<boolean>(`${baserUrl}/api/empleados/usuario/estado/delivery/${id}`);
+    }
 }

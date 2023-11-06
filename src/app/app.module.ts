@@ -91,7 +91,10 @@ import {MatDatepickerModule} from '@angular/material/datepicker';
 import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core';
 import {MatMenuModule} from '@angular/material/menu';
 import {PedidosModule} from "./pedidos/pedidos.module";
-import {LoginService} from "./services/login/login.service";
+
+import { VentasComponent } from './pages/customer/ventas/ventas.component';
+import {EmployeesService} from "./services/employees/employees.service";
+
 
 //import { DateInputsModule } from "@progress/kendo-angular-dateinputs";
 //import { LabelModule } from "@progress/kendo-angular-label";
@@ -157,7 +160,8 @@ import {LoginService} from "./services/login/login.service";
         DeliveryPedidosComponent,
 
 
-        LoadingSpinnerComponent
+        LoadingSpinnerComponent,
+            VentasComponent
 
     ],
     imports: [

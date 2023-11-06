@@ -4,7 +4,6 @@ import {DetallePedidoComponent} from './Components/detalle-pedido/detalle-pedido
 import {MatIconModule} from "@angular/material/icon";
 import {MapDeliveryComponent} from './Components/map-delivery/map-delivery.component';
 import { DeliveryPedidoComponent } from './Components/delivery-pedido/delivery-pedido.component';
-import {MapViewComponent} from "../maps/Componets/map-view/map-view.component";
 import {MatCardModule} from "@angular/material/card";
 import {MatListModule} from "@angular/material/list";
 import {MapsModule} from "../maps/maps.module";

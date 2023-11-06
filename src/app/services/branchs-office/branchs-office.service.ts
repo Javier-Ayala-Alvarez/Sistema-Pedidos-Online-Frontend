@@ -52,6 +52,11 @@ export class BranchsOfficeService {
 
   }
 
+  // obtener sucursal por idusuario
+    public obtenerSucursalPorIdUsuario(id:number):Observable<sucursalInterface>{
+        return this.httpClient.get<sucursalInterface>(`${baserUrl}/api/sucursal/usuario/id/${id}`);
+    }
+
 
 
 }

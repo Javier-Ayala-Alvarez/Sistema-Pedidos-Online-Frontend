@@ -5,6 +5,8 @@
 
         <form  #contactFrom="ngForm">
         <div class="p-4 mb-2 border = 2 ">
+          <div *ngIf="verIdVenta == undefined">
+
             <div class="mb-2">
                 <label for="" class="form-label">Nombre:</label>
                 <input type="text" class="form-control"   name="name" [(ngModel)]="newVenta.nombreEncargado " required #name="ngModel" /><!--[(ngModel)]="newContact.name " required #name="ngModel"-->
@@ -28,6 +30,34 @@
             <!--Alert de Validaciones valid sirve para que se muestre cuando los requerimiento no se cumplan y
                     pristine es cuando el usuario a tocado el input-->
             </div>
+          </div>
+          <div *ngIf="verIdVenta != undefined">
+
+            <div class="mb-2">
+              <label for="" class="form-label">Nombre:</label>
+              <input type="text" class="form-control"   name="name" [(ngModel)]="arrayVentaDetalle[0].ventaEntity.nombreEncargado" required #name="ngModel" /><!--[(ngModel)]="newContact.name " required #name="ngModel"-->
+              <!--Agrega el ngModel para enviar los datos al componete, repetimos en todos los imput-->
+              <div class="alert alert-danger" [hidden]="name.valid || name.pristine"> Campo requerido</div> <!--[hidden]="name.valid || name.pristine"-->
+              <!--Alert de Validaciones valid sirve para que se muestre cuando los requerimiento no se cumplan y
+                  pristine es cuando el usuario a tocado el input-->
+          </div>
+          <div class="mb-2">
+              <label for="" class="form-label">Correo:</label>
+              <input type="text" class="form-control"    name="email" [(ngModel)]="arrayVentaDetalle[0].ventaEntity.correoEncargado " required #email="ngModel" />
+              <!--Agrega el ngModel para enviar los datos al componete, repetimos en todos los imput-->
+              <div class="alert alert-danger" [hidden]="email.valid || email.pristine"> Campo requerido</div>
+              <!--Alert de Validaciones valid sirve para que se muestre cuando los requerimiento no se cumplan y
+                  pristine es cuando el usuario a tocado el input-->
+          </div>
+          <div class="mb-2">
+              <label for="" class="form-label">Numero telefonico:</label>
+              <input type="text" class="form-control" name="phone" pattern="[0-9- ]+" name="phone" [(ngModel)]="arrayVentaDetalle[0].ventaEntity.numeroTelefono" required #phone="ngModel"/>
+              <div class="alert alert-danger" [hidden]="phone.valid || phone.pristine"> Campo requerido</div><!-- Alert de Validaciones-->
+          <!--Alert de Validaciones valid sirve para que se muestre cuando los requerimiento no se cumplan y
+                  pristine es cuando el usuario a tocado el input-->
+          </div>
+        </div>
+
         </div>
 
         Datos Pedidos
@@ -38,15 +68,23 @@
                 <textarea name="" id="" rows="1" class="form-control" name="comment"  [(ngModel)]="newVenta.otrasIndicaciones"></textarea><!--[(ngModel)]="newContact.comment"-->
             </div>
         </div>
+        <div *ngIf="verIdVenta == undefined">
         Ubicación
         <div class="p-4 mb-2 border = 2 ">
             <app-map-view></app-map-view>
         </div>
 
         <div class="d-flex justify-content-between">
-          <button class="btn btn-info btn-lg" (click)="addVenta()" [disabled]="contactFrom.invalid">Guardar pedido</button>
-          <button class="btn btn-danger btn-lg" (click)="cancelarCompra()">Cancelar pedido</button>
+            <button class="btn btn-info btn-lg" (click)="addVenta()" [disabled]="contactFrom.invalid">Guardar pedido</button>
+            <button class="btn btn-danger btn-lg" (click)="cancelarCompra()">Cancelar pedido</button>         
         </div>
+      </div>
+      <div *ngIf="verIdVenta != undefined">
+        <div class="d-flex justify-content-between">
+          <button class="btn btn-danger btn-lg" (click)="Salir()">Salir</button>         
+      </div>
+      </div>
+
         </form>
 
       </div>
@@ -54,7 +92,9 @@
         <h2>Tu Pedido</h2>
         <h2 class="total-amount">Total: {{total | currency}}</h2>
         <table class="cart-table">
-          <thead>
+          
+            <div *ngIf="verIdVenta == undefined">
+              <thead>
             <tr>
               <th>Imagen</th>
               <th>Nombre</th>
@@ -63,7 +103,8 @@
               <th>Total</th>
             </tr>
           </thead>
-          <tbody>
+              <tbody>
+
             <tr *ngFor="let car of arrayCards">
               <td>
                 <img [src]="car.idProducto?.urlImagen" alt="Imagen del producto" width="50" height="50">
@@ -75,6 +116,33 @@
 
             </tr>
           </tbody>
+
+          </div>
+          <div *ngIf="verIdVenta != undefined">
+            <thead>
+              <tr>
+                <th>Imagen</th>
+                <th>Nombre</th>
+                <th>Cantidad</th>
+                <th>Precio Unitario</th>
+                <th>Total</th>
+              </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let car of arrayVentaDetalle">
+              <td>
+                <img [src]="car.product.urlImagen" alt="Imagen del producto" width="50" height="50">
+              </td>
+              <td>{{ car.product.nombre }}</td>
+              <td>{{ car.cantidad }}</td>
+              <td>{{ car.precioUnitario | currency }}</td>
+              <td>{{ car.precioTotal | currency }}</td>
+
+            </tr>
+          </tbody>
+
+          </div>
+
         </table>
       </div>
     </div>

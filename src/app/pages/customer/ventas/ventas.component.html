@@ -1,0 +1,63 @@
+<mat-card>
+    <mat-list>
+      <div mat-subheader>
+        <h2>
+          Lista Compras
+        </h2>
+      </div>
+      
+      <br>
+      <div class="table-responsive">
+      <table class="table table-hover table-striped table-sm caption-top">
+        <thead style="border-left-color: black; text-align: center;">
+          <tr>
+            <th class="col-md-3">Codigo Venta</th>
+            <th class="col-md-3">Nombre</th>
+            <th class="col-md-3">Telefono</th>
+            <th class="col-md-3">Fecha</th>
+            <th class="col-md-3">Estado </th>
+            <th class="col-md-3">Total</th>
+            <th class="col-md-3">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="text-align: center;" *ngFor="let data of array">
+            <td class="align-middle">{{ data.idVenta }}</td>
+            <td class="align-middle">{{ data.nombreEncargado }}</td>
+            <td class="align-middle">{{ data.numeroTelefono }} </td>
+            <td class="align-middle">{{ data.fecha | date: 'dd/MM/yyyy HH:mm:ss' }}</td>
+            <td class="align-middle">{{ data.estado }}</td>
+            <td class="align-middle">{{ data.total }}</td>
+            <td>
+              <button type="button" style="margin-right: 10px;" class="btn btn-warning"
+              [routerLink]="'/customer-dashboard/MostrarVenta/'+data.idVenta"><mat-icon>edit</mat-icon></button>
+            </td>
+            
+          </tr>
+   
+        </tbody>
+      </table>
+    </div>
+    </mat-list>
+  </mat-card>
+  
+  <nav aria-label="Page navigation example" style="margin-top: 15px;">
+    <ul class="pagination justify-content-end">
+      <li class="page-item" style="margin-left: 25px; margin-right: 25px;">
+        <div>Items por pagina </div>
+      </li>
+      <li class="page-item">
+        <div>Pagina  {{page+1}}</div>
+      </li>
+      <li class="page-item" style="margin-left: 25px;">
+        <div> hasta  {{totalPages.length}}</div>
+      </li>
+      <li class="page-item">
+        <a style="margin: 15px; margin-top: 25px;" (click)="paginaAnterior"><mat-icon>skip_previous</mat-icon></a>
+      </li>
+      <li class="page-item">
+        <a style="margin: 15px;" (click)="paginaSiguiente"><mat-icon>skip_next</mat-icon></a>
+      </li>
+    </ul>
+  </nav>
+  <!--Necesito un pie de pagina-->
