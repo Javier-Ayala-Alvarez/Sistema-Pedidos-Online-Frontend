@@ -1,5 +1,4 @@
-import {PlatoInterface} from "../../interface/plato-interface";
-import {ProductoInterface} from "../../interface/producto-interface";
+import {DetalleVenta} from "./detalle-venta";
 
 export interface DetallePedido {
 
@@ -10,9 +9,9 @@ export interface DetallePedido {
   numeroTelefono: string;
   otrasIndicaciones: string;
   total: number;
-  Latitud: number;
+  altitud: number;
   longitud: number;
   estado: string;
-  producto ? : ProductoInterface ;
-  plato ? : PlatoInterface;
+  ventasDetalleDTO: DetalleVenta[];
+
 }

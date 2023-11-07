@@ -1,87 +1,90 @@
 <mat-card>
-  <div mat-subheader>
-    <div class="text-center">
-      <h1>
-        <mat-icon>shopping_cart</mat-icon>
+    <div mat-subheader>
+        <div class="text-center">
+            <h1>
+                <mat-icon>shopping_cart</mat-icon>
 
-        <span>  Detalle de pedido</span>
+                <span>  Detalle de pedido</span>
 
-      </h1>
-    </div>
-  </div>
-  <mat-card-content>
-    <div class="row">
-      <div class="col-md-12 mb-4">
-        <div class="card mb-4">
-          <div class="card-body">
-
-
-            <div class="row">
-              <!--              text center -->
-              <div class="col-sm-6 text-center">
-                <p class="lead"><strong>Ubicación de entrega </strong></p>
-                <br>
-<!--                <app-map-view></app-map-view>-->
-                <br>
-              </div>
-              <div class="col">
-                <div class="row">
-                  <div class="col-md-5 mb-4">
-                    <div class="card-text text-center">
-                      <p class="lead"><strong>Datos del cliente </strong></p>
-                      <p><strong>Nombre:</strong> {{detalle?.nombreEncargado}}</p>
-                      <p> <strong>Telefono:</strong> {{detalle?.numeroTelefono}}</p>
-                      <p> <strong>Indicaciones adicionales:</strong>  {{detalle?.otrasIndicaciones}}</p>
-                      <p class="lead"><strong>Costo del pedido: ${{detalle?.total}}</strong></p>
-
-                    </div>
-
-                  </div>
-                  <div class="col-md-7">
-                    <div class="card-text text-center">
-                      <p class="lead"><strong>Completar entrega </strong></p>
-                      <form (ngSubmit)="enviarComentario()">
-                        <div class="form-outline">
-                          <mat-form-field appearance="outline" style="width: 100%;">
-                            <mat-label>Comentario de la entrega</mat-label>
-                            <textarea
-
-
-                              name="comentario"
-                              matInput
-                              placeholder="Digie el comentario"
-                              [(ngModel)]="comentario"
-                              matTextareaAutosize
-                              matAutosizeMinRows="2"
-                              matAutosizeMaxRows="5"> </textarea>
-
-                          </mat-form-field>
-                          <button mat-raised-button color="primary">Entregado</button>
-                          <p><br></p>
-                        </div>
-                      </form>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row">
-                  <div class="col-md-12 mb-4">
-                    <div class="table-responsive">
-                      <app-detalle-pedido></app-detalle-pedido>
-                    </div>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-
-
-          </div>
+            </h1>
         </div>
-      </div>
     </div>
-  </mat-card-content>
+    <mat-card-content>
+        <div class="row">
+            <div class="col-md-12 mb-4">
+                <div class="card mb-4">
+                    <div class="card-body">
+
+
+                        <div class="row">
+                            <!--              text center -->
+                            <div class="col-sm-6 text-center">
+                                <p class="lead"><strong>Ubicación de entrega </strong></p>
+
+                              <app-map-delivery ></app-map-delivery>
+                                <br>
+                            </div>
+                            <div class="col">
+                                <div class="row">
+                                    <div class="col-md-5 mb-4">
+                                        <div class="card-text text-center">
+                                            <p class="lead"><strong>Datos del cliente </strong></p>
+                                            <p><strong>Nombre:</strong> {{detalle?.nombreEncargado}}</p>
+                                            <p><strong>Telefono:</strong> {{detalle?.numeroTelefono}}</p>
+                                            <p><strong>Indicaciones
+                                                adicionales:</strong>  {{detalle?.otrasIndicaciones}}</p>
+                                            <p class="lead"><strong>Costo del pedido: ${{detalle?.total}}</strong></p>
+
+
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-7">
+                                        <div class="card-text text-center">
+                                            <p class="lead"><strong>Completar entrega </strong></p>
+                                            <form (ngSubmit)="enviarComentario()">
+                                                <div class="form-outline">
+                                                    <mat-form-field appearance="outline" style="width: 100%;">
+                                                        <mat-label>Comentario de la entrega</mat-label>
+                                                        <textarea
+
+
+                                                                name="comentario"
+                                                                matInput
+                                                                placeholder="Digie el comentario"
+                                                                [(ngModel)]="comentario"
+                                                                matTextareaAutosize
+                                                                matAutosizeMinRows="2"
+                                                                matAutosizeMaxRows="5"> </textarea>
+
+                                                    </mat-form-field>
+                                                    <button mat-raised-button color="primary">Entregado</button>
+                                                    <p><br></p>
+                                                </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+
+                                    <div class="col-md-12 mb-4">
+                                        <div class="table-responsive">
+                                          <app-detalle-pedido [data]="detalle?.ventasDetalleDTO"></app-detalle-pedido>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
 
 
 </mat-card>

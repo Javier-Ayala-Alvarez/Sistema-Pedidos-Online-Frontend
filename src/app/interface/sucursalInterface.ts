@@ -5,7 +5,7 @@ export interface sucursalInterface {
     abreviatura: string;
     direccion: string;
     altitud: number;
-    longitud: number;
+    longitud : number;
     radio: number;
     estado: boolean;
     empresa: number;
