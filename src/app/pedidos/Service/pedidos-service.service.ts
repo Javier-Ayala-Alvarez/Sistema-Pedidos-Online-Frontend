@@ -3,6 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {DetallePedido} from "../Interfaces/detalle-pedido";
 import baseUrl from "../../services/helper";
+import {Texto} from "../class/texto";
 
 @Injectable({
   providedIn: 'root'
@@ -17,9 +18,14 @@ export class PedidosServiceService {
     return this.httpClient.get<DetallePedido>(`${baseUrl}/venta/delivery/${id}`);
   }
 
-  public cambiarEstadoPedido(id:number,estado:string):Observable<any>{
+  public cambiarEstadoPedido(texto: Texto):Observable<any>{
     //patch method
-    return this.httpClient.patch<any>(`${baseUrl}/venta/delivery/${id}/${estado}`,null);
+    return this.httpClient.put<any>(`${baseUrl}/venta/cambiarEstado`, texto);
+  }
+
+  public AgregarComentario(texto: Texto):Observable<any>{
+    //patch method
+    return this.httpClient.put<any>(`${baseUrl}/venta/agregarComentario`, texto)
   }
 
 }

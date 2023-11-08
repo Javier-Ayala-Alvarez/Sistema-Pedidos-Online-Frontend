@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
 import {sucursalInterface} from "../../../interface/sucursalInterface";
 import {DetalleVenta} from "../../Interfaces/detalle-venta";
 import {MapDeliveryComponent} from "../map-delivery/map-delivery.component";
+import {Texto} from "../../class/texto";
 
 @Component({
     selector: 'app-delivery-pedido',
@@ -36,13 +37,49 @@ export class DeliveryPedidoComponent implements OnInit, AfterViewInit {
 
 
     enviarComentario() {
+        let mensaje: string = "";
 
-        console.log(this.loginService.getUser());
-        this.detalle?.ventasDetalleDTO?.forEach((detalle) => {
-            console.log(detalle);
-        });
+        // Si el comentario esta vacio no se envia
+        if (!(this.comentario.trim() === '')) {
+            // crear objeto texto
+            let texto = new Texto(this.idPedido, this.comentario);
+            this.pedidoService.AgregarComentario(texto).subscribe(
+                (data) => {
+                    console.log(data);
+                    this.comentario = '';
+                },
+                (error) => {
+                    console.log(error);
+                    Swal.fire('Error al agregar comentario', 'Error al enviar el comentario', 'error');
+                    return;
+                }
+            );
+        }
+        let texto = new Texto(this.idPedido, "ENTREGADO");
+        this.pedidoService.cambiarEstadoPedido(texto).subscribe(
+            (data) => {
+                console.log(data);
+                Swal.fire('Entregado', 'Operacioón exitosa', 'success');
+                this.comentario = '';
+            },
+            (error) => {
+                console.log(error);
+                Swal.fire('Error ', 'Vuelva a intentarlo', 'error');
+            }
+        );
+        // cambiar estado de empleado
+        texto = new Texto(this.idUsuario, "DISPONIBLE");
+        this.employeService.cambiarEstadoEmpleado(texto).subscribe(
+            (data) => {
+                console.log(data);
+            },
+            (error) => {
+                console.log(error);
+            }
+        );
 
-        // get session user
+        // redireccionar a home
+        this.router.navigate(['/home']);
 
     }
 
@@ -106,7 +143,6 @@ export class DeliveryPedidoComponent implements OnInit, AfterViewInit {
 
 
     ngAfterViewInit(): void {
-
 
 
     }

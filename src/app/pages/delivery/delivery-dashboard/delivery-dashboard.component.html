@@ -1,4 +1,3 @@
-
 <!--
 <div class="bootstrap-wrapper">
   <div>
@@ -21,7 +20,14 @@
   <mat-drawer-content><router-outlet></router-outlet></mat-drawer-content>
 </mat-drawer-container>
 -->
-<mat-drawer-container  class="example-container">
-  <mat-drawer mode="side" style="width: 17%;" opened><app-customer-sidebar></app-customer-sidebar></mat-drawer>
-  <mat-drawer-content><router-outlet></router-outlet></mat-drawer-content>
+<mat-drawer-container class="example-container">
+    <mat-drawer mode="side" style="width: 17%;" opened>
+        <app-delivery-sidebar></app-delivery-sidebar>
+    </mat-drawer>
+    <mat-drawer-content>
+        <router-outlet></router-outlet>
+
+    </mat-drawer-content>
+
+
 </mat-drawer-container>

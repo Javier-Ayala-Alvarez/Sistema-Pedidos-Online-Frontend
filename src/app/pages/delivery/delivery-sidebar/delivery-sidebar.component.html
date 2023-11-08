@@ -1,1 +1,19 @@
-<p>delivery-sidebar works!</p>
+<mat-action-list>
+    <div mat-subheader>Menu</div>
+    <button mat-list-item routerLink="/delivery-dashboard/delivery-welcome">
+        <mat-icon mat-list-icon>home</mat-icon>
+        Inicio
+    </button>
+    <button mat-list-item routerLink="/delivery-dashboard/delivery-pedidos">
+        <mat-icon mat-list-icon>
+            motorcycle
+        </mat-icon>
+        Delivery
+    </button>
+
+    <button mat-list-item (click)="logout()">
+        <mat-icon mat-list-icon>keyboard_backspace</mat-icon>
+        Salir
+    </button>
+</mat-action-list>
+
