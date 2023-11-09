@@ -1,5 +1,5 @@
 import {NgModule, OnInit} from '@angular/core';
-import {CommonModule} from '@angular/common';
+import {CommonModule, DatePipe} from '@angular/common';
 import {DetallePedidoComponent} from './Components/detalle-pedido/detalle-pedido.component';
 import {MatIconModule} from "@angular/material/icon";
 import {MapDeliveryComponent} from './Components/map-delivery/map-delivery.component';
@@ -12,6 +12,9 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatButtonModule} from "@angular/material/button";
 import {PedidosEntregadosComponent} from './Components/pedidos-entregados/pedidos-entregados.component';
+import {RouterLink} from "@angular/router";
+import { ModalDetallePedidoComponent } from './Components/Modals/modal-detalle-pedido/modal-detalle-pedido.component';
+import {MatDialogModule} from "@angular/material/dialog";
 
 
 @NgModule({
@@ -20,7 +23,8 @@ import {PedidosEntregadosComponent} from './Components/pedidos-entregados/pedido
         DetallePedidoComponent,
         MapDeliveryComponent,
         DeliveryPedidoComponent,
-        PedidosEntregadosComponent
+        PedidosEntregadosComponent,
+        ModalDetallePedidoComponent
     ],
     imports: [
         CommonModule,
@@ -32,10 +36,14 @@ import {PedidosEntregadosComponent} from './Components/pedidos-entregados/pedido
         ReactiveFormsModule,
         MatFormFieldModule,
         MatInputModule,
-        MatButtonModule
+        MatButtonModule,
+        RouterLink,
+        MatDialogModule
     ], exports: [
         DeliveryPedidoComponent,
         PedidosEntregadosComponent
+    ], providers: [
+        DatePipe
     ]
 })
 export class PedidosModule {

@@ -1,1 +1,43 @@
-<p>pedidos-entregados works!</p>
+<mat-card>
+    <mat-list>
+        <div mat-subheader>
+            <h1>
+                Historico de pedidos
+            </h1>
+        </div>
+
+
+        <br>
+        <table class="table">
+            <thead style="border-left-color: black; text-align: center;">
+            <tr>
+                <th class="col-md-3">Cliente</th>
+                <th class="col-md-3">Estado</th>
+                <th class="col-md-3">Fecha</th>
+                <th class="col-md-3">Total</th>
+                <th class="col-md-3">Acciones</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr style="text-align: center;" *ngFor="let p of pedidos">
+                <td class="align-middle">{{p.nombreEncargado}}</td>
+                <td class="align-middle">{{p.estado}}</td>
+                <td class="align-middle">{{formatearFecha(p.fechaEntrega)}}</td>
+                <td class="align-middle">${{p.total}}</td>
+
+                <td class="align-middle">
+                    <!--  Si el pedido esta entregado debe mostrar el detalle de este   -->
+                    <button type="button"  *ngIf="p.estado == 'ENTREGADO'"  class="btn btn-success" (click)="openDialog(p.id)"><mat-icon>visibility</mat-icon></button>
+
+                    <button type="button"  *ngIf="p.estado == 'EN_PROCESO'"  class="btn btn-warning"
+                            [routerLink]="'/delivery-dashboard/delivery-pedidos'"><mat-icon> motorcycle</mat-icon></button>
+
+
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </mat-list>
+</mat-card>
+
+

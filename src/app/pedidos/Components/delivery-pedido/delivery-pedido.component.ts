@@ -79,7 +79,7 @@ export class DeliveryPedidoComponent implements OnInit, AfterViewInit {
         );
 
         // redireccionar a home
-        this.router.navigate(['/home']);
+        this.router.navigate(['/delivery-dashboard/delivery-welcome']);
 
     }
 
@@ -92,9 +92,12 @@ export class DeliveryPedidoComponent implements OnInit, AfterViewInit {
             (data) => {
                 console.log(data);
                 if (!data) {
-                    // variable global
-                    this.estadoDelivery = data;
+                    Swal.fire('No tiene pedidos asignados', 'No tiene pedidos asignados', 'info');
+                    this.router.navigate(['/delivery-dashboard/delivery-welcome']);
+                    return;
+
                 }
+                this.estadoDelivery = data;
                 this.obtenerSucursal();
                 this.obtenerPedido();
 

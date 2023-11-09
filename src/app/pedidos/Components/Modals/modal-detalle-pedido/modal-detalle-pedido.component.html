@@ -1,0 +1,46 @@
+<h2 mat-dialog-title>Detalle de la entrega</h2>
+<mat-dialog-content>
+    <!-- Contenido de la ventana modal -->
+    <!--   div que permite mostrar una tabla responsive-->
+    <div class="table-responsive">
+        <table class="table">
+            <thead style="border-left-color: black; text-align: center;">
+            <tr>
+                <th class="col-md-2">Imagen</th>
+                <th class="col-md-3">Producto / plato</th>
+                <th class="col-md-3">Precio unitario</th>
+                <th class="col-md-1">Cantidad</th>
+                <th class="col-md-1">Total</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr style="text-align: center;" *ngFor="let d of detallePedido  ">
+
+                <td class="align-middle">
+                    <div class="d-flex align-items-center justify-content-center">
+                        <img src="{{d.imagen}}" alt="" class="img-fluid" style="max-width: 50%; margin:4%">
+                    </div>
+                </td>
+                <td class="align-middle">
+                    {{d.nombre}}
+                </td>
+                <td class="align-middle">
+                    {{d.precio}}
+                </td>
+                <td class="align-middle">
+                    {{d.cantidad}}
+                </td>
+                <td class="align-middle">
+                    {{d.total}}
+                </td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</mat-dialog-content>
+<mat-dialog-actions>
+    <!-- Botones para cerrar la ventana modal, etc. -->
+    <button mat-button (click)="onNoClick()">Cerrar</button>
+</mat-dialog-actions>
