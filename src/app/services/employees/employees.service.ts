@@ -17,7 +17,7 @@ export class EmployeesService {
   }
 
   public listarEmployeePorId(id:any){
-    return this.httpClient.get(`${baserUrl}/api/empleados/list/${id}`);
+    return this.httpClient.get(`${baserUrl}/api/empleados/list2/${id}`);
 
   }
   public  listarEmployeePorPagina(page:number,size:number,order:string,asc:boolean){

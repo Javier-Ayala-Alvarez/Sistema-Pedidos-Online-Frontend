@@ -6,9 +6,9 @@ import { CustomersService } from '../services/customers/customers.service';
 import { RealizarVentaService } from '../services/realizarVenta/realizar-venta.service';
 import { ventaDetalle } from '../entity/ventaDetalle';
 import { LoginService } from '../services/login/login.service';
-import { ActivatedRoute, Router } from '@angular/router';
 import {MapViewComponent} from "../maps/Componets/map-view/map-view.component";
 import { EntityProducts } from '../entity/entityProducts';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-cus-datos-generales',
