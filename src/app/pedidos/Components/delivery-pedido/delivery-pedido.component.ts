@@ -55,7 +55,7 @@ export class DeliveryPedidoComponent implements OnInit, AfterViewInit {
                 }
             );
         }
-        let texto = new Texto(this.idPedido, "ENTREGADO");
+        let texto = new Texto(this.idPedido, "e");
         this.pedidoService.cambiarEstadoPedido(texto).subscribe(
             (data) => {
                 console.log(data);

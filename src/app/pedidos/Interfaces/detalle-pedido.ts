@@ -12,7 +12,7 @@ export interface DetallePedido {
     altitud: number;
     longitud: number;
     estado: string;
-    fechaEntrega: string;
+    fechaEntrega: Date;
     ventasDetalleDTO: DetalleVenta[];
 
 }

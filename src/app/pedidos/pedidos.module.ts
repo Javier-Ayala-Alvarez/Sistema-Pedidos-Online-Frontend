@@ -15,6 +15,7 @@ import {PedidosEntregadosComponent} from './Components/pedidos-entregados/pedido
 import {RouterLink} from "@angular/router";
 import { ModalDetallePedidoComponent } from './Components/Modals/modal-detalle-pedido/modal-detalle-pedido.component';
 import {MatDialogModule} from "@angular/material/dialog";
+import { DetallePedidosCocinaComponent } from './Components/cocina/detalle-pedidos-cocina/detalle-pedidos-cocina.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import {MatDialogModule} from "@angular/material/dialog";
         MapDeliveryComponent,
         DeliveryPedidoComponent,
         PedidosEntregadosComponent,
-        ModalDetallePedidoComponent
+        ModalDetallePedidoComponent,
+        DetallePedidosCocinaComponent
     ],
     imports: [
         CommonModule,
