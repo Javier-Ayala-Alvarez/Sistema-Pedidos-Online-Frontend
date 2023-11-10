@@ -15,7 +15,7 @@ export class RealizarVentaService {
     return this.httpClient.post(`${baserUrl}/venta/guardar`,venta);
 
   }
-  
+
   guardarDetalle(ventaDetalle: ventaDetalle[]) {
     console.log("Detalle a enviar:", ventaDetalle);
     return this.httpClient.post(`${baserUrl}/ventaDetalle/guardar`, ventaDetalle).pipe(
@@ -32,5 +32,12 @@ export class RealizarVentaService {
     console.log("sss",this.httpClient.get(`${baserUrl}/ventaDetalle/list/${id}`));
     return this.httpClient.get(`${baserUrl}/ventaDetalle/list/${id}`);
   }
-  
+
+  public listarReporteVentas(){
+    return this.httpClient.get(`${baserUrl}/venta/listarReporteVentas/2023-11`);
+  }
+  public listarReporteVentasSearch(search:string){
+    return this.httpClient.get(`${baserUrl}/venta/listarReporteVentas/${search}`);
+  }
+
 }

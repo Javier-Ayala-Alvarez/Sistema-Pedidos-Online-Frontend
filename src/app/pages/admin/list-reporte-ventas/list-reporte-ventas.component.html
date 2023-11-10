@@ -1,0 +1,41 @@
+<mat-card>
+  <mat-list>
+    <div mat-subheader>
+      <h1>
+        Ventas mesuales
+      </h1>
+    </div>
+    <br>
+    <br>
+    <div mat-subheader>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" type="search"
+        placeholder="Search" aria-label="Search"
+        name="search"
+        [(ngModel)]="search"
+         >
+         <button class="btn btn-outline-success my-2 my-sm-0"
+        type="submit" (click)="listarReporteVentasSearch()">Search</button>
+      </form>
+    </div>
+    <br>
+    <table class="table">
+      <thead style="border-left-color: black; text-align: center;">
+        <tr>
+          <th class="col-md-3">ID</th>
+          <th class="col-md-3">Nombre</th>
+          <th class="col-md-3">Direcciòn</th>
+          <th class="col-md-3">Total Ventas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="text-align: center;" *ngFor="let v of ventas">
+          <td class="align-middle">{{v.id}}</td>
+          <td class="align-middle">{{v.nombre}}</td>
+          <td class="align-middle">{{v.direccion}}</td>
+          <td class="align-middle">{{v.ventas}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-list>
+</mat-card>

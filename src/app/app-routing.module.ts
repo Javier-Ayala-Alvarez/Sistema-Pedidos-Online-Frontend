@@ -49,6 +49,7 @@ import { DeliveryPedidosComponent } from './pages/delivery/delivery-pedidos/deli
 import { AppComponent } from './app.component';
 import {MapViewComponent} from "./maps/Componets/map-view/map-view.component";
 import { VentasComponent } from './pages/customer/ventas/ventas.component';
+import { ListReporteVentasComponent } from './pages/admin/list-reporte-ventas/list-reporte-ventas.component';
 
 const routes: Routes = [
 
@@ -215,6 +216,10 @@ const routes: Routes = [
       {
         path: 'edit-company/:id',
         component: EditCompanyComponent
+      },
+      {
+        path: 'list-reporte-ventas',
+        component: ListReporteVentasComponent
       }
     ]
   },
@@ -283,7 +288,7 @@ const routes: Routes = [
 
 
       }
-      
+
     ]
   }
 ];

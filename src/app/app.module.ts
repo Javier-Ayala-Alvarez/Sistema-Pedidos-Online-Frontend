@@ -94,6 +94,7 @@ import {PedidosModule} from "./pedidos/pedidos.module";
 
 import { VentasComponent } from './pages/customer/ventas/ventas.component';
 import {EmployeesService} from "./services/employees/employees.service";
+import { ListReporteVentasComponent } from './pages/admin/list-reporte-ventas/list-reporte-ventas.component';
 
 
 //import { DateInputsModule } from "@progress/kendo-angular-dateinputs";
@@ -161,7 +162,8 @@ import {EmployeesService} from "./services/employees/employees.service";
 
 
         LoadingSpinnerComponent,
-            VentasComponent
+            VentasComponent,
+            ListReporteVentasComponent
 
     ],
     imports: [
