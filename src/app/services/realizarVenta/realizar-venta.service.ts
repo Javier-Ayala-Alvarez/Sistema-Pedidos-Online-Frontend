@@ -29,6 +29,7 @@ export class RealizarVentaService {
   }
 
   public listar(id: number) {
+    console.log("sss",this.httpClient.get(`${baserUrl}/ventaDetalle/list/${id}`));
     return this.httpClient.get(`${baserUrl}/ventaDetalle/list/${id}`);
   }
   

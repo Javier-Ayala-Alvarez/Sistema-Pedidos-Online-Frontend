@@ -28,6 +28,7 @@ export class ListEmployeesComponent implements OnInit {
   ngOnInit(): void {
     this.employeesService.listarEmployeePorPagina(this.page,this.size,this.order,this.asc).subscribe(
       (dato:any)=>{
+        console.log('datos de la consulta', dato);
         this.employee=dato.content;
         this.isFirst=dato.first;
         this.isLast=dato.last;
