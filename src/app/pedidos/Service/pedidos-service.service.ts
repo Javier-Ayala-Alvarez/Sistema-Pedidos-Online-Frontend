@@ -35,9 +35,16 @@ export class PedidosServiceService {
   }
 
     // obtener listado de pedidos por id de usuario
-    public obtenerTodosLosPedidosPorIdUsuarioEntregados(id:number): Observable<[DetalleVenta]>{
-      return this.httpClient.get<[DetalleVenta]>(`${baseUrl}/venta/pedido/detalle/${id}`);
-    }
+  public obtenerTodosLosPedidosPorIdUsuarioEntregados(id:number): Observable<[DetalleVenta]>{
+    return this.httpClient.get<[DetalleVenta]>(`${baseUrl}/venta/pedido/detalle/${id}`);
+  }
+
+    // obtener listado de pedidos por id de usuario
+
+  public pedidosSucursal(id:number): Observable<[DetalleVenta]>{
+    return this.httpClient.get<[DetalleVenta]>(`${baseUrl}/venta/pedido/detalle/${id}`);
+  }
+
 
 
 }

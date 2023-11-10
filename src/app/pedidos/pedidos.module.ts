@@ -43,7 +43,8 @@ import { DetallePedidosCocinaComponent } from './Components/cocina/detalle-pedid
         MatDialogModule
     ], exports: [
         DeliveryPedidoComponent,
-        PedidosEntregadosComponent
+        PedidosEntregadosComponent,
+        DetallePedidosCocinaComponent
     ], providers: [
         DatePipe
     ]
