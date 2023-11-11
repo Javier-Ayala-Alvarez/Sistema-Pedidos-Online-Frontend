@@ -25,6 +25,7 @@ export class ProductsService {
   }
 
   public listarProductPorPagina(page:number,size:number,order:string,asc:boolean){
+    console.log("Log"+this.httpClient.get(`${baserUrl}/api/product/list/pageables?page=${page}&size=${size}&order=${order}&asc=${asc}`));
     return this.httpClient.get(`${baserUrl}/api/product/list/pageables?page=${page}&size=${size}&order=${order}&asc=${asc}`);
   }
 

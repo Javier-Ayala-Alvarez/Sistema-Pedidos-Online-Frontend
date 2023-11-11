@@ -29,20 +29,22 @@ export class ListProductsComponent implements OnInit {
     private router:Router) { }
 
   ngOnInit(): void {
-    this.productSservice.listarProductPorPagina(this.page,this.size,this.order,this.asc).subscribe(
-      (dato:any)=>{
-        console.log("cddd",dato.content)
+   // console.log("aaa",this.productSservice.listarProductPorPagina(this.page,this.size,this.order,this.asc));
+    //this.productSservice.listarProductPorPagina(this.page,this.size,this.order,this.asc).subscribe(
+    //  (dato:any)=>{
+    //    console.log("cddd",dato)
 
-        this.product=dato.content;
-        this.isFirst=dato.first;
-        this.isLast=dato.last;
-        this.totalPages=new Array(dato['totalPages']);
-      },
-      (error)=>{
-        console.log(error);
-        Swal.fire('Error !!','Error al cargar los productos','error');
-      }
-    )
+    //    this.product=dato;
+    //    this.isFirst=dato.first;
+    //    this.isLast=dato.last;
+    //    this.totalPages=new Array(dato['totalPages']);
+    //  },
+    //  (error)=>{
+    //    console.log(error);
+    //    Swal.fire('Error !!','Error al cargar los productos','error');
+   //   }
+   // )
+   this.listarProductPorNombrePagina();
   }
 
   paginaSiguiente():void{
@@ -59,9 +61,9 @@ export class ListProductsComponent implements OnInit {
   }
 
   public listarProductPorNombrePagina(){
-    if(this.search==''){
-      this.ngOnInit();
-    }else
+    //if(this.search==''){
+     // this.ngOnInit();
+    //}else
     this.productSservice.listarProductPorNombrePagina(this.search,this.page,this.size,this.asc).subscribe(
       (dato:any)=>{
         this.product=dato.content;
